@@ -6,4 +6,4 @@ Pre-registration page for upcoming Shape Up with Gabby programmes.
 - `images/` holds the logo and Gabby's photo.
 - `scripts/waitlist-sheet.gs` is the Google Apps Script that saves sign-ups to the "Gabby Waitlist Sign Ups" Google Sheet. Its web app URL is set in `SHEET_URL` in `index.html`.
 
-After signing up, people are sent to https://www.shapeupwithgabby.co.uk/resetthankyou/.
+- `thank-you.html` is the page people land on after signing up. It greets them by first name.
