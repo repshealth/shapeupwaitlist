@@ -9,3 +9,5 @@ Pre-registration page for upcoming Shape Up with Gabby programmes.
 - `thank-you.html` is the page people land on after signing up. It greets them by first name.
 - `links.html` is Gabby's link-in-bio page (shapeupapp.co.uk/links).
 - `images/avatar.webp` is the round photo on the links page.
+- `programmes.html` is the one off programmes page (shapeupapp.co.uk/programmes), with the Just launched section for Island Body V2 and Strength Is Power.
+- Every page has the Google Analytics tag (G-KNYFB4VHQ3) in its head.
