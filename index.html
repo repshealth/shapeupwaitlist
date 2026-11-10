@@ -12,9 +12,9 @@
 </script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="New Shape Up with Gabby training programmes are coming soon. Join the waitlist to hear first when they launch.">
+<meta name="description" content="Island Body V2 and Strength Is Power, the new Shape Up with Gabby training programmes, are now live.">
 <meta name="rating" content="general">
-<title>Join the Waitlist | Shape Up with Gabby</title>
+<title>New Programmes Now Live | Shape Up with Gabby</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;500;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -103,70 +103,35 @@ h1 strong{display:block;font-weight:700}
   .chip.c1{left:-4px;top:16%}.chip.c2{right:-4px;bottom:22%}
 }
 @media (prefers-reduced-motion:reduce){.badge i{animation:none}}
+.cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--su-ink);color:#fff;text-decoration:none;border-radius:999px;font:600 14px var(--su-text);letter-spacing:1.2px;text-transform:uppercase;padding:18px 40px;box-shadow:0 16px 36px rgba(0,0,0,.18);transition:transform .15s ease}
+.cta::after{content:"→";font-size:18px;line-height:1}
+.cta:hover{background:#000;transform:translateY(-1px)}
+@media (max-width:860px){.cta{width:100%;max-width:470px}}
+@media (prefers-reduced-motion:reduce){.cta:hover{transform:none}}
 </style>
 </head>
 <body>
 <main class="wl">
-  <div class="word" aria-hidden="true">COMING SOON</div>
+  <div class="word" aria-hidden="true">NOW LIVE</div>
 
   <a class="wl-logo" href="https://www.shapeupwithgabby.co.uk/"><img src="images/img-01.webp" alt="Shape Up"></a>
 
   <div class="grid">
     <section class="copy">
-      <span class="badge"><i aria-hidden="true"></i>Waitlist now open</span>
-      <h1>New programmes<strong>coming soon</strong></h1>
-      <p class="lead">Gabby is putting the finishing touches on brand new training programmes. Join the waitlist to be the first to know when they launch and get early access before anyone else.</p>
+      <span class="badge"><i aria-hidden="true"></i>Out now</span>
+      <h1>New programmes<strong>are now live</strong></h1>
+      <p class="lead">Island Body V2 and Strength Is Power are here. Pick the one that's right for you, or get both with the Shape Up membership.</p>
 
-      <form class="form" id="wlForm" action="#" method="post" novalidate>
-        <div class="fields">
-          <div><label for="wlName">First name</label><input id="wlName" name="name" type="text" autocomplete="given-name" placeholder="First name" required></div>
-          <div><label for="wlEmail">Email</label><input id="wlEmail" name="email" type="email" autocomplete="email" placeholder="Email address" required></div>
-        </div>
-        <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden"><input name="company" type="text" tabindex="-1" autocomplete="off"></div>
-        <button type="submit">Join the waitlist</button>
-        <small>No spam. Unsubscribe in one click.</small>
-        <div class="done" role="status" aria-live="polite"><b>You're on the list</b><p>We'll email you as soon as the new programmes go live.</p></div>
-      </form>
-
-      <ul class="perks">
-        <li>First to know at launch</li>
-        <li>Early access</li>
-        <li>Waitlist-only offers</li>
-      </ul>
+      <a class="cta" href="/programmes">See the new programmes</a>
     </section>
 
     <div class="art" aria-hidden="true">
-      <div class="chip c1"><b>New</b>programmes</div>
+      <div class="chip c1"><b>Live</b>now</div>
       <img src="images/img-10.webp" alt="">
       <div class="chip c2"><b>12,400</b>women training</div>
     </div>
   </div>
 </main>
 
-<script>
-(function(){
-  var f=document.getElementById('wlForm');
-  f.addEventListener('submit',function(e){
-    e.preventDefault();
-    var em=f.querySelector('#wlEmail'),nm=f.querySelector('#wlName');
-    if(!nm.value.trim()){nm.focus();return}
-    if(!/^\S+@\S+\.\S+$/.test(em.value)){em.focus();em.setCustomValidity('Enter a valid email');em.reportValidity();em.setCustomValidity('');return}
-    var THANKS='thank-you.html?name='+encodeURIComponent(nm.value.trim());
-    var SHEET_URL='https://script.google.com/macros/s/AKfycbz38G-7_eq88O840aGpX9Gx_lN0fXw0MW_1HL33APCY9j3HIPHdzGq9jKcaLblkFnJ4/exec'; // Google Apps Script web app (Gabby Waitlist Sign Ups sheet)
-    var btn=f.querySelector('button[type=submit]');btn.disabled=true;btn.textContent='Joining...';
-    var CRM_URL='https://repshealthgrowth.com/api/forms'; // REPS dashboard: lands in Gabby's Leads
-    var done=false,go=function(){if(done)return;done=true;window.location.href=THANKS};
-    var name=nm.value.trim(),email=em.value.trim();
-    var sends=[];
-    if(SHEET_URL)sends.push(fetch(SHEET_URL,{method:'POST',mode:'no-cors',keepalive:true,
-      body:new URLSearchParams({name:name,email:email,source:'shapeupapp.co.uk waitlist',company:f.company.value})}));
-    if(CRM_URL)sends.push(fetch(CRM_URL,{method:'POST',mode:'no-cors',keepalive:true,
-      body:new URLSearchParams({client:'shape-up-with-gabby',source:'prereg',form:'New programmes waitlist',
-        page:location.hostname+location.pathname,name:name,email:email,_gotcha:f.company.value})}));
-    setTimeout(go,4000);
-    Promise.all(sends.map(function(p){return p.catch(function(){})})).then(go);
-  });
-})();
-</script>
 </body>
 </html>
