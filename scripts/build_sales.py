@@ -22,6 +22,16 @@ MEM_MONTHLY = 'https://join.shapeupwithgabby.co.uk/p/shape-up-membership/monthly
 MEM_YEARLY = 'https://join.shapeupwithgabby.co.uk/p/shape-up-membership/yearly'
 INSTAGRAM = 'https://www.instagram.com/gabbydawnallen/?hl=en'
 
+APP_FEATS = [
+    ('🏋️‍♀️', 'Workout tracker', 'Your programme laid out week by week, with every exercise, set and rep ready to go.', 'images/app-workout.webp'),
+    ('🎥', 'Demos and logging', 'Watch a demo for every exercise, then log your weights and reps as you train.', 'images/app-log.webp'),
+    ('🏠', 'Your home screen', "Today's workout, meals and progress, all on one screen.", 'images/app-home.webp'),
+    ('🗓️', 'Tasks and cycle tracking', 'Tick off your daily tasks and train with your cycle, not against it.', 'images/app-today.webp'),
+    ('🥗', 'Meal plans', 'Recipes with calories and macros worked out, so food is sorted too.', 'images/app-meals.webp'),
+    ('💧', 'Habit building', 'Pick the habits you want to work on and the app keeps you on track.', 'images/app-habits.webp'),
+]
+APP_PILLS = [('💪','Workout logger'),('🎥','Exercise video demos'),('📊','PRs and history'),('🥗','Meal plans'),('📷','Food logger and scanner'),('❤️','Apple and Google Health'),('🎯','Goal setting'),('📸','Progress photos'),('💧','Habit tracking'),('✅','Daily tasks'),('🌸','Cycle tracker'),('📋','Check ins'),('🍴','Recipes and favourites')]
+
 PAGES = {
     'island-body-v2': dict(
         title='Island Body V2 | Shape Up with Gabby',
@@ -280,6 +290,94 @@ footer{padding:26px 0 calc(26px + env(safe-area-inset-bottom,0px));font-size:12p
   .buybar .btn{padding:12px 18px;font-size:11.5px;background:var(--yellow);color:var(--ink)}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.also-card,.buybar{transition:none}.btn:hover,.also-card:hover{transform:none}}
+
+/* Phone mockup */
+.phone{position:relative;background:#111;border-radius:40px;padding:8px;box-shadow:0 30px 60px rgba(0,0,0,.28),inset 0 0 0 2px #2a2a2a}
+.phone .scr{position:relative;border-radius:32px;overflow:hidden;aspect-ratio:380/826;background:#f4f4f4}
+.phone .scr img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .45s ease}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes bobr{0%,100%{transform:translateY(0) rotate(var(--r,0deg))}50%{transform:translateY(-12px) rotate(var(--r,0deg))}}
+.float,.hero-phone{animation:bob 6s ease-in-out infinite}
+.float.f2{animation-delay:-2s}
+.hero-phone{position:absolute;z-index:3;left:-46px;bottom:-34px;width:150px;animation-delay:-3s}
+.float.f1{left:auto;right:-18px;top:9%}
+
+/* App spotlight */
+.app{padding:96px 0 40px;overflow:hidden}
+.app-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:center}
+.app-intro{color:var(--body);margin:16px 0 26px;max-width:460px}
+.feats{list-style:none;margin:0;padding:0;border-top:1px solid #e8e8e8}
+.feats li{border-bottom:1px solid #e8e8e8;position:relative}
+.feats button{all:unset;box-sizing:border-box;width:100%;cursor:pointer;display:grid;grid-template-columns:40px 1fr 22px;align-items:center;padding:16px 0;font-family:var(--head);font-weight:500;text-transform:uppercase;font-size:21px;color:#8a8f96;transition:color .2s}
+.feats button:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.feats .ic{width:30px;height:30px;border-radius:9px;background:#f1f1f1;display:grid;place-items:center;font-size:15px;filter:grayscale(1);opacity:.6;transition:all .2s}
+.feats .pl{font-family:var(--text);font-weight:400;font-size:20px;transition:transform .2s}
+.feats p{margin:0;max-height:0;overflow:hidden;padding-left:40px;font-size:14px;color:var(--body);transition:max-height .35s ease,padding .35s ease}
+.feats .prog{position:absolute;left:0;bottom:-1px;height:2px;width:0;background:var(--ink)}
+.feats li.on button{color:var(--ink)}
+.feats li.on .ic{background:var(--yellow);filter:none;opacity:1}
+.feats li.on .pl{transform:rotate(45deg)}
+.feats li.on p{max-height:110px;padding-bottom:16px}
+.feats li.on .prog{animation:prog var(--dur,4.5s) linear forwards}
+.feats.paused li.on .prog{animation:none;width:100%}
+@keyframes prog{to{width:100%}}
+.stage{position:relative;height:640px;display:flex;align-items:center;justify-content:center}
+.stage::before{content:"";position:absolute;width:470px;height:470px;border-radius:50%;background:var(--yellow)}
+.stage::after{content:"";position:absolute;width:560px;height:560px;border-radius:50%;border:2px dashed rgba(0,0,0,.12);animation:spin 60s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.stage .phone{width:270px;z-index:2;animation:bob 7s ease-in-out infinite}
+.chip{position:absolute;z-index:3;background:#fff;border-radius:16px;padding:10px 14px;box-shadow:0 14px 34px rgba(0,0,0,.14);font-size:12px;font-weight:600;line-height:1.25;display:flex;align-items:center;gap:9px;animation:bob 6s ease-in-out infinite}
+.chip span{width:30px;height:30px;border-radius:9px;background:var(--acc-soft);display:grid;place-items:center;font-size:15px}
+.chip.c1{top:16%;left:2%}
+.chip.c2{bottom:18%;right:0;animation-delay:-2.5s}
+.chip.c3{top:8%;right:6%;animation-delay:-4s}
+
+/* Phone strip */
+.strip{padding:30px 0 96px;overflow:hidden}
+.phones{display:flex;justify-content:center;align-items:flex-start;gap:22px;margin:0 0 40px}
+.phones .phone{flex:0 0 190px;animation:bobr 7s ease-in-out infinite}
+.phones .phone:nth-child(1){--r:-6deg;margin-top:70px;animation-delay:-1s}
+.phones .phone:nth-child(2){--r:-3deg;margin-top:28px;animation-delay:-3s}
+.phones .phone:nth-child(3){margin-top:0;animation-delay:-5s}
+.phones .phone:nth-child(4){--r:3deg;margin-top:28px;animation-delay:-2s}
+.phones .phone:nth-child(5){--r:6deg;margin-top:70px;animation-delay:-4s}
+.pills{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:820px;margin:0 auto;list-style:none;padding:0}
+.pills li{display:flex;align-items:center;gap:8px;border:1.5px solid var(--acc-soft);background:#fff;border-radius:999px;padding:8px 16px;font-size:13.5px;font-weight:500}
+.pills li:nth-child(odd){background:var(--cream)}
+.pills i{font-style:normal}
+.strip-h{text-align:center;margin-bottom:36px}
+.strip-h .eyebrow{text-align:center}
+
+/* Reveal on scroll */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+
+@media (max-width:900px){
+  .hero-phone{width:104px;left:12px;bottom:-26px}
+  .float.f1{right:auto;left:auto;right:12px;top:12px;bottom:auto}
+  .float.f2{right:12px;bottom:-18px}
+  .app{padding:70px 0 20px}
+  .app-grid{grid-template-columns:1fr;gap:10px}
+  .stage{order:-1;height:470px}
+  .stage::before{width:320px;height:320px}
+  .stage::after{width:380px;height:380px}
+  .stage .phone{width:200px}
+  .chip.c1{left:0;top:12%}.chip.c2{right:0;bottom:12%}.chip.c3{display:none}
+  .feats button{font-size:18px;grid-template-columns:38px 1fr 22px}
+  .feats p{padding-left:38px}
+  .phones{justify-content:flex-start;overflow-x:auto;scroll-snap-type:x mandatory;padding:20px 24px 30px;margin:0 -24px 24px;scrollbar-width:none}
+  .phones::-webkit-scrollbar{display:none}
+  .phones .phone{flex-basis:170px;scroll-snap-align:center;margin-top:0!important;animation:none}
+  .pills{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}
+  .pills li,.pills li:nth-child(odd){background:none;border:0;border-bottom:1px solid #eee;border-radius:0;padding:10px 0;font-size:12.5px}
+  .pills i{flex:0 0 30px;height:30px;border-radius:9px;background:var(--acc-soft);display:grid;place-items:center;font-size:14px}
+}
+@media (prefers-reduced-motion:reduce){
+  .float,.hero-phone,.stage .phone,.chip,.phones .phone,.stage::after{animation:none}
+  .feats li.on .prog{animation:none;width:100%}
+  .rv{opacity:1;transform:none;transition:none}
+  .phone .scr img{transition:none}
+}
 '''
 
 def esc(s):
@@ -301,6 +399,13 @@ def page(slug, p):
     ]
     faq_html = ''.join(f'<details{" open" if i == 0 else ""}><summary>{e(q)}</summary><p>{e(a)}</p></details>' for i, (q, a) in enumerate(faqs))
     h1a, h1b = p['h1']
+    feat_items = ''.join(
+        f'<li class="{"on" if i == 0 else ""}" data-img="{img}"><button aria-expanded="{"true" if i == 0 else "false"}"><span class="ic" aria-hidden="true">{ic}</span>{e(h)}<span class="pl" aria-hidden="true">+</span></button><p>{e(d)}</p><span class="prog" aria-hidden="true"></span></li>'
+        for i, (ic, h, d, img) in enumerate(APP_FEATS))
+    first_img = APP_FEATS[0][3]
+    strip_imgs = ['images/app-meals.webp','images/app-today.webp','images/app-home.webp','images/app-log.webp','images/app-habits.webp']
+    strip_phones = ''.join(f'<div class="phone"><div class="scr"><img src="{s}" alt="" loading="lazy"></div></div>' for s in strip_imgs)
+    pills = ''.join(f'<li><i aria-hidden="true">{ic}</i>{e(n)}</li>' for ic, n in APP_PILLS)
     return f'''<!DOCTYPE html>
 <html lang="en-GB">
 <head>
@@ -339,6 +444,7 @@ def page(slug, p):
     </div>
     <div class="hero-art">
       <div class="frame" style="--pos:{p['img_pos']};--pos-m:{p['img_pos_m']}"><img src="{p['img']}" alt="{html.escape(p['img_alt'])}"></div>
+      <div class="phone hero-phone" aria-hidden="true"><div class="scr"><img src="images/app-workout.webp" alt=""></div></div>
       <div class="float f1"><b>8</b>week programme</div>
       <div class="float f2"><b>£59</b>one time</div>
     </div>
@@ -346,7 +452,7 @@ def page(slug, p):
 </section>
 
 <section class="foryou">
-  <div class="wrap foryou-grid">
+  <div class="wrap foryou-grid rv">
     <div>
       <p class="eyebrow">Who it's for</p>
       <h2 class="h2">{e(p['for_you_h'][0])}<strong>{e(p['for_you_h'][1])}</strong></h2>
@@ -365,7 +471,35 @@ def page(slug, p):
       </div>
       <p>Eight weeks of training written by Gabby, laid out session by session so you always know exactly what to do next.</p>
     </div>
-    <div class="feat-grid">{feats}</div>
+    <div class="feat-grid rv">{feats}</div>
+  </div>
+</section>
+
+<section class="app" id="app">
+  <div class="wrap app-grid">
+    <div class="rv">
+      <p class="eyebrow">Inside the Shape Up app</p>
+      <h2 class="h2">Your programme,<strong>in your pocket</strong></h2>
+      <p class="app-intro">{e(p['name'])} lives in the Shape Up app, so every session, every set and every bit of progress is right there on your phone.</p>
+      <ul class="feats" id="feats">{feat_items}</ul>
+    </div>
+    <div class="stage" aria-hidden="true">
+      <div class="chip c1"><span>📈</span>Log every set</div>
+      <div class="phone"><div class="scr"><img id="appScr" src="{first_img}" alt=""></div></div>
+      <div class="chip c2"><span>🎥</span>Video demos</div>
+      <div class="chip c3"><span>🔥</span>8 weeks</div>
+    </div>
+  </div>
+</section>
+
+<section class="strip">
+  <div class="wrap">
+    <div class="strip-h rv">
+      <p class="eyebrow">Everything in one place</p>
+      <h2 class="h2">Built to keep you<strong>on track</strong></h2>
+    </div>
+    <div class="phones" aria-hidden="true">{strip_phones}</div>
+    <ul class="pills rv">{pills}</ul>
   </div>
 </section>
 
@@ -386,7 +520,7 @@ def page(slug, p):
   <div class="wrap">
     <p class="eyebrow">How it works</p>
     <h2 class="h2">Start in<strong>three steps</strong></h2>
-    <ol class="steps">
+    <ol class="steps rv">
       <li><b>Get the programme</b><span>Check out in a couple of minutes, or join the membership to get it included.</span></li>
       <li><b>Open the Shape Up app</b><span>Log in and your programme is waiting for you, laid out week by week.</span></li>
       <li><b>Start week one</b><span>Follow each session, hit your targets and watch your progress build over eight weeks.</span></li>
@@ -476,6 +610,37 @@ def page(slug, p):
 </div>
 
 <script>
+(function(){{
+  // App spotlight: auto-advances, tap to choose
+  var list=document.getElementById('feats'),scr=document.getElementById('appScr');
+  if(list&&scr){{
+    var items=[].slice.call(list.children),cur=0,timer=null,DUR=4500;
+    var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function set(i){{
+      cur=(i+items.length)%items.length;
+      items.forEach(function(li,k){{
+        var on=k===cur;li.classList.toggle('on',on);li.querySelector('button').setAttribute('aria-expanded',on?'true':'false');
+        var b=li.querySelector('.prog');b.style.animation='none';void b.offsetWidth;b.style.animation='';
+      }});
+      scr.style.opacity=0;
+      setTimeout(function(){{scr.src=items[cur].getAttribute('data-img');scr.style.opacity=1;}},reduce?0:220);
+    }}
+    function play(){{stop();if(reduce)return;list.classList.remove('paused');timer=setInterval(function(){{set(cur+1);}},DUR);}}
+    function stop(){{if(timer)clearInterval(timer);timer=null;}}
+    items.forEach(function(li,k){{li.querySelector('button').addEventListener('click',function(){{set(k);list.classList.add('paused');stop();}});}});
+    items.forEach(function(li){{var im=new Image();im.src=li.getAttribute('data-img');}});
+    if('IntersectionObserver' in window){{
+      new IntersectionObserver(function(e){{if(e[0].isIntersecting){{if(!list.classList.contains('paused'))play();}}else stop();}},{{threshold:.3}}).observe(list);
+    }} else play();
+    if(reduce)list.classList.add('paused');
+  }}
+  // Reveal on scroll
+  var rv=[].slice.call(document.querySelectorAll('.rv'));
+  if('IntersectionObserver' in window){{
+    var io=new IntersectionObserver(function(es){{es.forEach(function(x){{if(x.isIntersecting){{x.target.classList.add('in');io.unobserve(x.target);}}}});}},{{threshold:.15}});
+    rv.forEach(function(el){{io.observe(el);}});
+  }} else rv.forEach(function(el){{el.classList.add('in');}});
+}})();
 (function(){{
   var bar=document.getElementById('buyBar'),hero=document.getElementById('heroBuy'),fin=document.querySelector('.final');
   if(!('IntersectionObserver' in window)||!bar)return;
