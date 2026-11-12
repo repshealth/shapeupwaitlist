@@ -138,63 +138,61 @@ a{color:inherit}
 .nav ul a{text-decoration:none;font-weight:600;font-size:13px}
 .nav .btn{padding:13px 24px}
 
-/* Hero: inset card, brand gradient fading into photo */
-.hero{padding:96px 0 0;background:linear-gradient(180deg,#FFF6D9 0%,#FFFBEE 60%,#fff 100%)}
-.hero-card{position:relative;max-width:1240px;margin:0 auto;min-height:640px;border-radius:36px;overflow:hidden;background:#3E9FE3;color:#fff;box-shadow:0 40px 80px rgba(60,140,200,.3);isolation:isolate}
-.hero-img{position:absolute;top:0;right:0;bottom:0;width:64%;height:100%;object-fit:cover;object-position:var(--pos);z-index:-2}
-.hero-shade{position:absolute;inset:0;z-index:-1;background:radial-gradient(50% 60% at 6% 12%,rgba(255,255,255,.22) 0%,rgba(255,255,255,0) 70%),linear-gradient(90deg,#2F8FD1 0%,#3E9FE3 28%,#4BA9EC 40%,rgba(85,176,240,.7) 50%,rgba(98,186,245,.3) 62%,rgba(98,186,245,0) 78%)}
-.hero-copy{position:relative;padding:78px 0 64px 76px;max-width:640px}
-.hero h1{font-family:var(--head);text-transform:uppercase;margin:0 0 26px;line-height:.86;letter-spacing:-1px}
-.hero h1 .l1{display:block;font-weight:700;font-size:clamp(54px,6.6vw,96px)}
-.hero h1 .l2{display:block;font-weight:700;font-size:clamp(84px,11vw,168px);background:linear-gradient(90deg,#FDE08D 0%,#FFF1C2 60%,#fff 100%);-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:6px}
-.hero h1.t-strength .l2{text-transform:none;font-size:clamp(70px,8.4vw,124px)}
-.hero .lead{font-size:17px;line-height:1.6;font-weight:500;color:#fff;max-width:470px;margin:0 0 26px;text-shadow:0 1px 2px rgba(20,80,130,.25)}
-.statcard{display:inline-flex;flex-direction:column;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.45);box-shadow:0 10px 26px rgba(20,80,130,.15);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border-radius:20px;padding:16px 26px 14px;margin-bottom:30px}
-.statcard b{font-family:var(--head);font-weight:700;font-size:44px;line-height:1}
-.statcard span{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#fff;margin-top:6px}
+/* Hero: full-bleed photo with brand flair */
+.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;color:#fff;overflow:hidden;background:#1d2a33}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:var(--pos);transform:scale(1.06);animation:zoom 16s ease-out forwards;z-index:0}
+@keyframes zoom{to{transform:scale(1)}}
+.hero-shade{position:absolute;inset:0;z-index:1;background:radial-gradient(45% 55% at 0% 100%,rgba(98,186,245,.55) 0%,rgba(98,186,245,0) 70%),linear-gradient(90deg,rgba(12,32,48,.78) 0%,rgba(12,32,48,.5) 38%,rgba(12,32,48,.08) 64%,rgba(12,32,48,0) 80%),linear-gradient(0deg,rgba(12,32,48,.55) 0%,rgba(12,32,48,0) 38%)}
+.hero-in{position:relative;z-index:3;width:100%;max-width:1180px;margin:0 auto;padding:150px 24px 150px}
+.hero h1{font-family:var(--head);text-transform:uppercase;margin:0 0 24px;line-height:.86;letter-spacing:-1px}
+.hero h1 .l1{display:block;font-weight:700;font-size:clamp(56px,7vw,104px);text-shadow:0 6px 30px rgba(0,0,0,.25)}
+.hero h1 .l2{position:relative;display:inline-block;font-weight:700;font-size:clamp(84px,11vw,170px);color:var(--yellow);padding-bottom:10px}
+.hero h1.t-strength .l2{text-transform:none;font-size:clamp(70px,8.6vw,128px)}
+.scribble{position:absolute;left:-2%;bottom:-6px;width:104%;height:28px;overflow:visible}
+.scribble path{fill:none;stroke:var(--blue);stroke-width:7;stroke-linecap:round;stroke-dasharray:520;stroke-dashoffset:520;animation:draw 1.4s .6s ease forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.hero .lead{font-size:17px;line-height:1.6;font-weight:500;max-width:480px;margin:0 0 24px;color:rgba(255,255,255,.92)}
+.chips-row{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 30px;padding:0;list-style:none}
+.chips-row li{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:999px;padding:9px 16px;font-size:12.5px;font-weight:600}
+.chips-row li b{color:var(--yellow);font-weight:700;margin-right:4px}
 .hero .ctas{display:flex;gap:14px;flex-wrap:wrap}
-.btn--white{background:var(--yellow);color:var(--ink);padding:18px 34px;font-size:13.5px;box-shadow:0 12px 26px rgba(20,80,130,.25)}
-.btn--glass{background:transparent;color:#fff;border-color:#fff;padding:18px 32px;font-size:13.5px}
-.btn--glass:hover{background:rgba(255,255,255,.15)}
-.hero .price{margin:18px 0 0;font-size:13px;font-weight:500;color:rgba(255,255,255,.9)}
-.spin-badge{position:absolute;top:28px;right:34px;width:140px;height:140px;z-index:2;animation:spin 28s linear infinite}
-.spin-badge text{font:700 11px var(--text);letter-spacing:3.2px;fill:var(--ink)}
-.spin-badge .dot{fill:var(--blue)}
+.btn--hero{background:var(--yellow);color:var(--ink);padding:18px 34px;font-size:13.5px;box-shadow:0 14px 30px rgba(0,0,0,.25)}
+.btn--clear{background:transparent;color:#fff;border-color:#fff;padding:18px 32px;font-size:13.5px}
+.btn--clear:hover{background:rgba(255,255,255,.14)}
+.hero .price{margin:16px 0 0;font-size:13px;font-weight:500;color:rgba(255,255,255,.85)}
+.hero-phone{position:absolute;z-index:3;right:7%;bottom:150px;width:200px;--r:5deg}
+.hero-price{position:absolute;z-index:4;right:calc(7% + 160px);bottom:300px;background:#fff;color:var(--ink);border-radius:18px;padding:12px 16px;box-shadow:0 16px 36px rgba(0,0,0,.25);font-size:12px;font-weight:600;line-height:1.25;animation:bob 6s ease-in-out infinite;animation-delay:-2s}
+.hero-price b{display:block;font-family:var(--head);font-size:28px;line-height:1}
+.spin-badge{position:absolute;z-index:3;top:120px;right:6%;width:132px;height:132px;animation:spin 26s linear infinite}
 .spin-badge .disc{fill:var(--yellow)}
-.plan-widget{position:absolute;right:46px;bottom:46px;z-index:2;width:330px;background:#fff;color:var(--ink);border-radius:24px;padding:20px 22px 18px;border:3px solid var(--yellow);box-shadow:0 24px 50px rgba(20,80,130,.3);animation:bob 7s ease-in-out infinite}
-.plan-widget .row{display:flex;justify-content:space-between;align-items:baseline;font-weight:700;font-size:14px}
-.plan-widget .row small{font-size:10px;letter-spacing:2px;color:var(--muted);font-weight:600}
-.weeks{display:grid;grid-template-columns:repeat(8,1fr);gap:8px;margin:14px 0 12px}
-.weeks i{display:block;aspect-ratio:1;border-radius:50%;background:#E8F2FB;animation:fillwk 8s ease-in-out infinite}
-.weeks i:nth-child(1){animation-delay:0s}.weeks i:nth-child(2){animation-delay:.5s}.weeks i:nth-child(3){animation-delay:1s}.weeks i:nth-child(4){animation-delay:1.5s}
-.weeks i:nth-child(5){animation-delay:2s}.weeks i:nth-child(6){animation-delay:2.5s}.weeks i:nth-child(7){animation-delay:3s}.weeks i:nth-child(8){animation-delay:3.5s}
-@keyframes fillwk{0%,4%{background:#E8F2FB}10%,80%{background:var(--blue)}90%,100%{background:#E8F2FB}}
-.weeks-bar{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);font-weight:500}
-.weeks-bar b{color:var(--ink)}
+.spin-badge text{font:700 11px var(--text);fill:var(--ink)}
+.spin-badge .dot{fill:var(--blue)}
+.spark{position:absolute;z-index:2;color:var(--yellow);font-size:26px;line-height:1;animation:twinkle 3.2s ease-in-out infinite;pointer-events:none}
+.spark.s1{top:24%;left:46%}.spark.s2{top:58%;left:52%;font-size:18px;animation-delay:-1.1s}.spark.s3{top:16%;left:8%;font-size:16px;animation-delay:-2.2s}
+@keyframes twinkle{0%,100%{opacity:.2;transform:scale(.7) rotate(0)}50%{opacity:1;transform:scale(1.15) rotate(20deg)}}
+.hero .strip{position:absolute;left:0;right:0;bottom:-30px;margin:0;z-index:4}
 @media (max-width:980px){
-  .hero-copy{padding:60px 40px 56px}
-  .plan-widget{width:280px;right:24px;bottom:24px}
-  .spin-badge{width:110px;height:110px}
-}
-@media (max-width:860px){
-  .hero{padding:84px 12px 0}
-  .hero-card{min-height:0;border-radius:28px;padding-bottom:440px}
-  .hero-img{top:auto;bottom:0;width:100%;height:470px;object-position:var(--pos-m)}
-  .hero-shade{background:linear-gradient(180deg,#2F8FD1 0%,#3E9FE3 40%,rgba(98,186,245,.9) 54%,rgba(98,186,245,.4) 66%,rgba(98,186,245,0) 82%)}
-  .hero-copy{padding:40px 24px 10px;text-align:center;max-width:none}
-  .hero .lead{margin:0 auto 22px;font-size:15px}
-  .statcard{margin-bottom:24px}
-  .hero .ctas{flex-direction:column}
-  .hero .ctas .btn{width:100%}
-  .spin-badge{display:none}
-  .plan-widget{left:16px;right:16px;width:auto;bottom:16px;padding:16px 18px 14px}
+  .hero-phone,.hero-price{display:none}
+  .spin-badge{width:104px;height:104px;top:100px}
 }
 @media (max-width:640px){
+  .hero{min-height:100svh}
+  .hero .chips-row,.hero .btn--clear{display:none}
+  .hero h1{margin-bottom:16px}
+  .hero-bg{object-position:var(--pos-m)}
+  .hero-shade{background:radial-gradient(70% 40% at 0% 100%,rgba(98,186,245,.5) 0%,rgba(98,186,245,0) 70%),linear-gradient(0deg,rgba(12,32,48,.9) 0%,rgba(12,32,48,.6) 45%,rgba(12,32,48,.1) 75%,rgba(12,32,48,0) 100%)}
+  .hero-in{padding:130px 20px 120px;text-align:center}
   .hero h1 .l1{font-size:clamp(44px,13vw,64px)}
   .hero h1 .l2{font-size:clamp(68px,22vw,110px)}
   .hero h1.t-strength .l2{font-size:clamp(52px,15vw,84px)}
+  .hero .lead{margin:0 auto 20px;font-size:15px}
+  .chips-row{justify-content:center}
+  .hero .ctas{flex-direction:column}
+  .hero .ctas .btn{width:100%}
+  .spin-badge{width:86px;height:86px;top:84px;right:14px}
+  .spark.s1{left:70%;top:30%}.spark.s2{display:none}
 }
-@media (prefers-reduced-motion:reduce){.spin-badge,.plan-widget,.weeks i{animation:none}.weeks i:first-child{background:var(--blue)}}
+@media (prefers-reduced-motion:reduce){.hero-bg,.spin-badge,.spark,.hero-price{animation:none}.hero-bg{transform:none}.scribble path{animation:none;stroke-dashoffset:0}}
 
 /* Phone */
 .phone{background:#fff;border:3px solid var(--blue);border-radius:30px;padding:5px;box-shadow:0 18px 40px rgba(60,120,170,.18);overflow:hidden}
@@ -213,7 +211,7 @@ a{color:inherit}
 @keyframes marquee{to{transform:translateX(-50%)}}
 
 /* For you */
-.foryou{padding:70px 0 110px}
+.foryou{padding:110px 0 110px}
 .foryou-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:60px;align-items:center}
 .foryou p.sub{max-width:400px;font-size:14.5px;margin:22px 0 0;color:var(--body)}
 .fy-tag{display:inline-block;margin-top:22px;background:var(--yellow);border-radius:999px;padding:10px 18px;font-weight:600;font-size:14px}
@@ -454,6 +452,7 @@ def page(slug, p):
     e = esc
     h1a, h1b = p['h1']
     facts = ''.join(f'<li><strong>{e(a)}</strong><span>{e(b)}</span></li>' for a, b in p['facts'])
+    chips = ''.join(f'<li><b>{e(a)}</b>{e(b)}</li>' for a, b in p['facts'])
     tick = ''.join(f'<span>{e(x)}</span><span class="spark">✦</span>' for x in p['ticker'])
     fy = ''.join(f'<li>{e(x)}</li>' for x in p['for_you'])
     feats_prog = ''.join(
@@ -510,27 +509,23 @@ def page(slug, p):
 
 <main>
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-card" style="--pos:{p['img_pos']};--pos-m:{p['img_pos_m']}">
-    <img class="hero-img" src="{p['img']}" alt="{html.escape(p['img_alt'])}">
-    <div class="hero-shade" aria-hidden="true"></div>
-    <svg class="spin-badge" viewBox="0 0 140 140" aria-hidden="true"><defs><path id="circ" d="M70,70 m-54,0 a54,54 0 1,1 108,0 a54,54 0 1,1 -108,0"/></defs><circle class="disc" cx="70" cy="70" r="68"/><text><textPath href="#circ">{e(p['badge'])}{e(p['badge'])}</textPath></text><circle class="dot" cx="70" cy="70" r="6"/></svg>
-    <div class="hero-copy">
-      <h1 class="t-{p['theme']}"><span class="l1">{e(p['hero_h'][0])}</span><span class="l2">{e(p['hero_h'][1])}</span></h1>
-      <p class="lead">{e(p['sub'])}</p>
-      <div class="statcard"><b>{e(p['stat'][0])}</b><span>{e(p['stat'][1])}</span></div>
-      <div class="ctas">
-        <a class="btn btn--white" id="heroBuy" href="{p['checkout']}">Get {e(p['name'])} <span aria-hidden="true">→</span></a>
-        <a class="btn btn--glass" href="#what-you-get">Explore the app</a>
-      </div>
-      <p class="price">£59 one-time payment · or included in the membership</p>
+<section class="hero" style="--pos:{p['img_pos']};--pos-m:{p['img_pos_m']}">
+  <img class="hero-bg" src="{p['img']}" alt="{html.escape(p['img_alt'])}">
+  <div class="hero-shade" aria-hidden="true"></div>
+  <span class="spark s1" aria-hidden="true">✦</span><span class="spark s2" aria-hidden="true">✦</span><span class="spark s3" aria-hidden="true">✦</span>
+  <svg class="spin-badge" viewBox="0 0 140 140" aria-hidden="true"><defs><path id="circ" d="M70,70 m-54,0 a54,54 0 1,1 108,0 a54,54 0 1,1 -108,0"/></defs><circle class="disc" cx="70" cy="70" r="68"/><text><textPath href="#circ" textLength="333" lengthAdjust="spacing">{e(p['badge'])}</textPath></text><circle class="dot" cx="70" cy="70" r="6"/></svg>
+  <div class="hero-in">
+    <h1 class="t-{p['theme']}"><span class="l1">{e(p['hero_h'][0])}</span><span class="l2">{e(p['hero_h'][1])}<svg class="scribble" viewBox="0 0 300 28" preserveAspectRatio="none" aria-hidden="true"><path d="M4 18 C 60 6, 120 26, 180 14 S 270 8, 296 16"/></svg></span></h1>
+    <p class="lead">{e(p['sub'])}</p>
+    <ul class="chips-row">{chips}</ul>
+    <div class="ctas">
+      <a class="btn btn--hero" id="heroBuy" href="{p['checkout']}">Get {e(p['name'])} <span aria-hidden="true">→</span></a>
+      <a class="btn btn--clear" href="#what-you-get">Explore the app</a>
     </div>
-    <div class="plan-widget" aria-hidden="true">
-      <div class="row"><span>Week 1</span><small>8 WEEKS</small><span>Week 8</span></div>
-      <div class="weeks"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-      <div class="weeks-bar"><span>Your plan, week by week</span><b>£59</b></div>
-    </div>
+    <p class="price">£59 one-time payment · or included in the membership</p>
   </div>
+  <div class="phone hero-phone bob" aria-hidden="true"><div class="scr"><img src="images/app-workout.webp" alt=""></div></div>
+  <div class="hero-price" aria-hidden="true"><b>£59</b>one time</div>
   <div class="strip" aria-hidden="true">
     <div class="strip-band"><div class="strip-track">{tick}{tick}</div></div>
   </div>
