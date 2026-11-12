@@ -144,7 +144,7 @@ a{color:inherit}
 .badge{display:inline-flex;align-items:center;gap:9px;background:#fff;border-radius:999px;padding:7px 15px 7px 10px;font-size:12px;font-weight:600;box-shadow:0 2px 10px rgba(0,0,0,.05)}
 .badge i{width:9px;height:9px;border-radius:50%;background:#E8463B;box-shadow:0 0 0 0 rgba(232,70,59,.5);animation:pulse 2s infinite}
 @keyframes pulse{70%{box-shadow:0 0 0 9px rgba(232,70,59,0)}100%{box-shadow:0 0 0 0 rgba(232,70,59,0)}}
-.hero h1{font-family:var(--head);font-weight:500;text-transform:uppercase;font-size:clamp(46px,6.6vw,84px);line-height:.98;margin:22px 0 16px;letter-spacing:-.3px}
+.hero h1{font-family:var(--head);font-weight:500;text-transform:uppercase;font-size:clamp(46px,6.6vw,84px);line-height:.98;margin:0 0 16px;letter-spacing:-.3px}
 .hero h1 strong{display:block;font-weight:700}
 .hero .lead{font-size:15px;margin:0 0 26px;max-width:450px}
 .hero .ctas{display:flex;gap:14px;flex-wrap:wrap}
@@ -489,7 +489,6 @@ def page(slug, p):
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <span class="badge"><i aria-hidden="true"></i>{e(p['lead'])}</span>
       <h1>{e(h1a)}<strong>{e(h1b)}</strong></h1>
       <p class="lead">{e(p['sub'])}</p>
       <div class="ctas">
