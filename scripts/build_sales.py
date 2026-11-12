@@ -111,7 +111,8 @@ CSS = r'''
 .island{--acc:#E9B44C;--acc-soft:#F7E6BF}
 .strength{--acc:#62BAF5;--acc-soft:#DCEEFC}
 *,*::before,*::after{box-sizing:inherit}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;overflow-x:clip}
+main{overflow-x:clip}
 body{margin:0;color:var(--ink);font-family:var(--text);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;background:#fff;overflow-x:hidden;padding-bottom:env(safe-area-inset-bottom,0px)}
 img{max-width:100%;display:block}
 a{color:inherit}
