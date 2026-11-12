@@ -47,34 +47,69 @@ a{color:inherit}
 .wave{display:block;width:100%;height:70px;margin-bottom:-1px}
 
 /* Header */
-.top{position:sticky;top:0;z-index:50;padding:calc(env(safe-area-inset-top,0px) + 12px) 24px 0;margin-bottom:-90px}
+.top{position:fixed;top:0;left:0;right:0;z-index:50;padding:calc(env(safe-area-inset-top,0px) + 12px) 24px 0}
 .nav{max-width:1220px;margin:0 auto;background:rgba(255,253,245,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:999px;box-shadow:0 6px 24px rgba(180,150,60,.12);display:flex;align-items:center;justify-content:space-between;padding:10px 10px 10px 28px;gap:16px}
 .nav .logo img{height:26px;width:auto}
 .nav ul{list-style:none;display:flex;gap:28px;margin:0;padding:0}
 .nav ul a{text-decoration:none;font-weight:600;font-size:13px}
 .nav .btn{padding:13px 24px}
 
-/* Hero */
-.hero{position:relative;background:radial-gradient(60% 55% at 70% 32%,#FFE9A8 0%,rgba(255,240,190,0) 70%),linear-gradient(180deg,#FFF6D9 0%,#FFFBEE 70%,#fff 100%);padding:140px 0 0;overflow:hidden}
-.hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);align-items:center;gap:30px;min-height:560px}
-.badge{display:inline-flex;align-items:center;gap:9px;background:#fff;border-radius:999px;padding:7px 15px 7px 10px;font-size:12px;font-weight:600;box-shadow:0 2px 10px rgba(0,0,0,.05)}
-.badge i{width:9px;height:9px;border-radius:50%;background:#E8463B;box-shadow:0 0 0 0 rgba(232,70,59,.5);animation:pulse 2s infinite}
-@keyframes pulse{70%{box-shadow:0 0 0 9px rgba(232,70,59,0)}100%{box-shadow:0 0 0 0 rgba(232,70,59,0)}}
-.hero h1{font-family:var(--head);font-weight:500;text-transform:uppercase;font-size:clamp(46px,6.6vw,84px);line-height:.98;margin:0 0 16px;letter-spacing:-.3px}
-.hero h1 strong{display:block;font-weight:700}
-.hero .lead{font-size:15px;margin:0 0 26px;max-width:450px}
+/* Hero: inset card, brand gradient fading into photo */
+.hero{padding:96px 0 0;background:linear-gradient(180deg,#FFF6D9 0%,#FFFBEE 60%,#fff 100%)}
+.hero-card{position:relative;max-width:1240px;margin:0 auto;min-height:640px;border-radius:36px;overflow:hidden;background:#0E3A63;color:#fff;box-shadow:0 40px 80px rgba(14,58,99,.25);isolation:isolate}
+.hero-img{position:absolute;top:0;right:0;bottom:0;width:64%;height:100%;object-fit:cover;object-position:var(--pos);z-index:-2}
+.hero-shade{position:absolute;inset:0;z-index:-1;background:radial-gradient(60% 80% at 10% 30%,rgba(98,186,245,.28) 0%,rgba(98,186,245,0) 70%),linear-gradient(90deg,#0E3A63 0%,#0E3A63 34%,rgba(14,58,99,.82) 46%,rgba(14,58,99,.25) 62%,rgba(14,58,99,0) 78%)}
+.hero-copy{position:relative;padding:78px 0 64px 76px;max-width:640px}
+.hero h1{font-family:var(--head);text-transform:uppercase;margin:0 0 26px;line-height:.86;letter-spacing:-1px}
+.hero h1 .l1{display:block;font-weight:700;font-size:clamp(54px,6.6vw,96px)}
+.hero h1 .l2{display:block;font-weight:700;font-size:clamp(84px,11vw,168px);background:linear-gradient(90deg,#FDE08D 0%,#FFF3C4 55%,#fff 100%);-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:6px}
+.hero h1.t-strength .l2{text-transform:none;font-size:clamp(70px,8.4vw,124px)}
+.hero .lead{font-size:17px;line-height:1.6;color:rgba(255,255,255,.85);max-width:470px;margin:0 0 26px}
+.statcard{display:inline-flex;flex-direction:column;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border-radius:20px;padding:16px 26px 14px;margin-bottom:30px}
+.statcard b{font-family:var(--head);font-weight:700;font-size:44px;line-height:1}
+.statcard span{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.8);margin-top:6px}
 .hero .ctas{display:flex;gap:14px;flex-wrap:wrap}
-.hero .note{font-size:11px;font-weight:600;letter-spacing:1.4px;color:var(--muted);margin-top:18px;text-transform:uppercase}
-.facts{display:flex;gap:34px;margin:30px 0 40px;padding:0;list-style:none}
-.facts strong{display:block;font-family:var(--head);font-size:24px;font-weight:500;line-height:1.1}
-.facts span{font-size:10px;letter-spacing:1.3px;color:var(--muted);font-weight:600;text-transform:uppercase}
-.hero-art{position:relative;height:560px}
-.hero-art .photo{position:absolute;right:0;top:10px;width:78%;height:500px;border-radius:200px 200px 28px 28px;overflow:hidden;box-shadow:0 30px 60px rgba(150,110,20,.22);border:6px solid #fff}
-.hero-art .photo img{width:100%;height:100%;object-fit:cover;object-position:var(--pos)}
-.hero-art .p1{position:absolute;width:190px;left:0;bottom:30px;z-index:3;--r:-6deg}
-.hero-art .p2{position:absolute;width:160px;left:120px;top:20px;z-index:2;--r:-3deg}
-.hero-art .tag{position:absolute;z-index:4;right:-6px;bottom:70px;background:#fff;border-radius:16px;padding:12px 16px;box-shadow:0 14px 34px rgba(20,70,120,.18);font-size:12px;font-weight:600;line-height:1.3}
-.hero-art .tag b{display:block;font-family:var(--head);font-size:26px;font-weight:700;line-height:1}
+.btn--white{background:#fff;color:#0E3A63;padding:18px 34px;font-size:13.5px}
+.btn--glass{background:transparent;color:#fff;border-color:rgba(255,255,255,.55);padding:18px 32px;font-size:13.5px}
+.btn--glass:hover{background:rgba(255,255,255,.12)}
+.hero .price{margin:18px 0 0;font-size:13px;font-weight:500;color:rgba(255,255,255,.72)}
+.spin-badge{position:absolute;top:28px;right:34px;width:140px;height:140px;z-index:2;animation:spin 28s linear infinite}
+.spin-badge text{font:600 11px var(--text);letter-spacing:3.2px;fill:#fff}
+.spin-badge .dot{fill:var(--yellow)}
+.plan-widget{position:absolute;right:46px;bottom:46px;z-index:2;width:330px;background:#fff;color:var(--ink);border-radius:24px;padding:20px 22px 18px;box-shadow:0 24px 50px rgba(0,0,0,.28);animation:bob 7s ease-in-out infinite}
+.plan-widget .row{display:flex;justify-content:space-between;align-items:baseline;font-weight:700;font-size:14px}
+.plan-widget .row small{font-size:10px;letter-spacing:2px;color:var(--muted);font-weight:600}
+.weeks{display:grid;grid-template-columns:repeat(8,1fr);gap:8px;margin:14px 0 12px}
+.weeks i{display:block;aspect-ratio:1;border-radius:50%;background:#E8F2FB;animation:fillwk 8s ease-in-out infinite}
+.weeks i:nth-child(1){animation-delay:0s}.weeks i:nth-child(2){animation-delay:.5s}.weeks i:nth-child(3){animation-delay:1s}.weeks i:nth-child(4){animation-delay:1.5s}
+.weeks i:nth-child(5){animation-delay:2s}.weeks i:nth-child(6){animation-delay:2.5s}.weeks i:nth-child(7){animation-delay:3s}.weeks i:nth-child(8){animation-delay:3.5s}
+@keyframes fillwk{0%,4%{background:#E8F2FB}10%,80%{background:var(--blue)}90%,100%{background:#E8F2FB}}
+.weeks-bar{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);font-weight:500}
+.weeks-bar b{color:var(--ink)}
+@media (max-width:980px){
+  .hero-copy{padding:60px 40px 56px}
+  .plan-widget{width:280px;right:24px;bottom:24px}
+  .spin-badge{width:110px;height:110px}
+}
+@media (max-width:860px){
+  .hero{padding:84px 12px 0}
+  .hero-card{min-height:0;border-radius:28px;padding-bottom:440px}
+  .hero-img{top:auto;bottom:0;width:100%;height:470px;object-position:var(--pos-m)}
+  .hero-shade{background:linear-gradient(180deg,#0E3A63 0%,#0E3A63 52%,rgba(14,58,99,.55) 64%,rgba(14,58,99,0) 80%)}
+  .hero-copy{padding:40px 24px 10px;text-align:center;max-width:none}
+  .hero .lead{margin:0 auto 22px;font-size:15px}
+  .statcard{margin-bottom:24px}
+  .hero .ctas{flex-direction:column}
+  .hero .ctas .btn{width:100%}
+  .spin-badge{display:none}
+  .plan-widget{left:16px;right:16px;width:auto;bottom:16px;padding:16px 18px 14px}
+}
+@media (max-width:640px){
+  .hero h1 .l1{font-size:clamp(44px,13vw,64px)}
+  .hero h1 .l2{font-size:clamp(68px,22vw,110px)}
+  .hero h1.t-strength .l2{font-size:clamp(52px,15vw,84px)}
+}
+@media (prefers-reduced-motion:reduce){.spin-badge,.plan-widget,.weeks i{animation:none}.weeks i:first-child{background:var(--blue)}}
 
 /* Phone */
 .phone{background:#fff;border:3px solid var(--blue);border-radius:30px;padding:5px;box-shadow:0 18px 40px rgba(60,120,170,.18);overflow:hidden}
@@ -84,7 +119,7 @@ a{color:inherit}
 @keyframes bob{0%,100%{transform:translateY(0) rotate(var(--r,0deg))}50%{transform:translateY(-12px) rotate(var(--r,0deg))}}
 
 /* Tilted banner */
-.strip{position:relative;z-index:4;margin-top:-30px;height:110px}
+.strip{position:relative;z-index:4;margin-top:-26px;height:110px}
 .strip::before{content:"";position:absolute;inset:30px -20px 20px;background:var(--yellow);transform:rotate(-1deg)}
 .strip-band{position:absolute;left:-30px;right:-30px;top:20px;background:var(--blue);transform:rotate(-3deg);overflow:hidden;padding:14px 0;box-shadow:0 8px 20px rgba(0,0,0,.08)}
 .strip-track{display:flex;gap:46px;width:max-content;animation:marquee 32s linear infinite;color:#fff;font-size:17px;text-transform:uppercase;white-space:nowrap;align-items:center}
@@ -258,17 +293,6 @@ a{color:inherit}
   .nav{border-radius:18px;padding:10px 10px 10px 18px}
   .nav ul{display:none}
   .nav .btn{padding:11px 18px;font-size:11.5px}
-  .hero{padding-top:100px;text-align:center}
-  .hero-grid{grid-template-columns:minmax(0,1fr);min-height:0}
-  .hero .lead{margin:0 auto 22px;font-size:14px}
-  .hero .ctas{flex-direction:column}
-  .hero .ctas .btn{width:100%}
-  .facts{justify-content:center;gap:24px;margin:24px 0 10px}
-  .hero-art{height:440px;max-width:380px;width:100%;margin:10px auto 0}
-  .hero-art .photo{width:82%;height:400px}
-  .hero-art .p1{width:130px;bottom:10px}
-  .hero-art .p2{display:none}
-  .hero-art .tag{right:0;bottom:40px}
   .strip{margin-top:-40px}
   .strip-track{font-size:14px}
   .head-row{flex-direction:column;align-items:flex-start;gap:14px;margin-bottom:30px}
@@ -314,7 +338,6 @@ a{color:inherit}
 @media (max-width:640px){
   body{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
   .wrap{padding:0 20px}
-  .hero h1{font-size:clamp(42px,13vw,64px)}
   .buybar{display:flex;position:fixed;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom,0px));z-index:60;align-items:center;justify-content:space-between;gap:12px;background:var(--ink);color:#fff;border-radius:20px;padding:10px 10px 10px 18px;box-shadow:0 14px 34px rgba(0,0,0,.3);transform:translateY(140%);transition:transform .25s ease}
   .buybar.show{transform:none}
   .buybar b{display:block;font-family:var(--head);font-size:17px;text-transform:uppercase;line-height:1.1}
@@ -323,7 +346,7 @@ a{color:inherit}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .bob,.chip,.stage::after,.strip-track,.badge i{animation:none}
+  .bob,.chip,.stage::after,.strip-track{animation:none}
   .feats li.on .pbar{animation:none;width:100%}
   .rv{opacity:1;transform:none;transition:none}
   .btn,.buybar,.phone .scr img{transition:none}
@@ -350,21 +373,24 @@ a{color:inherit}
 <main>
 <!-- HERO -->
 <section class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <h1>Island<strong>Body V2</strong></h1>
+  <div class="hero-card" style="--pos:50% 30%;--pos-m:50% 25%">
+    <img class="hero-img" src="images/ib-hero.webp" alt="Gabby in a tropical setting">
+    <div class="hero-shade" aria-hidden="true"></div>
+    <svg class="spin-badge" viewBox="0 0 140 140" aria-hidden="true"><defs><path id="circ" d="M70,70 m-54,0 a54,54 0 1,1 108,0 a54,54 0 1,1 -108,0"/></defs><text><textPath href="#circ">ISLAND BODY V2 · 8 WEEKS · ISLAND BODY V2 · 8 WEEKS · </textPath></text><circle class="dot" cx="70" cy="70" r="6"/></svg>
+    <div class="hero-copy">
+      <h1 class="t-island"><span class="l1">Island Body</span><span class="l2">V2.</span></h1>
       <p class="lead">My best selling programme, completely revamped. Lower body focused strength training paired with upper body conditioning, so every week builds on the last.</p>
+      <div class="statcard"><b>8 weeks</b><span>Lower body focus</span></div>
       <div class="ctas">
-        <a class="btn" id="heroBuy" href="https://join.shapeupwithgabby.co.uk/p/island-body-v2/one-time">Get Island Body V2 · £59</a>
-        <a class="btn btn--outline" href="#what-you-get">See what's inside <span aria-hidden="true">↓</span></a>
+        <a class="btn btn--white" id="heroBuy" href="https://join.shapeupwithgabby.co.uk/p/island-body-v2/one-time">Get Island Body V2 <span aria-hidden="true">→</span></a>
+        <a class="btn btn--glass" href="#what-you-get">Explore the app</a>
       </div>
-      <ul class="facts"><li><strong>8</strong><span>weeks</span></li><li><strong>Lower</strong><span>body focus</span></li><li><strong>All</strong><span>abilities</span></li></ul>
+      <p class="price">£59 one-time payment · or included in the membership</p>
     </div>
-    <div class="hero-art">
-      <div class="photo"><img src="images/ib-hero.webp" alt="Gabby in a tropical setting" style="--pos:50% 35%"></div>
-      <div class="phone p2 bob" aria-hidden="true" style="animation-delay:-3s"><div class="scr"><img src="images/app-home.webp" alt=""></div></div>
-      <div class="phone p1 bob" aria-hidden="true"><div class="scr"><img src="images/app-workout.webp" alt=""></div></div>
-      <div class="tag bob" style="animation-delay:-5s"><b>£59</b>one time</div>
+    <div class="plan-widget" aria-hidden="true">
+      <div class="row"><span>Week 1</span><small>8 WEEKS</small><span>Week 8</span></div>
+      <div class="weeks"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="weeks-bar"><span>Your plan, week by week</span><b>£59</b></div>
     </div>
   </div>
   <div class="strip" aria-hidden="true">
@@ -480,7 +506,7 @@ a{color:inherit}
     <p class="lede">Get Island Body V2 on its own, or get it with both new programmes and everything else in the Shape Up membership.</p>
     <div class="plans rv">
       <article class="plan">
-        <div class="ph"><img src="images/ib-hero.webp" alt="" style="object-position:50% 35%" loading="lazy"></div>
+        <div class="ph"><img src="images/ib-hero.webp" alt="" style="object-position:50% 30%" loading="lazy"></div>
         <div class="bd">
           <span class="term">Island Body V2</span>
           <div class="price"><b>£59</b><span>one time</span></div>
