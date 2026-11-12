@@ -249,7 +249,8 @@ footer{background:var(--ink);color:rgba(255,255,255,.6);padding:20px 0 calc(24px
   .phones{justify-content:flex-start;overflow-x:auto;scroll-snap-type:x mandatory;padding:20px 28px 30px;margin:0 -28px 24px;scrollbar-width:none}
   .phones::-webkit-scrollbar{display:none}
   .phones .phone{flex-basis:170px;scroll-snap-align:center;margin-top:0!important;animation:none;--r:0deg}
-  .beth{grid-template-columns:1fr}
+  .beth{grid-template-columns:minmax(0,1fr)}
+  .beth .stats b{font-size:clamp(28px,9vw,44px)}
   .beth .ph{min-height:0;aspect-ratio:761/738}
   .beth .bd{padding:30px 24px}
   .tf-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
