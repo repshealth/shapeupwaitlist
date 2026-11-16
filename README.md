@@ -2,7 +2,8 @@
 
 Pre-registration page for upcoming Shape Up with Gabby programmes.
 
-- `index.html` was the waitlist page. Since launch it says the new programmes are live, with one button to /programmes. (The sign-up form and its Google Sheet/CRM script were removed from the page; `scripts/waitlist-sheet.gs` is kept for reference.)
+- `index.html` is the homepage (shapeupapp.co.uk). It is a copy of the main site homepage from repshealth/shapeupwithgabby, so update both if the homepage changes. (It used to be the waitlist page; the old sign-up script is kept for reference in `scripts/waitlist-sheet.gs`.)
+- `one-off-programmes.html` is the full one-off programmes page (shapeupapp.co.uk/one-off-programmes), copied from the main site. The homepage's one-off programmes button links here.
 - `images/` holds the logo and Gabby's photo.
 - `scripts/waitlist-sheet.gs` is the Google Apps Script that saves sign-ups to the "Gabby Waitlist Sign Ups" Google Sheet. Its web app URL is set in `SHEET_URL` in `index.html`.
 
