@@ -12,3 +12,4 @@ Pre-registration page for upcoming Shape Up with Gabby programmes.
 - `programmes.html` is the new programmes page (shapeupapp.co.uk/programmes): Island Body V2 and Strength Is Power at £59 each, plus a full-width membership option (£24.99 a month or £199 a year).
 - Every page has the Google Analytics tag (G-KNYFB4VHQ3) in its head.
 - `island-body-v2.html` and `strength-is-power.html` are the sales pages for the two new programmes (shapeupapp.co.uk/island-body-v2 and /strength-is-power). Both are generated from `scripts/build_sales.py`: edit the copy there and rerun `python3 scripts/build_sales.py .` from the repo root.
+- `black-friday.html` is the Black Friday VIP waitlist (shapeupapp.co.uk/black-friday). Sign-ups go to the same Google Sheet and to Gabby's leads in the REPS dashboard, tagged "Black Friday VIP waitlist", then land on `black-friday-thank-you.html`.
