@@ -1,7 +1,7 @@
 """Builds the two programme sales pages for shapeupapp.co.uk from one template.
 
 Usage (from the repo root): python3 scripts/build_sales.py .
-Writes island-body-v2.html and strength-is-power.html into the repo root.
+Writes one sales page per programme (see PAGES) into the repo root.
 
 Design follows the Shape Up homepage (cream/yellow/blue, Oswald light+bold headings,
 blue-bordered phone mockups, tilted blue banner, wave dividers, yellow footer).
@@ -39,7 +39,159 @@ APP_PILLS = [('💪', 'Workout logger'), ('🎥', 'Exercise video demos'), ('�
              ('📷', 'Food logger and scanner'), ('❤️', 'Apple and Google Health'), ('🎯', 'Goal setting'),
              ('📸', 'Progress photos'), ('💧', 'Habit tracking'), ('✅', 'Daily tasks'), ('🌸', 'Cycle tracker'),
              ('📋', 'Check ins'), ('🍴', 'Recipes and favourites')]
-TRANSFORMATIONS = [f'images/tf-{i:02d}.webp' for i in range(1, 15)]
+# Same set as the homepage carousel: one front view per member, no repeats
+TRANSFORMATIONS = [f'images/img-{i}.webp' for i in (26, 27, 28, 31, 34, 35, 37)] + [f'images/tf-n{i:02d}.webp' for i in range(1, 10)]
+SITE = 'https://shapeupapp.co.uk'
+
+KIT_FAQ = ('What equipment do I need?', 'Every session is laid out in the Shape Up app with a video demo for each exercise, so you can see exactly what kit you need before you start.')
+MORE_PAGES = {
+    'hot-girl-summer': dict(
+        title='10 Week Hot Girl Summer | Shape Up with Gabby',
+        desc="Hot Girl Summer is Gabby's 10 week programme: progressive training plus flexible nutrition, gym or home. £59, or included in the Shape Up membership.",
+        name='Hot Girl Summer', h1=('Hot Girl', 'Summer'), theme='strength', hero_h=('Hot Girl', 'Summer.'), badge='HOT GIRL SUMMER · 10 WEEKS · ',
+        img='images/img-20.webp', img_alt='Shape Up members on a group trip', img_pos='50% 40%', img_pos_m='50% 35%',
+        checkout='https://join.shapeupwithgabby.co.uk/p/10-week-hot-girl-summer-programme/one-time',
+        sub="Ten weeks of progressive training plus flexible nutrition, so you can actually enjoy the summer you're training for.",
+        facts=[('10', 'weeks'), ('Gym', 'or home'), ('Flexible', 'nutrition')],
+        ticker=['10 weeks', 'Progressive training', 'Flexible nutrition', 'Gym or home', 'All abilities', 'Enjoy your summer'],
+        for_you=[
+            "You want to feel your best this summer without living on salad",
+            "You want a plan that gets a little harder every week, so you keep progressing",
+            "You want food to fit your life, not the other way round",
+            "You want to train in the gym, at home, or a mix of both",
+        ],
+        for_you_tag="Train hard, still enjoy the summer ☀️",
+        inside=[
+            ('Ten week plan', 'Ten weeks of training written by Gabby, laid out session by session.'),
+            ('Progressive training', 'Every week builds on the last, so you keep moving forward instead of standing still.'),
+            ('Flexible nutrition', "Eat in a way that fits real life, holidays and nights out included."),
+            ('Gym or home', 'Follow it in the gym or at home, whatever suits your week.'),
+            ('All abilities catered for', 'Brand new to training or training for years, the plan works for you.'),
+            ('Enjoy the summer', "Built so you can enjoy the summer you've been training for."),
+        ],
+        faq_gym=('Do I need a gym?', 'No. Hot Girl Summer has gym and home options, so you can train wherever suits you.'),
+        programme_ticks=['The full 10 week programme', 'Progressive training plus flexible nutrition', 'Follow it in the Shape Up app'],
+        other=('island-body-v2', 'Island Body V2'),
+        intro='Ten weeks of training written by Gabby, laid out session by session in the Shape Up app.',
+        trust='10 week structured programme', final_h=('Your 10 weeks', 'start now'),
+    ),
+    'shred-in-28': dict(
+        title='Shred in 28 | Shape Up with Gabby',
+        desc="Shred in 28 is Gabby's 28 day programme, 4 days a week, to get fitter, leaner and stronger. £28, or included in the Shape Up membership.",
+        name='Shred in 28', h1=('Shred', 'in 28'), theme='island', hero_h=('Shred', 'in 28.'), badge='SHRED IN 28 · 4 DAYS A WEEK · ',
+        img='images/img-21.webp', img_alt='Gabby in the gym with a barbell', img_pos='55% 40%', img_pos_m='55% 35%',
+        checkout='https://join.shapeupwithgabby.co.uk/p/summer-shred-in-28/one-time', price='28',
+        sub="Four weeks to get fitter, leaner and stronger, structured so every session builds on the last.",
+        facts=[('28', 'days'), ('4 days', 'a week'), ('All', 'abilities')],
+        ticker=['28 days', '4 days a week', 'Fitter', 'Leaner', 'Stronger', 'Every session builds on the last'],
+        for_you=[
+            "You want a short, focused block with a clear finish line",
+            "You can commit to four sessions a week for four weeks",
+            "You want to get fitter, leaner and stronger, fast",
+            "You want a plan that tells you exactly what to do, every session",
+        ],
+        for_you_tag="28 days. Let's go 🔥",
+        inside=[
+            ('28 day plan', 'Four focused weeks with a clear start and finish line.'),
+            ('4 days a week', 'Four sessions a week that fit around real life.'),
+            ('Fitter, leaner, stronger', 'Built to improve your fitness, strength and shape in a short space of time.'),
+            ('Builds every session', 'Structured so every session builds on the last.'),
+            ('All abilities catered for', 'Brand new to training or training for years, the plan works for you.'),
+            ('Clear and simple', 'Open the app, follow the session, tick it off.'),
+        ],
+        faq_gym=KIT_FAQ,
+        programme_ticks=['The full 28 day programme', '4 sessions a week', 'Follow it in the Shape Up app'],
+        other=('island-body-v2', 'Island Body V2'),
+        intro='28 days of training written by Gabby, laid out session by session in the Shape Up app.',
+        trust='28 day structured programme', final_h=('Your 28 days', 'start now'),
+    ),
+    'sas-strength-and-sustain': dict(
+        title='SAS: Strength & Sustain | Shape Up with Gabby',
+        desc="SAS: Strength & Sustain is Gabby's 8 week, 4 day split programme of heavy compound lifts and conditioning. £59, or included in the Shape Up membership.",
+        name='SAS: Strength & Sustain', short='SAS', h1=('SAS', 'Strength & Sustain'), theme='strength', hero_h=('Strength &', 'Sustain.'), badge='SAS · STRENGTH & SUSTAIN · ',
+        img='images/img-22.webp', img_alt='Gabby carrying a weighted pack', img_pos='40% 40%', img_pos_m='40% 40%',
+        checkout='https://join.shapeupwithgabby.co.uk/p/8-week-sas-strength-and-sustain/one-time',
+        sub="Heavy compound lifts and conditioning circuits, built to make strength a habit rather than a phase.",
+        facts=[('8', 'weeks'), ('4 day', 'split'), ('Strength', '+ conditioning')],
+        ticker=['8 weeks', '4 day split', 'Heavy compound lifts', 'Conditioning circuits', 'Strength as a habit', 'All abilities'],
+        for_you=[
+            "You want to lift heavier and feel properly strong",
+            "You want conditioning that keeps your fitness up too",
+            "You want strength to become a habit, not a phase",
+            "You can commit to four sessions a week",
+        ],
+        for_you_tag="Strong today, strong for good 💪",
+        inside=[
+            ('Heavy compound lifts', 'Sessions built around the big lifts, so your strength keeps climbing.'),
+            ('Conditioning circuits', 'Conditioning work to keep your fitness and stamina up alongside your strength.'),
+            ('4 day split', 'Four sessions a week, each with a clear focus.'),
+            ('Built to last', 'Designed to make strength a habit rather than a phase.'),
+            ('All abilities catered for', 'Brand new to lifting or training for years, the plan works for you.'),
+            ('Eight week plan', 'Eight weeks of training written by Gabby, laid out session by session.'),
+        ],
+        faq_gym=KIT_FAQ,
+        programme_ticks=['The full 8 week programme', 'Heavy compound lifts and conditioning', 'Follow it in the Shape Up app'],
+        other=('strength-is-power', 'Strength Is Power'),
+    ),
+    'glute-programme': dict(
+        title='8 Week Glute Programme | Shape Up with Gabby',
+        desc="The 8 Week Glute Programme is Gabby's 4 day split built to grow and strengthen your glutes. £59, or included in the Shape Up membership.",
+        name='Glute Programme', h1=('Glute', 'Programme'), theme='strength', hero_h=('Glute', 'Programme.'), badge='GLUTE PROGRAMME · 8 WEEKS · ',
+        img='images/img-23.webp', img_alt='Gabby holding dumbbells', img_pos='55% 25%', img_pos_m='50% 20%',
+        checkout='https://join.shapeupwithgabby.co.uk/p/8-week-glute-programme/one-time',
+        sub="Eight weeks on a 4 day split, built to grow and strengthen your glutes, with sessions that progress week on week.",
+        facts=[('8', 'weeks'), ('4 day', 'split'), ('Glute', 'focus')],
+        ticker=['8 weeks', '4 day split', 'Glute focused', 'Progressive sessions', 'All abilities'],
+        for_you=[
+            "You want to build and strengthen your glutes",
+            "You want a lower body plan that actually progresses",
+            "You can commit to four sessions a week",
+            "You want to know exactly what to do, every session",
+        ],
+        for_you_tag="Peach goals, sorted 🍑",
+        inside=[
+            ('Glute focused', 'Every week is built around growing and strengthening your glutes.'),
+            ('4 day split', 'Four sessions a week, each with a clear focus.'),
+            ('Progressive sessions', 'Sessions progress week on week, so you keep getting stronger.'),
+            ('Eight week plan', 'Eight weeks of training written by Gabby, laid out session by session.'),
+            ('All abilities catered for', 'Brand new to lifting or training for years, the plan works for you.'),
+            ('Demos for every move', 'A video demo for every exercise, so you know you are doing it right.'),
+        ],
+        faq_gym=KIT_FAQ,
+        programme_ticks=['The full 8 week programme', 'Glute focused 4 day split', 'Follow it in the Shape Up app'],
+        other=('island-body-v2', 'Island Body V2'),
+    ),
+    'reset-and-shred': dict(
+        title='Reset & Shred | Shape Up with Gabby',
+        desc="Reset & Shred is Gabby's programme to reset your routine and get back on track, with structured training that builds week on week. £49, or included in the Shape Up membership.",
+        name='Reset & Shred', h1=('Reset', '& Shred'), theme='island', hero_h=('Reset', '& Shred.'), badge='RESET & SHRED · SHAPE UP · ',
+        img='images/img-19.webp', img_alt='Gabby in training kit', img_pos='60% 25%', img_pos_m='55% 20%',
+        checkout='https://join.shapeupwithgabby.co.uk/p/september-reset-shred/one-time', price='49',
+        sub="Reset your routine and get back on track, with structured training that builds week on week.",
+        facts=[('Reset', 'your routine'), ('Structured', 'training'), ('All', 'abilities')],
+        ticker=['Reset your routine', 'Get back on track', 'Structured training', 'Builds week on week', 'All abilities'],
+        for_you=[
+            "You've fallen out of your routine and want to get back on track",
+            "You want structure, so you never have to wonder what to do",
+            "You want training that builds week on week",
+            "You want a fresh start with Gabby behind you",
+        ],
+        for_you_tag="Fresh start, starting now ✨",
+        inside=[
+            ('Reset your routine', 'A clear plan to get you back into a routine that sticks.'),
+            ('Structured training', 'Every session laid out for you, so you just show up and follow it.'),
+            ('Builds week on week', 'Each week builds on the last, so you keep moving forward.'),
+            ('All abilities catered for', 'Brand new to training or getting back into it, the plan works for you.'),
+            ('Demos for every move', 'A video demo for every exercise, so you know you are doing it right.'),
+            ('In the Shape Up app', 'Your sessions, tasks and progress all in one place.'),
+        ],
+        faq_gym=KIT_FAQ,
+        programme_ticks=['The full Reset & Shred programme', 'Structured training, week on week', 'Follow it in the Shape Up app'],
+        other=('island-body-v2', 'Island Body V2'),
+        intro='Training written by Gabby, laid out session by session in the Shape Up app.',
+        trust='Structured programme', final_h=('Your reset', 'starts now'),
+    ),
+}
 
 PAGES = {
     'island-body-v2': dict(
@@ -70,6 +222,7 @@ PAGES = {
         faq_gym=('Do I need a gym?', 'A gym is recommended, but you can follow Island Body V2 at home as long as you have a range of weights to work with.'),
         programme_ticks=['The full 8 week programme', 'Lower body focus with upper body conditioning', 'Follow it in the Shape Up app'],
         other=('strength-is-power', 'Strength Is Power'),
+        new=True,
     ),
     'strength-is-power': dict(
         title='Strength Is Power | Shape Up with Gabby',
@@ -99,8 +252,10 @@ PAGES = {
         faq_gym=('Do I need a gym?', 'No. You can follow Strength Is Power in the gym or at home.'),
         programme_ticks=['The full 8 week programme', 'Built around the big compound lifts', 'Follow it in the Shape Up app'],
         other=('island-body-v2', 'Island Body V2'),
+        new=True,
     ),
 }
+PAGES.update(MORE_PAGES)
 
 CSS = r'''
 :root{
@@ -452,6 +607,11 @@ WAVE_YELLOW = '<svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none
 
 def page(slug, p):
     e = esc
+    p = dict(p)
+    p.setdefault('price', '59'); p.setdefault('short', p['name']); p.setdefault('new', False)
+    p.setdefault('intro', 'Eight weeks of training written by Gabby, laid out session by session in the Shape Up app.')
+    p.setdefault('trust', '8 week structured programme'); p.setdefault('final_h', ('Your 8 weeks', 'start now'))
+    price, short, new = p['price'], p['short'], p['new']
     h1a, h1b = p['h1']
     facts = ''.join(f'<li><strong>{e(a)}</strong><span>{e(b)}</span></li>' for a, b in p['facts'])
     chips = ''.join(f'<li><b>{e(a)}</b>{e(b)}</li>' for a, b in p['facts'])
@@ -473,9 +633,20 @@ def page(slug, p):
         ('Is it suitable for beginners?', 'Yes. It is built for all abilities, so whether you are brand new to lifting or you have been training for years, you can follow it and progress at your own pace.'),
         p['faq_gym'],
         ('How do I access it?', 'Everything lives in the Shape Up app. Once you have checked out, log in to the app and your programme will be there, ready for your first session.'),
-        ('Should I get the programme or the membership?', f"If you just want {p['name']}, the programme on its own is £59. If you would like both new programmes plus every other Shape Up programme, meal plans and the community, the membership is £24.99 a month."),
-        ('Can I do both new programmes?', 'Absolutely. Island Body V2 and Strength Is Power are both included in the membership, so you can finish one and go straight into the other.'),
+        ('Should I get the programme or the membership?', f"If you just want {p['name']}, the programme on its own is £{price}. If you would like both new programmes plus every other Shape Up programme, meal plans and the community, the membership is £24.99 a month."
+         if new else f"If you just want {p['name']}, the programme on its own is £{price}. If you would like every Shape Up programme, including the new Island Body V2 and Strength Is Power, plus meal plans and the community, the membership is £24.99 a month."),
+        ('Can I do both new programmes?', 'Absolutely. Island Body V2 and Strength Is Power are both included in the membership, so you can finish one and go straight into the other.')
+        if new else ('Can I do more than one programme?', 'Yes. Every Shape Up programme is included in the membership, so you can finish one and go straight into the next.'),
     ]
+    if 'faq_extra' in p: faqs.insert(2, p['faq_extra'])
+    lede = (f"Get {e(p['name'])} on its own, or get it with both new programmes and everything else in the Shape Up membership." if new
+            else f"Get {e(p['name'])} on its own, or get it with every other Shape Up programme in the membership.")
+    mem_li = f"{e(p['name'])} and {e(other_name)}" if new else f"{e(p['name'])}, plus Island Body V2 and Strength Is Power"
+    final_p = (f"Get {e(p['name'])} for £{price}, or get both new programmes and everything else with the Shape Up membership." if new
+               else f"Get {e(p['name'])} for £{price}, or get every Shape Up programme with the Shape Up membership.")
+    other_link = f'<a class="other" href="/{other_slug}">Also new: {e(other_name)} →</a>' if new else '<a class="other" href="/one-off-programmes">See all programmes →</a>'
+    foot_links = (f'<a href="/one-off-programmes">All programmes</a><a href="/{other_slug}">{e(other_name)}</a>' if new
+                  else '<a href="/one-off-programmes">All programmes</a><a href="/island-body-v2">Island Body V2</a><a href="/strength-is-power">Strength Is Power</a>')
     faq_html = ''.join(
         f'<details{" open" if i == 0 else ""}><summary><span class="n">{i + 1:02d}</span>{e(q)}<span class="t" aria-hidden="true">+</span></summary><p>{e(a)}</p></details>'
         for i, (q, a) in enumerate(faqs))
@@ -497,7 +668,7 @@ def page(slug, p):
 
 <header class="top">
   <nav class="nav" aria-label="Main">
-    <a class="logo" href="/programmes"><img src="images/img-01.webp" alt="Shape Up"></a>
+    <a class="logo" href="/"><img src="images/img-01.webp" alt="Shape Up"></a>
     <ul>
       <li><a href="#for-you">Who it's for</a></li>
       <li><a href="#what-you-get">What you get</a></li>
@@ -505,7 +676,7 @@ def page(slug, p):
       <li><a href="#pricing">Pricing</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul>
-    <a class="btn btn--yellow" href="{p['checkout']}">Get it · £59</a>
+    <a class="btn btn--yellow" href="{p['checkout']}">Get it · £{price}</a>
   </nav>
 </header>
 
@@ -521,13 +692,13 @@ def page(slug, p):
     <p class="lead">{e(p['sub'])}</p>
     <ul class="chips-row">{chips}</ul>
     <div class="ctas">
-      <a class="btn btn--hero" id="heroBuy" href="{p['checkout']}">Get {e(p['name'])} <span aria-hidden="true">→</span></a>
+      <a class="btn btn--hero" id="heroBuy" href="{p['checkout']}">Get {e(short)} <span aria-hidden="true">→</span></a>
       <a class="btn btn--clear" href="#what-you-get">Explore the app</a>
     </div>
-    <p class="price">£59 one-time payment · or included in the membership</p>
+    <p class="price">£{price} one-time payment · or included in the membership</p>
   </div>
   <div class="phone hero-phone bob" aria-hidden="true"><div class="scr"><img src="images/app-workout.webp" alt=""></div></div>
-  <div class="hero-price" aria-hidden="true"><b>£59</b>one time</div>
+  <div class="hero-price" aria-hidden="true"><b>£{price}</b>one time</div>
 </section>
 <div class="strip strip--hero" aria-hidden="true">
   <div class="strip-band"><div class="strip-track">{tick}{tick}</div></div>
@@ -555,7 +726,7 @@ def page(slug, p):
         <p class="eyebrow">What you get</p>
         <h2 class="h2">Everything in<strong>{e(p['name'])}</strong></h2>
       </div>
-      <p class="intro">Eight weeks of training written by Gabby, laid out session by session in the Shape Up app.</p>
+      <p class="intro">{e(p['intro'])}</p>
     </div>
     <div class="feat-grid rv">{feats_prog}</div>
   </div>
@@ -638,16 +809,16 @@ def page(slug, p):
   <div class="wrap">
     <p class="eyebrow">Get started</p>
     <h2 class="h2">If you're waiting<br>for a sign, <strong>this is it</strong></h2>
-    <p class="lede">Get {e(p['name'])} on its own, or get it with both new programmes and everything else in the Shape Up membership.</p>
+    <p class="lede">{lede}</p>
     <div class="plans rv">
       <article class="plan">
         <div class="ph"><img src="{p['img']}" alt="" style="object-position:{p['img_pos']}" loading="lazy"></div>
         <div class="bd">
           <span class="term">{e(p['name'])}</span>
-          <div class="price"><b>£59</b><span>one time</span></div>
+          <div class="price"><b>£{price}</b><span>one time</span></div>
           <span class="pp">The programme on its own</span>
           <ul>{pticks}</ul>
-          <a class="btn btn--outline" href="{p['checkout']}">Get {e(p['name'])}</a>
+          <a class="btn btn--outline" href="{p['checkout']}">Get {e(short)}</a>
         </div>
       </article>
       <article class="plan plan--pop">
@@ -658,7 +829,7 @@ def page(slug, p):
           <div class="price"><b>£24.99</b><span>a month</span></div>
           <span class="pp">Every programme included</span>
           <ul>
-            <li>{e(p['name'])} and {e(other_name)}</li>
+            <li>{mem_li}</li>
             <li>Every other Shape Up programme</li>
             <li>New content added every month</li>
             <li>Meal plans and barcode food scanner</li>
@@ -669,7 +840,7 @@ def page(slug, p):
         </div>
       </article>
     </div>
-    <ul class="trust"><li>8 week structured programme</li><li>All abilities catered for</li><li>iOS &amp; Android</li></ul>
+    <ul class="trust"><li>{e(p['trust'])}</li><li>All abilities catered for</li><li>iOS &amp; Android</li></ul>
   </div>
 </section>
 
@@ -680,7 +851,7 @@ def page(slug, p):
       <p class="eyebrow">FAQ</p>
       <h2 class="h2">Everything<strong>you'd ask</strong></h2>
       <p>Still unsure? Send Gabby's team a message on Instagram and they'll help you pick.</p>
-      <a class="btn btn--yellow" href="{p['checkout']}">Get {e(p['name'])}</a>
+      <a class="btn btn--yellow" href="{p['checkout']}">Get {e(short)}</a>
     </div>
     <div>{faq_html}</div>
   </div>
@@ -692,12 +863,12 @@ def page(slug, p):
   <div class="wrap final-grid">
     <div>
       <p class="eyebrow">Ready when you are</p>
-      <h2 class="h2">Your 8 weeks<strong>start now</strong></h2>
-      <p>Get {e(p['name'])} for £59, or get both new programmes and everything else with the Shape Up membership.</p>
-      <a class="other" href="/{other_slug}">Also new: {e(other_name)} →</a>
+      <h2 class="h2">{e(p['final_h'][0])}<strong>{e(p['final_h'][1])}</strong></h2>
+      <p>{final_p}</p>
+      {other_link}
     </div>
     <div class="ctas">
-      <a class="btn btn--yellow" id="finalBuy" href="{p['checkout']}">Get {e(p['name'])} · £59</a>
+      <a class="btn btn--yellow" id="finalBuy" href="{p['checkout']}">Get {e(short)} · £{price}</a>
       <a class="btn btn--outline" href="#pricing">See membership</a>
     </div>
   </div>
@@ -708,15 +879,15 @@ def page(slug, p):
 <footer class="footer">
   <div class="wrap">
     <div class="foot-grid">
-      <a href="/programmes"><img src="images/img-01.webp" alt="Shape Up"></a>
-      <nav><a href="/programmes">All new programmes</a><a href="/{other_slug}">{e(other_name)}</a><a href="{INSTAGRAM}" target="_blank" rel="noopener">Instagram</a></nav>
+      <a href="/"><img src="images/img-01.webp" alt="Shape Up"></a>
+      <nav>{foot_links}<a href="{INSTAGRAM}" target="_blank" rel="noopener">Instagram</a></nav>
     </div>
     <div class="legal">© 2026 Shape Up with Gabby. All rights reserved.</div>
   </div>
 </footer>
 
 <div class="buybar" id="buyBar" aria-hidden="true">
-  <div><b>{e(p['name'])}</b><span>£59 one time</span></div>
+  <div><b>{e(short)}</b><span>£{price} one time</span></div>
   <a class="btn" href="{p['checkout']}" tabindex="-1">Get it</a>
 </div>
 

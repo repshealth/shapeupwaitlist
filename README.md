@@ -14,3 +14,6 @@ Pre-registration page for upcoming Shape Up with Gabby programmes.
 - Every page has the Google Analytics tag (G-KNYFB4VHQ3) in its head.
 - `island-body-v2.html` and `strength-is-power.html` are the sales pages for the two new programmes (shapeupapp.co.uk/island-body-v2 and /strength-is-power). Both are generated from `scripts/build_sales.py`: edit the copy there and rerun `python3 scripts/build_sales.py .` from the repo root.
 - `black-friday.html` is the Black Friday VIP waitlist (shapeupapp.co.uk/black-friday). Sign-ups go to the same Google Sheet and to Gabby's leads in the REPS dashboard, tagged "Black Friday VIP waitlist", then land on `black-friday-thank-you.html`.
+- Programme sales pages, one per programme, all built by `scripts/build_sales.py` (edit the PAGES data there, then run `python3 scripts/build_sales.py .`):
+  /island-body-v2, /strength-is-power, /hot-girl-summer, /shred-in-28, /sas-strength-and-sustain, /glute-programme, /reset-and-shred.
+  The homepage programme cards and the all-programmes page (/one-off-programmes) link to these with full https://shapeupapp.co.uk/ URLs, so the WordPress copy of the homepage links here too.
