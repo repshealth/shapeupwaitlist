@@ -42,6 +42,10 @@ APP_PILLS = [('💪', 'Workout logger'), ('🎥', 'Exercise video demos'), ('�
 # Same set as the homepage carousel: one front view per member, no repeats
 TRANSFORMATIONS = [f'images/img-{i}.webp' for i in (26, 27, 28, 31, 34, 35, 37)] + [f'images/tf-n{i:02d}.webp' for i in range(1, 10)]
 SITE = 'https://shapeupapp.co.uk'
+# Desktop hero: where to centre each photo inside the right-hand panel so faces stay in view
+POS_D = {'images/ib-hero.webp': '53% 0%', 'images/sip-hero.webp': '13% 0%', 'images/img-21.webp': '13% 0%',
+         'images/img-22.webp': '37% 0%', 'images/img-23.webp': '42% 0%', 'images/img-19.webp': '46% 0%',
+         'images/img-20.webp': '50% 60%'}
 
 KIT_FAQ = ('What equipment do I need?', 'Every session is laid out in the Shape Up app with a video demo for each exercise, so you can see exactly what kit you need before you start.')
 MORE_PAGES = {
@@ -73,7 +77,7 @@ MORE_PAGES = {
         programme_ticks=['The full 10 week programme', 'Progressive training plus flexible nutrition', 'Follow it in the Shape Up app'],
         other=('island-body-v2', 'Island Body V2'),
         intro='Ten weeks of training written by Gabby, laid out session by session in the Shape Up app.',
-        trust='10 week structured programme', final_h=('Your 10 weeks', 'start now'),
+        trust='10 week structured programme', final_h=('Your 10 weeks', 'start now'), no_phone=True,
     ),
     'shred-in-28': dict(
         title='Shred in 28 | Shape Up with Gabby',
@@ -328,6 +332,16 @@ a{color:inherit}
 .hero{clip-path:polygon(0 0,100% 0,100% calc(100% - 3.6vw - 24px),0 calc(100% - 24px))}
 .strip.strip--hero{margin-top:-118px;margin-bottom:-30px;z-index:5}
 @media (max-width:640px){.strip.strip--hero{margin-top:-80px}}
+/* Desktop: sharp photo panel on the right, starting below the nav, over a blurred copy */
+.hero-blur{display:none}
+.hero.no-phone .hero-phone,.hero.no-phone .hero-price{display:none}
+@media (min-width:981px){
+  .hero-blur{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:blur(28px) brightness(.5) saturate(1.1);transform:scale(1.15);z-index:0}
+  .hero-bg{left:auto;right:0;top:86px;width:60%;height:calc(100% - 86px);object-position:var(--pos-d);
+    -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 24%),linear-gradient(180deg,transparent 0,#000 7%);-webkit-mask-composite:source-in;
+    mask-image:linear-gradient(90deg,transparent 0,#000 24%),linear-gradient(180deg,transparent 0,#000 7%);mask-composite:intersect;transform-origin:50% 0}
+  .hero-shade{background:radial-gradient(45% 55% at 0% 100%,rgba(98,186,245,.45) 0%,rgba(98,186,245,0) 70%),linear-gradient(90deg,rgba(12,32,48,.55) 0%,rgba(12,32,48,.25) 40%,rgba(12,32,48,0) 60%),linear-gradient(0deg,rgba(12,32,48,.45) 0%,rgba(12,32,48,0) 30%)}
+}
 @media (max-width:980px){
   .hero-phone,.hero-price{display:none}
   .spin-badge{width:104px;height:104px;top:100px}
@@ -682,7 +696,8 @@ def page(slug, p):
 
 <main>
 <!-- HERO -->
-<section class="hero" style="--pos:{p['img_pos']};--pos-m:{p['img_pos_m']}">
+<section class="hero{" no-phone" if p.get("no_phone") else ""}" style="--pos:{p['img_pos']};--pos-m:{p['img_pos_m']};--pos-d:{POS_D[p['img']]}">
+  <img class="hero-blur" src="{p['img']}" alt="" aria-hidden="true">
   <img class="hero-bg" src="{p['img']}" alt="{html.escape(p['img_alt'])}">
   <div class="hero-shade" aria-hidden="true"></div>
   <span class="spark s1" aria-hidden="true">✦</span><span class="spark s2" aria-hidden="true">✦</span><span class="spark s3" aria-hidden="true">✦</span>

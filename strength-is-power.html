@@ -89,6 +89,16 @@ a{color:inherit}
 .hero{clip-path:polygon(0 0,100% 0,100% calc(100% - 3.6vw - 24px),0 calc(100% - 24px))}
 .strip.strip--hero{margin-top:-118px;margin-bottom:-30px;z-index:5}
 @media (max-width:640px){.strip.strip--hero{margin-top:-80px}}
+/* Desktop: sharp photo panel on the right, starting below the nav, over a blurred copy */
+.hero-blur{display:none}
+.hero.no-phone .hero-phone,.hero.no-phone .hero-price{display:none}
+@media (min-width:981px){
+  .hero-blur{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:blur(28px) brightness(.5) saturate(1.1);transform:scale(1.15);z-index:0}
+  .hero-bg{left:auto;right:0;top:86px;width:60%;height:calc(100% - 86px);object-position:var(--pos-d);
+    -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 24%),linear-gradient(180deg,transparent 0,#000 7%);-webkit-mask-composite:source-in;
+    mask-image:linear-gradient(90deg,transparent 0,#000 24%),linear-gradient(180deg,transparent 0,#000 7%);mask-composite:intersect;transform-origin:50% 0}
+  .hero-shade{background:radial-gradient(45% 55% at 0% 100%,rgba(98,186,245,.45) 0%,rgba(98,186,245,0) 70%),linear-gradient(90deg,rgba(12,32,48,.55) 0%,rgba(12,32,48,.25) 40%,rgba(12,32,48,0) 60%),linear-gradient(0deg,rgba(12,32,48,.45) 0%,rgba(12,32,48,0) 30%)}
+}
 @media (max-width:980px){
   .hero-phone,.hero-price{display:none}
   .spin-badge{width:104px;height:104px;top:100px}
@@ -373,7 +383,8 @@ a{color:inherit}
 
 <main>
 <!-- HERO -->
-<section class="hero" style="--pos:40% 45%;--pos-m:42% 40%">
+<section class="hero" style="--pos:40% 45%;--pos-m:42% 40%;--pos-d:13% 0%">
+  <img class="hero-blur" src="images/sip-hero.webp" alt="" aria-hidden="true">
   <img class="hero-bg" src="images/sip-hero.webp" alt="Gabby in the gym with a barbell">
   <div class="hero-shade" aria-hidden="true"></div>
   <span class="spark s1" aria-hidden="true">✦</span><span class="spark s2" aria-hidden="true">✦</span><span class="spark s3" aria-hidden="true">✦</span>
