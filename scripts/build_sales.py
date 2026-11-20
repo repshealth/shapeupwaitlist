@@ -40,7 +40,7 @@ APP_PILLS = [('💪', 'Workout logger'), ('🎥', 'Exercise video demos'), ('�
              ('📸', 'Progress photos'), ('💧', 'Habit tracking'), ('✅', 'Daily tasks'), ('🌸', 'Cycle tracker'),
              ('📋', 'Check ins'), ('🍴', 'Recipes and favourites')]
 # Same set as the homepage carousel: one front view per member, no repeats
-TRANSFORMATIONS = [f'images/img-{i}.webp' for i in (26, 27, 28, 31, 34, 35, 37)] + [f'images/tf-n{i:02d}.webp' for i in range(1, 15)]
+TRANSFORMATIONS = [f'images/{n}.webp' for n in ['img-26', 'img-27', 'tf-s01', 'img-28', 'img-31', 'tf-s02', 'img-34', 'img-35', 'tf-s03', 'img-37', 'tf-n01', 'tf-s04', 'tf-n02', 'tf-n03', 'tf-s05', 'tf-n04', 'tf-n05', 'tf-s06', 'tf-n06', 'tf-n07', 'tf-s07', 'tf-n08', 'tf-n09', 'tf-s08', 'tf-n10', 'tf-n11', 'tf-s09', 'tf-n12', 'tf-n13', 'tf-s10', 'tf-n14', 'tf-s11', 'tf-s12', 'tf-s13']]
 SITE = 'https://shapeupapp.co.uk'
 # Desktop hero: where to centre each photo inside the right-hand panel so faces stay in view
 POS_D = {'images/ib-hero.webp': '53% 0%', 'images/sip-hero.webp': '13% 0%', 'images/img-21.webp': '13% 0%',
