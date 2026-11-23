@@ -41,7 +41,7 @@ src="https://www.facebook.com/tr?id=1394121145302064&ev=PageView&noscript=1"
 '''
 
 MEM_MONTHLY = 'https://join.shapeupwithgabby.co.uk/p/shape-up-membership/monthly'
-MEM_YEARLY = 'https://join.shapeupwithgabby.co.uk/p/shape-up-membership/yearly'
+MEM_YEARLY = 'https://join.shapeupwithgabby.co.uk/p/shape-up-membership-7-day-free-trial/yearly'
 INSTAGRAM = 'https://www.instagram.com/gabbydawnallen/?hl=en'
 
 APP_FEATS = [
@@ -662,8 +662,8 @@ def page(slug, p):
         ('Is it suitable for beginners?', 'Yes. It is built for all abilities, so whether you are brand new to lifting or you have been training for years, you can follow it and progress at your own pace.'),
         p['faq_gym'],
         ('How do I access it?', 'Everything lives in the Shape Up app. Once you have checked out, log in to the app and your programme will be there, ready for your first session.'),
-        ('Should I get the programme or the membership?', f"If you just want {p['name']}, the programme on its own is £{price}. If you would like both new programmes plus every other Shape Up programme, meal plans and the community, the membership is £24.99 a month."
-         if new else f"If you just want {p['name']}, the programme on its own is £{price}. If you would like every Shape Up programme, including the new Island Body V2 and Strength Is Power, plus meal plans and the community, the membership is £24.99 a month."),
+        ('Should I get the programme or the membership?', f"If you just want {p['name']}, the programme on its own is £{price}. If you would like both new programmes plus every other Shape Up programme, meal plans and the community, the annual membership is £199 a year, with 7 days free."
+         if new else f"If you just want {p['name']}, the programme on its own is £{price}. If you would like every Shape Up programme, including the new Island Body V2 and Strength Is Power, plus meal plans and the community, the annual membership is £199 a year, with 7 days free."),
         ('Can I do both new programmes?', 'Absolutely. Island Body V2 and Strength Is Power are both included in the membership, so you can finish one and go straight into the other.')
         if new else ('Can I do more than one programme?', 'Yes. Every Shape Up programme is included in the membership, so you can finish one and go straight into the next.'),
     ]
@@ -699,8 +699,8 @@ def page(slug, p):
   <nav class="nav" aria-label="Main">
     <a class="logo" href="/"><img src="images/img-01.webp" alt="Shape Up"></a>
     <ul>
-      <li><a href="#for-you">Who it's for</a></li>
-      <li><a href="#what-you-get">What you get</a></li>
+      <li><a href="#for-you">Who It's For</a></li>
+      <li><a href="#what-you-get">What You Get</a></li>
       <li><a href="#results">Results</a></li>
       <li><a href="#pricing">Pricing</a></li>
       <li><a href="#faq">FAQ</a></li>
@@ -856,8 +856,8 @@ def page(slug, p):
         <div class="ph"><img src="images/img-19.webp" alt="" style="object-position:center 20%" loading="lazy"></div>
         <div class="bd">
           <span class="term">Shape Up Membership</span>
-          <div class="price"><b>£24.99</b><span>a month</span></div>
-          <span class="pp">Every programme included</span>
+          <div class="price"><b>£199</b><span>a year</span></div>
+          <span class="pp">Annual membership · 7 days free</span>
           <ul>
             <li>{mem_li}</li>
             <li>Every other Shape Up programme</li>
@@ -865,8 +865,7 @@ def page(slug, p):
             <li>Meal plans and barcode food scanner</li>
             <li>Cycle and habit tracking, plus the community</li>
           </ul>
-          <a class="btn" href="{MEM_MONTHLY}">Join membership</a>
-          <a class="annual" href="{MEM_YEARLY}">Or go annual for £199 a year</a>
+          <a class="btn" href="{MEM_YEARLY}">Start free trial</a>
         </div>
       </article>
     </div>
