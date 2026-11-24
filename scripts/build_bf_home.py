@@ -338,7 +338,7 @@ SCRIPT = f'''<script>
   var T=document.getElementById('bfToast'),ti=0,closed=false;
   function left(){{var ms=Math.max(0,END-Date.now()),s=Math.floor(ms/1000);return Math.floor(s/86400)+'d '+Math.floor(s%86400/3600)+'h '+Math.floor(s%3600/60)+'m left'}}
   var MSG=[
-    ['🔥','Lifetime Team is 60% off',function(){{return '£119.99 for the whole year, was £299.88'}}],
+    ['🔥','Keep the price for life',function(){{return 'Annual is £119.99 a year, was £299.88'}}],
     ['💪','Quarterly is £15 off',function(){{return '£49.99 every 3 months, was £64.99'}}],
     ['⏰','Black Friday prices end Cyber Monday',left]
   ];
