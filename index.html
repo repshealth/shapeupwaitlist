@@ -29,9 +29,9 @@ src="https://www.facebook.com/tr?id=1394121145302064&ev=PageView&noscript=1"
 <!-- End Meta Pixel Code -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Shape Up with Gabby is a fitness app for women with gym and home workout plans, nutrition tracking, classes and a supportive community.">
+<meta name="description" content="Black Friday at Shape Up with Gabby: the annual Lifetime Team membership is half price at £149 a year, about 41p a day. Quarterly is £49.99. Ends Cyber Monday.">
 <meta name="rating" content="general">
-<title>Shape Up with Gabby | Training, nutrition and community in one app</title>
+<title>Black Friday: Half Price Annual Membership | Shape Up with Gabby</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;500;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -419,12 +419,137 @@ a{color:inherit}
   .su-btn:hover{transform:none}
 }
 html,body{overflow-x:clip}
+
+/* ===== BLACK FRIDAY LAYER ===== */
+:root{--bf-ink:#0d0d0d;--bf-ink2:#1a1a1a}
+.bf-bar{display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap;background:var(--su-yellow);color:var(--bf-ink);margin:-12px -24px 12px;padding:11px 16px;font-family:var(--su-head);font-size:16px;font-weight:600;letter-spacing:1px;text-transform:uppercase}
+.bf-bar .cd{font-variant-numeric:tabular-nums;font-weight:700}
+.bf-bar a{color:var(--bf-ink);text-decoration:none;font-weight:700}
+.bf-hero{position:relative;overflow:hidden;color:#fff;padding:190px 0 140px;background:radial-gradient(42% 60% at 74% 48%,rgba(253,224,141,.10) 0%,rgba(253,224,141,0) 70%),var(--bf-ink);clip-path:polygon(0 0,100% 0,100% calc(100% - 5.3vw - 40px),0 calc(100% - 40px))}
+.su-ticker.bf-ticker{margin-top:-128px;height:110px;margin-bottom:-24px;z-index:5}
+.bf-ticker .su-ticker-band{background:var(--su-yellow)}
+.bf-ticker .su-ticker-track span,.bf-ticker .su-ticker-track b,.bf-ticker .su-ticker-track .spark{color:var(--bf-ink)}
+
+/* Hero: clean editorial layout */
+.bf-hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:end}
+.bf-copy{padding-bottom:120px}
+.bf-kicker{display:flex;align-items:center;gap:10px;margin:0 0 26px;font-size:12px;font-weight:600;letter-spacing:2.2px;text-transform:uppercase;color:rgba(255,255,255,.75)}
+.bf-kicker b{color:var(--su-yellow);font-weight:700}
+.bf-kicker span{color:rgba(255,255,255,.3);font-weight:400}
+.bf-hero .lead s{color:rgba(255,255,255,.4);margin-left:4px}
+.bf-hero .lead strong{color:#fff}
+.bf-hero h1{font-family:var(--su-head);text-transform:uppercase;margin:0 0 24px;font-weight:700;line-height:.9;letter-spacing:-.5px}
+.bf-hero h1 .l1{display:block;font-size:clamp(64px,7.4vw,112px);color:var(--su-yellow);white-space:nowrap}
+.bf-hero h1 .l2{display:block;font-size:clamp(30px,3.4vw,50px);font-weight:400;color:#fff;letter-spacing:0;margin-top:6px}
+.bf-hero .lead{font-size:17px;line-height:1.6;color:rgba(255,255,255,.72);max-width:460px;margin:0 0 36px}
+.bf-price{display:flex;align-items:flex-end;gap:16px;margin:0 0 30px}
+.bf-price b{font-family:var(--su-head);font-size:64px;line-height:.85;font-weight:700;color:#fff}
+.bf-price div{display:flex;flex-direction:column;gap:4px;font-size:13px;color:rgba(255,255,255,.65)}
+.bf-price s{font-size:15px;color:rgba(255,255,255,.45)}
+.bf-timer{display:inline-flex;align-items:flex-start;gap:18px;font-family:var(--su-head);margin:0 0 34px}
+.bf-timer>div{display:flex;flex-direction:column;align-items:flex-start;min-width:48px}
+.bf-timer b{font-size:34px;line-height:1;font-weight:500;color:#fff;font-variant-numeric:tabular-nums}
+.bf-timer span{font-family:var(--su-text);font-size:10px;font-weight:600;letter-spacing:1.6px;text-transform:uppercase;color:rgba(255,255,255,.45);margin-top:6px}
+.bf-timer i{font-style:normal;font-size:26px;line-height:1.1;color:rgba(255,255,255,.25)}
+.bf-timer.ended b{color:rgba(255,255,255,.5)}
+.bf-ctas{display:flex;align-items:center;gap:26px;flex-wrap:wrap}
+.bf-btn{background:var(--su-yellow);color:var(--bf-ink);padding:18px 38px}
+.bf-link{color:#fff;font-size:13px;font-weight:600;letter-spacing:1px;text-transform:uppercase;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.4);padding-bottom:3px}
+.bf-link:hover{border-color:var(--su-yellow)}
+.bf-art{position:relative;height:660px;margin-bottom:-60px}
+.bf-art .gabby{position:absolute;left:50%;bottom:0;height:100%;width:auto;max-width:none;transform:translateX(-50%);-webkit-mask-image:linear-gradient(180deg,#000 84%,transparent 100%);mask-image:linear-gradient(180deg,#000 84%,transparent 100%)}
+.bf-strip .bf-timer{margin:0;gap:14px}
+.bf-strip .bf-timer b{font-size:26px}
+.bf-pricing .bf-timer{justify-content:center}
+.bf-pricing .bf-timer>div,.bf-final .bf-timer>div{align-items:center}
+.bf-final .bf-timer span{color:rgba(255,255,255,.8)}
+.bf-final .bf-timer i{color:rgba(255,255,255,.5)}
+
+.bf-pricing{background:var(--bf-ink);color:#fff;padding:90px 0 100px;text-align:center}
+.bf-pricing .su-eyebrow{color:var(--su-yellow)}
+.bf-pricing .su-h2 strong{color:var(--su-yellow)}
+.bf-pricing .lede{max-width:560px;margin:0 auto 22px;color:rgba(255,255,255,.8)}
+.bf-plans{display:grid;grid-template-columns:1.25fr 1fr;gap:20px;max-width:920px;margin:30px auto 0;text-align:left;align-items:stretch}
+.bf-plan{position:relative;background:var(--bf-ink2);border:1px solid rgba(255,255,255,.14);border-radius:24px;padding:30px 28px;display:flex;flex-direction:column}
+.bf-plan--main{background:var(--su-yellow);color:var(--bf-ink);border-color:var(--su-yellow);box-shadow:0 0 0 6px rgba(253,224,141,.15),0 30px 60px rgba(0,0,0,.4)}
+.bf-plan .flag{position:absolute;top:-14px;left:24px;background:var(--bf-ink);color:var(--su-yellow);border:2px solid var(--su-yellow);border-radius:999px;padding:5px 14px;font-size:10.5px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase}
+.bf-plan .term{font-size:11px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;opacity:.75}
+.bf-plan h3{font-family:var(--su-head);text-transform:uppercase;font-size:30px;line-height:1;margin:6px 0 14px}
+.bf-plan .price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.bf-plan .price b{font-family:var(--su-head);font-size:64px;line-height:.9}
+.bf-plan .price s{font-size:20px;font-weight:600;opacity:.55}
+.bf-plan .price span{font-size:13px;font-weight:600}
+.bf-plan .save{display:inline-block;align-self:flex-start;margin:12px 0 16px;border-radius:999px;padding:6px 12px;font-size:11.5px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;background:var(--bf-ink);color:var(--su-yellow)}
+.bf-plan:not(.bf-plan--main) .save{background:rgba(253,224,141,.15);color:var(--su-yellow)}
+.bf-plan ul{list-style:none;margin:0 0 22px;padding:0;display:grid;gap:9px;font-size:14px}
+.bf-plan li{display:flex;gap:10px;align-items:flex-start}
+.bf-plan li::before{content:"";flex:none;width:18px;height:18px;margin-top:2px;border-radius:50%;background:var(--bf-ink) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' fill='none' stroke='%23FDE08D' stroke-width='3'/%3E%3C/svg%3E") center/12px no-repeat}
+.bf-plan:not(.bf-plan--main) li::before{background-color:rgba(255,255,255,.12)}
+.bf-plan .su-btn{margin-top:auto;width:100%}
+.bf-plan--main .su-btn{background:var(--bf-ink);color:#fff}
+.bf-plan:not(.bf-plan--main) .su-btn{background:#fff;color:var(--bf-ink)}
+.bf-plan small{display:block;text-align:center;margin-top:10px;font-size:11.5px;opacity:.7}
+.bf-pricing .su-ticks{justify-content:center;color:rgba(255,255,255,.8);margin-top:26px}
+
+.bf-strip{background:var(--bf-ink);color:#fff;padding:26px 0}
+.bf-strip .su-wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.bf-strip p{margin:0;font-family:var(--su-head);text-transform:uppercase;font-size:clamp(20px,2vw,26px);line-height:1.05}
+@media (min-width:901px){.bf-strip .su-wrap{flex-wrap:nowrap}.bf-strip .su-btn{flex:none}}
+.bf-strip p b{color:var(--su-yellow)}
+
+.bf-final{text-align:center}
+.bf-final .su-h2{color:#fff}
+.bf-final p{max-width:560px;margin:0 auto 22px;color:#fff}
+.bf-final .su-btn{background:var(--bf-ink);color:#fff}
+
+.bf-toast{position:fixed;left:18px;bottom:18px;z-index:70;display:flex;align-items:center;gap:12px;max-width:340px;background:#fff;color:var(--bf-ink);border-radius:14px;padding:12px 36px 12px 12px;box-shadow:0 14px 40px rgba(0,0,0,.25);border-left:5px solid var(--su-yellow);transform:translateY(160%);opacity:0;transition:transform .45s ease,opacity .45s ease;font-size:13px;line-height:1.35}
+.bf-toast.show{transform:none;opacity:1}
+.bf-toast .ic{flex:none;width:38px;height:38px;border-radius:10px;background:var(--bf-ink);color:var(--su-yellow);display:grid;place-items:center;font-size:18px}
+.bf-toast b{display:block;font-size:13.5px}
+.bf-toast small{display:block;color:#666;font-size:11.5px;margin-top:2px;font-variant-numeric:tabular-nums}
+.bf-toast button{position:absolute;top:6px;right:8px;border:0;background:none;font-size:16px;line-height:1;color:#999;cursor:pointer;padding:4px}
+.bf-buybar{display:none}
+@media (max-width:900px){
+  .bf-hero{padding-top:150px;text-align:center}
+  .bf-hero-grid{grid-template-columns:1fr;gap:0}
+  .bf-copy{padding-bottom:0}
+  .bf-kicker,.bf-price,.bf-ctas{justify-content:center}
+  .bf-hero .lead{margin:0 auto 26px}
+  .bf-art{height:440px;max-width:420px;width:100%;margin:40px auto -50px}
+  .bf-plans{grid-template-columns:1fr}
+  .bf-strip .su-wrap{justify-content:center;text-align:center}
+}
+@media (max-width:640px){
+  .bf-hero{padding-top:140px}
+  .bf-hero h1 .l1{font-size:clamp(48px,15vw,72px);white-space:normal}
+  .bf-kicker{flex-wrap:wrap;justify-content:center;gap:6px 10px;font-size:11px;letter-spacing:1.6px}
+  .bf-hero h1 .l2{font-size:clamp(24px,7.4vw,34px)}
+  .bf-price b{font-size:54px}
+  .bf-timer{gap:12px}
+  .bf-timer b{font-size:28px}
+  .bf-timer i{font-size:22px}
+  .bf-ctas{flex-direction:column;gap:18px}
+  .bf-ctas .su-btn{width:100%}
+  .bf-art{height:400px}
+  .bf-bar{margin:-10px -12px 10px;font-size:13px;gap:4px 12px;padding:8px 10px}
+  .bf-bar a{display:none}
+  .bf-plan{padding:28px 20px}
+  .bf-plan .price b{font-size:54px}
+  .bf-toast{left:10px;right:10px;max-width:none;bottom:84px}
+  .bf-buybar{display:flex;position:fixed;left:10px;right:10px;bottom:10px;z-index:60;align-items:center;justify-content:space-between;gap:10px;background:var(--bf-ink);color:#fff;border-radius:18px;padding:10px 10px 10px 16px;box-shadow:0 12px 30px rgba(0,0,0,.35);transform:translateY(140%);transition:transform .3s ease}
+  .bf-buybar.show{transform:none}
+  .bf-buybar b{display:block;font-size:13px}
+  .bf-buybar span{font-size:11px;color:var(--su-yellow);font-variant-numeric:tabular-nums}
+  .bf-buybar .su-btn{width:auto;display:inline-flex;padding:12px 16px;background:var(--su-yellow);color:var(--bf-ink);font-size:11.5px}
+}
+@media (prefers-reduced-motion:reduce){.bf-toast{transition:none}}
 </style>
 </head>
 <body>
 
 <!-- ===== HEADER ===== -->
 <header class="su-header">
+  <div class="bf-bar"><span class="t">Black Friday · Half price annual</span><span class="cdw">Ends in <span class="cd" data-cd-text>--</span></span><a href="#pricing">Claim it →</a></div>
   <nav class="su-nav" aria-label="Main">
     <a href="#top" class="su-logo"><img src="images/img-01.webp" alt="Shape Up"></a>
     <ul>
@@ -436,7 +561,7 @@ html,body{overflow-x:clip}
     </ul>
     <div class="su-nav-right">
       <a class="su-login" href="https://join.shapeupwithgabby.co.uk/auth/login">Login</a>
-      <a class="su-btn su-btn--yellow" href="#pricing">Start now</a>
+      <a class="su-btn su-btn--yellow" href="#pricing">Get 50% off</a>
       <button class="su-burger" aria-label="Open menu" aria-expanded="false" id="suBurger"><span></span></button>
     </div>
   </nav>
@@ -445,48 +570,29 @@ html,body{overflow-x:clip}
   </div>
 </header>
 
-<!-- ===== HERO ===== -->
-<section class="su-hero" id="top">
-  <div class="su-wrap su-hero-grid">
-    <div>
-      <div class="su-rating">
-        <span class="su-avatars"><img src="images/img-02.webp" alt=""><img src="images/img-03.webp" alt=""><img src="images/img-04.webp" alt=""><img src="images/img-05.webp" alt=""></span>
-        <span class="su-stars" aria-hidden="true">★★★★★</span>
-        <span>48,000+ Reviews</span>
-      </div>
-      <h1>Your strongest<br>self starts here.</h1>
-      <p class="lead">Training, nutrition and 12,400 women training alongside you, in one app that actually holds you to it. £24.99 a month.</p>
-      <div class="su-hero-ctas">
-        <a class="su-btn su-btn--blue" href="#pricing">Start now</a>
-        <a class="su-btn su-btn--outline" href="#inside">See what's inside <span aria-hidden="true">↓</span></a>
-      </div>
-      <div class="su-hero-note">Cancel anytime</div>
-      <div class="su-featured su-featured--hero">
-        <p>As featured in</p>
-        <div class="logos"><img src="images/img-06.webp" alt="Women's Health"><img src="images/img-07.webp" alt="OK!"><img class="wf" src="images/img-08.webp" alt="Women's Fitness"><img src="images/img-09.webp" alt="Heat Fitness"></div>
+<!-- ===== HERO (Black Friday) ===== -->
+<section class="bf-hero" id="top">
+  <div class="su-wrap bf-hero-grid">
+    <div class="bf-copy">
+      <h1><span class="l1">Half price</span><span class="l2">for the whole year</span></h1>
+      <p class="lead">The Lifetime Team, <strong>£149</strong> <s>£299.88</s> for 12 months of Shape Up.</p>
+      <div class="bf-ctas">
+        <a class="su-btn bf-btn" href="#pricing">Claim half price</a>
+        <a class="bf-link" href="#inside">See what's inside</a>
       </div>
     </div>
-    <div class="su-hero-art">
-      <img class="su-hero-gabby" src="images/img-10.webp" alt="Gabby, founder of Shape Up">
-      <div class="su-phone su-hero-phone2"><img src="images/img-11.webp" alt="Shape Up meal plan screen"></div>
-      <div class="su-phone su-hero-phone1"><img src="images/img-12.webp" alt="Shape Up workout tracker screen"></div>
-    </div>
-  </div>
-  <div class="su-ticker" aria-hidden="true">
-    <div class="su-ticker-band">
-      <div class="su-ticker-track">
-        <span><b>Zero</b> app crashes since launch</span><span class="spark">✦</span>
-        <span><b>1000+ 5</b> star reviews</span><span class="spark">✦</span>
-        <span><b>12,400</b> women training</span><span class="spark">✦</span>
-        <span><b>4K</b> workouts logged</span><span class="spark">✦</span>
-        <span><b>Zero</b> app crashes since launch</span><span class="spark">✦</span>
-        <span><b>1000+ 5</b> star reviews</span><span class="spark">✦</span>
-        <span><b>12,400</b> women training</span><span class="spark">✦</span>
-        <span><b>4K</b> workouts logged</span><span class="spark">✦</span>
-      </div>
+    <div class="bf-art" aria-hidden="true">
+      <img class="gabby" src="images/gabby-cutout-full.webp" alt="">
     </div>
   </div>
 </section>
+<div class="su-ticker bf-ticker" aria-hidden="true">
+    <div class="su-ticker-band">
+      <div class="su-ticker-track">
+        <span><b>Black Friday</b></span><span class="spark">✦</span><span><b>50% off</b> annual</span><span class="spark">✦</span><span><b>£149</b> a year</span><span class="spark">✦</span><span><b>41p</b> a day</span><span class="spark">✦</span><span><b>Ends</b> Cyber Monday</span><span class="spark">✦</span><span><b>Black Friday</b></span><span class="spark">✦</span><span><b>50% off</b> annual</span><span class="spark">✦</span><span><b>£149</b> a year</span><span class="spark">✦</span><span><b>41p</b> a day</span><span class="spark">✦</span><span><b>Ends</b> Cyber Monday</span><span class="spark">✦</span>
+      </div>
+    </div>
+</div>
 
 <!-- ===== WHAT SHAPE UP IS ===== -->
 <section class="su-about">
@@ -537,7 +643,7 @@ html,body{overflow-x:clip}
           <span class="hint">Swipe for more</span>
         </div>
       </div>
-      <div class="su-fx-cta"><a class="su-btn su-btn--blue" href="#pricing">Start now</a><small>From £24.99 a month, cancel anytime</small></div>
+      <div class="su-fx-cta"><a class="su-btn su-btn--blue" href="#pricing">Start now</a><small>Black Friday: £149 a year, about 41p a day</small></div>
     </div>
     <div class="su-fx-stage">
       <div class="su-fx-chip c1"><span aria-hidden="true">⭐</span>48,000+ reviews</div>
@@ -573,45 +679,51 @@ html,body{overflow-x:clip}
   </div>
 </section>
 
-<!-- ===== PRICING ===== -->
-<svg class="su-wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true" style="margin-bottom:-1px"><path d="M0 70 C 400 -10, 1040 -10, 1440 70 Z" fill="#FFF7DD"/></svg>
-<section class="su-pricing" id="pricing">
+<!-- ===== PRICING (Black Friday) ===== -->
+<svg class="su-wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true" style="margin-bottom:-1px"><path d="M0 70 C 400 -10, 1040 -10, 1440 70 Z" fill="#0d0d0d"/></svg>
+<section class="bf-pricing" id="pricing">
   <div class="su-wrap">
-    <p class="su-eyebrow">Membership</p>
-    <h2 class="su-h2">If you're waiting<br>for a sign, <strong>this is it</strong></h2>
-    <p class="lede">Same everything on every plan. The longer you commit, the less you pay.</p>
-    <div class="su-plans">
-      <article class="su-plan">
-        <div class="ph"><img src="images/img-18.webp" alt=""></div>
-        <div class="bd">
-          <span class="term">Monthly</span>
-          <div class="price"><b>£24.99</b><span>per month, rolling</span></div>
-          <span class="day">82p a day</span>
-          <a class="su-btn su-btn--ghost" href="https://join.shapeupwithgabby.co.uk/p/shape-up-membership/monthly">Start now</a>
-        </div>
+    <p class="su-eyebrow">Black Friday prices</p>
+    <h2 class="su-h2">Half price.<br><strong>Full year.</strong></h2>
+    <p class="lede">Same full app on both plans. When the timer hits zero, prices go back to normal.</p>
+    <div class="bf-timer" data-cd role="timer" aria-label="Time left on the Black Friday offer">
+  <div><b class="d">00</b><span>Days</span></div><i>:</i>
+  <div><b class="h">00</b><span>Hours</span></div><i>:</i>
+  <div><b class="m">00</b><span>Mins</span></div><i>:</i>
+  <div><b class="s">00</b><span>Secs</span></div>
+</div>
+    <div class="bf-plans">
+      <article class="bf-plan bf-plan--main">
+        <span class="flag">Main offer · 50% off</span>
+        <span class="term">Annual</span>
+        <h3>The Lifetime Team</h3>
+        <div class="price"><s>£299.88</s><b>£149</b><span>a year</span></div>
+        <span class="save">That's about 41p a day</span>
+        <ul>
+          <li>Every Shape Up programme, including Island Body V2 and Strength Is Power</li>
+          <li>New content added every month</li>
+          <li>Meal plans, barcode scanner and calorie tracking</li>
+          <li>Cycle and habit tracking, plus the community</li>
+        </ul>
+        <a class="su-btn" href="https://join.shapeupwithgabby.co.uk/p/shape-up-membership-2/yearly">Join the Lifetime Team</a>
+        <small>Half the price of 12 months at £24.99</small>
       </article>
-      <article class="su-plan">
-        <div class="ph"><img src="images/img-19.webp" alt="" style="object-position:center 20%"></div>
-        <div class="bd">
-          <span class="term">Quarterly</span>
-          <div class="price"><b>£64.99</b><span>every 3 months · save 13%</span></div>
-          <span class="day">71p a day</span>
-          <a class="su-btn su-btn--ghost" href="https://join.shapeupwithgabby.co.uk/p/shape-up-membership/3-month">Start now</a>
-        </div>
-      </article>
-      <article class="su-plan su-plan--pop">
-        <span class="badge">Best value</span>
-        <div class="ph"><img src="images/img-18.webp" alt=""></div>
-        <div class="bd">
-          <span class="term">Annual</span>
-          <div class="price"><b>£199</b><span>per year · save 34%</span></div>
-          <span class="day">55p a day</span>
-          <a class="su-btn su-btn--ghost" href="https://join.shapeupwithgabby.co.uk/p/shape-up-membership-7-day-free-trial/yearly">Start free trial</a>
-        </div>
+      <article class="bf-plan">
+        <span class="term">Quarterly</span>
+        <h3>3 months</h3>
+        <div class="price"><s>£64.99</s><b>£49.99</b><span>every 3 months</span></div>
+        <span class="save">Save £15 every quarter</span>
+        <ul>
+          <li>The full Shape Up app, same as annual</li>
+          <li>Every programme and meal plan</li>
+          <li>About 55p a day</li>
+        </ul>
+        <a class="su-btn" href="https://join.shapeupwithgabby.co.uk/p/shape-up-membership-2/3-month">Get quarterly</a>
+        <small>Billed £49.99 every 3 months</small>
       </article>
     </div>
     <ul class="su-ticks">
-      <li>Cancel in two taps, no email or phone call</li><li>iOS &amp; Android</li>
+      <li>iOS &amp; Android</li><li>Gym and home plans</li><li>All abilities</li>
     </ul>
   </div>
 </section>
@@ -638,67 +750,65 @@ html,body{overflow-x:clip}
       <p class="su-meta">8 weeks · strength + cardio</p>
       <h3>Island Body V2</h3>
       <p>The revamped version of the best selling Island Body programme. Lower body focused strength training paired with cardio, with clear progressions so every week builds on the last.</p>
-      <span class="su-pcard-more">See programme →</span>
-      <a class="su-pcard-link" href="https://shapeupapp.co.uk/island-body-v2" aria-label="See Island Body V2"></a>
     </article>
     <article class="su-pcard">
       <div class="ph"><img src="images/img-44.webp" alt="Gabby in a strength pose" style="object-position:62% 55%"><span class="su-tag">New programme!</span></div>
       <p class="su-meta">8 weeks · strength focus</p>
       <h3>Strength Is Power</h3>
       <p>Eight weeks built around getting genuinely stronger, with progressive sessions centred on the big compound lifts and clear weekly targets.</p>
-      <span class="su-pcard-more">See programme →</span>
-      <a class="su-pcard-link" href="https://shapeupapp.co.uk/strength-is-power" aria-label="See Strength Is Power"></a>
     </article>
     <article class="su-pcard">
       <div class="ph"><img src="images/img-20.webp" alt="Shape Up members on a group trip"></div>
       <p class="su-meta">10 weeks · gym + home</p>
       <h3>HGS Summer Programme</h3>
       <p>Progressive training plus flexible nutrition, so you can actually enjoy the summer you're training for.</p>
-      <span class="su-pcard-more">See programme →</span>
-      <a class="su-pcard-link" href="https://shapeupapp.co.uk/hot-girl-summer" aria-label="See HGS Summer Programme"></a>
     </article>
     <article class="su-pcard">
       <div class="ph"><img src="images/img-21.webp" alt="Gabby in the gym with a barbell"></div>
       <p class="su-meta">28 days · 4 days a week</p>
       <h3>Shred in 28</h3>
       <p>Four weeks to get fitter, leaner and stronger, structured so every session builds on the last.</p>
-      <span class="su-pcard-more">See programme →</span>
-      <a class="su-pcard-link" href="https://shapeupapp.co.uk/shred-in-28" aria-label="See Shred in 28"></a>
     </article>
     <article class="su-pcard">
       <div class="ph"><img src="images/img-22.webp" alt="Gabby carrying a weighted pack" style="object-position:40% center"></div>
       <p class="su-meta">8 weeks · 4 day split</p>
       <h3>SAS: Strength &amp; Sustain</h3>
       <p>Heavy compound lifts and conditioning circuits, built to make strength a habit rather than a phase.</p>
-      <span class="su-pcard-more">See programme →</span>
-      <a class="su-pcard-link" href="https://shapeupapp.co.uk/sas-strength-and-sustain" aria-label="See SAS: Strength & Sustain"></a>
     </article>
     <article class="su-pcard">
       <div class="ph"><img src="images/img-23.webp" alt="Gabby holding dumbbells" style="object-position:center 20%"></div>
       <p class="su-meta">8 weeks · 4 day split</p>
       <h3>Glute Programme</h3>
       <p>Heavy compound lifts and conditioning circuits, built to make strength a habit rather than a phase.</p>
-      <span class="su-pcard-more">See programme →</span>
-      <a class="su-pcard-link" href="https://shapeupapp.co.uk/glute-programme" aria-label="See Glute Programme"></a>
     </article>
     <article class="su-pcard">
       <div class="ph"><img src="images/img-19.webp" alt="Gabby in training kit" style="object-position:center 20%"></div>
       <p class="su-meta">Reset + rebuild</p>
       <h3>Reset &amp; Shred</h3>
       <p>Reset your routine and get back on track, with structured training that builds week on week.</p>
-      <span class="su-pcard-more">See programme →</span>
-      <a class="su-pcard-link" href="https://shapeupapp.co.uk/reset-and-shred" aria-label="See Reset & Shred"></a>
     </article>
   </div>
   <div class="su-wrap">
-    <div class="su-oneoff-btn"><a class="su-btn su-btn--outline" href="one-off-programmes.html">Buy a one off programme</a></div>
     <div class="su-compare">
-      <p>All of these, plus every new programme we add, for <b>£24.99</b> a month.</p>
-      <a class="su-btn su-btn--yellow" href="#pricing">Start now</a>
+      <p>All of these, plus every new programme we add, for <b>£149</b> a year this Black Friday.</p>
+      <a class="su-btn su-btn--yellow" href="#pricing">Claim half price</a>
     </div>
 
   </div>
 </section>
+
+<div class="bf-strip">
+  <div class="su-wrap">
+    <p><b>Black Friday</b> · Lifetime Team £149 a year</p>
+    <div class="bf-timer" data-cd role="timer" aria-label="Time left on the Black Friday offer">
+  <div><b class="d">00</b><span>Days</span></div><i>:</i>
+  <div><b class="h">00</b><span>Hours</span></div><i>:</i>
+  <div><b class="m">00</b><span>Mins</span></div><i>:</i>
+  <div><b class="s">00</b><span>Secs</span></div>
+</div>
+    <a class="su-btn bf-btn" href="#pricing">Claim half price</a>
+  </div>
+</div>
 
 <!-- ===== RESULTS ===== -->
 <section class="su-results" id="results">
@@ -801,38 +911,38 @@ html,body{overflow-x:clip}
       <p class="su-eyebrow">FAQ</p>
       <h2 class="su-h2">Everything<strong>you'd ask</strong></h2>
       <p>Still unsure? Email <a href="mailto:support@shapeupwithgabby.co.uk">support@shapeupwithgabby.co.uk</a> and you'll hear back within a day.</p>
-      <a class="su-btn su-btn--yellow" href="#pricing">Start now</a>
-      <small>From £24.99 a month, cancel anytime.</small>
+      <a class="su-btn su-btn--yellow" href="#pricing">Claim the offer</a>
+      <small>Lifetime Team £149 a year · Quarterly £49.99 · ends Cyber Monday</small>
     </div>
     <div>
-      <details open><summary><span class="n">01</span>What exactly do I get for £24.99 a month?<span class="t">+</span></summary><p>Everything: all gym and home training plans, every class, nutrition guidance and meal ideas, the barcode scanner, calorie and macro tracking, habit and cycle trackers, the member community and the weekly live with Gabby. New content is added every month at no extra cost, and there is no higher tier to upgrade to.</p></details>
-      <details><summary><span class="n">02</span>Can I cancel whenever I want?<span class="t">+</span></summary><p>Yes. You can cancel in two taps inside the app, with no email or phone call needed.</p></details>
-      <details><summary><span class="n">03</span>I'm a complete beginner. Is this for me?<span class="t">+</span></summary><p>Yes. Every exercise has a demo video, sessions start from 20 minutes, and your suggested weights are based on what you actually lifted last week.</p></details>
-      <details><summary><span class="n">04</span>Do I need a gym membership?<span class="t">+</span></summary><p>No. Every plan comes with gym and home options, so you can train wherever suits you.</p></details>
-      <details><summary><span class="n">05</span>How much time do I need each week?<span class="t">+</span></summary><p>Plans run 3 to 5 days a week, with sessions from 20 minutes.</p></details>
-      <details><summary><span class="n">06</span>Membership or a one off programme, which should I pick?<span class="t">+</span></summary><p>A one off programme gets you just the plan you want. The membership includes every programme plus new content each month, and works out cheaper from month one.</p></details>
-      <details><summary><span class="n">07</span>Do I still need a separate food tracking app?<span class="t">+</span></summary><p>No. The barcode scanner, full UK food database and calorie and macro tracking are all built into Shape Up.</p></details>
-      <details><summary><span class="n">08</span>Will the plans work around my cycle?<span class="t">+</span></summary><p>Yes. Shape Up has a built-in cycle tracker, so you can log your cycle right alongside your workouts, habits and nutrition. Energy, strength and recovery can change through the month, so on lower energy days you can lighten the weights, swap to a home session or pick a gentler class, then push harder on the days you feel strong. Your plan stays on track, you just adjust how you train to suit how you feel.</p></details>
-      <details><summary><span class="n">09</span>What if I get stuck or need help?<span class="t">+</span></summary><p>Ask in the member community, join Gabby's weekly live, or email support@shapeupwithgabby.co.uk and you'll hear back within a day.</p></details>
+      <details open><summary><span class="n">01</span>How long is the Black Friday offer on?<span class="t">+</span></summary><p>Until midnight at the end of Cyber Monday, 30 November. When the timer hits zero, prices go back to normal.</p></details>
+      <details><summary><span class="n">02</span>What is the Lifetime Team?<span class="t">+</span></summary><p>It's the annual membership: a full year of Shape Up for £149, half the price of paying £24.99 a month for 12 months. That works out at about 41p a day.</p></details>
+      <details><summary><span class="n">03</span>What exactly do I get with the membership?<span class="t">+</span></summary><p>Everything: all gym and home training plans, every class, nutrition guidance and meal ideas, the barcode scanner, calorie and macro tracking, habit and cycle trackers, the member community and the weekly live with Gabby. New content is added every month at no extra cost, and there is no higher tier to upgrade to.</p></details>
+      <details><summary><span class="n">04</span>Can I cancel whenever I want?<span class="t">+</span></summary><p>Yes. You can cancel in two taps inside the app, with no email or phone call needed.</p></details>
+      <details><summary><span class="n">05</span>I'm a complete beginner. Is this for me?<span class="t">+</span></summary><p>Yes. Every exercise has a demo video, sessions start from 20 minutes, and your suggested weights are based on what you actually lifted last week.</p></details>
+      <details><summary><span class="n">06</span>Do I need a gym membership?<span class="t">+</span></summary><p>No. Every plan comes with gym and home options, so you can train wherever suits you.</p></details>
+      <details><summary><span class="n">07</span>How much time do I need each week?<span class="t">+</span></summary><p>Plans run 3 to 5 days a week, with sessions from 20 minutes.</p></details>
+      <details><summary><span class="n">08</span>Do I still need a separate food tracking app?<span class="t">+</span></summary><p>No. The barcode scanner, full UK food database and calorie and macro tracking are all built into Shape Up.</p></details>
+      <details><summary><span class="n">09</span>Will the plans work around my cycle?<span class="t">+</span></summary><p>Yes. Shape Up has a built-in cycle tracker, so you can log your cycle right alongside your workouts, habits and nutrition. Energy, strength and recovery can change through the month, so on lower energy days you can lighten the weights, swap to a home session or pick a gentler class, then push harder on the days you feel strong. Your plan stays on track, you just adjust how you train to suit how you feel.</p></details>
+      <details><summary><span class="n">10</span>What if I get stuck or need help?<span class="t">+</span></summary><p>Ask in the member community, join Gabby's weekly live, or email support@shapeupwithgabby.co.uk and you'll hear back within a day.</p></details>
     </div>
   </div>
 </section>
 
 <!-- ===== LEAD MAGNET ===== -->
 <svg class="su-wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true" style="margin-bottom:-1px"><path d="M0 40 C 300 -5, 700 0, 1050 45 S 1440 20, 1440 20 L1440 70 L0 70 Z" fill="#62BAF5"/></svg>
-<section class="su-lead">
-  <div class="su-wrap su-lead-grid">
-    <div>
-      <p class="su-eyebrow">Not ready to join yet?</p>
-      <h2 class="su-h2">Take the free<strong>starter guide</strong></h2>
-      <p>Gabby's 5 day starter plan plus a week of high protein meals, straight to your inbox. No spam, unsubscribe in one click.</p>
-    </div>
-    <form class="su-form" onsubmit="event.preventDefault();this.querySelector('button').textContent='Check your inbox';">
-      <label for="suEmail">Your email</label>
-      <input id="suEmail" type="email" placeholder="you@email.com" required>
-      <button class="su-btn su-btn--yellow" type="submit">Send me the guide</button>
-      <small>We'll never share your email. Unsubscribe in one click.</small>
-    </form>
+<section class="su-lead bf-final">
+  <div class="su-wrap">
+    <p class="su-eyebrow">Black Friday ends soon</p>
+    <h2 class="su-h2">Don't miss<strong>half price</strong></h2>
+    <p>The Lifetime Team is £149 for the whole year until midnight on Cyber Monday. After that, it's gone.</p>
+    <div class="bf-timer" data-cd role="timer" aria-label="Time left on the Black Friday offer">
+  <div><b class="d">00</b><span>Days</span></div><i>:</i>
+  <div><b class="h">00</b><span>Hours</span></div><i>:</i>
+  <div><b class="m">00</b><span>Mins</span></div><i>:</i>
+  <div><b class="s">00</b><span>Secs</span></div>
+</div>
+    <div><a class="su-btn" href="#pricing">Join the Lifetime Team</a></div>
   </div>
 </section>
 
@@ -898,6 +1008,41 @@ html,body{overflow-x:clip}
     window.scrollTo({top:s.getBoundingClientRect().top+window.pageYOffset-off,behavior:reduce?'auto':'smooth'});
     if(history.replaceState)history.replaceState(null,'','#pricing');
   })});
+})();
+</script>
+<div class="bf-toast" id="bfToast" role="status" aria-live="polite"><span class="ic" aria-hidden="true"></span><div><b></b><small></small></div><button type="button" aria-label="Close">×</button></div>
+<div class="bf-buybar" id="bfBuy"><div><b>Lifetime Team · £149/yr</b><span>Ends in <span data-cd-text>--</span></span></div><a class="su-btn" href="#pricing">50% off</a></div>
+<script>
+(function(){
+  var END=new Date('2026-12-01T00:00:00Z').getTime();
+  function pad(n){return (n<10?'0':'')+n}
+  function tick(){
+    var ms=Math.max(0,END-Date.now()),s=Math.floor(ms/1000),d=Math.floor(s/86400),h=Math.floor(s%86400/3600),m=Math.floor(s%3600/60),x=s%60;
+    document.querySelectorAll('[data-cd]').forEach(function(el){
+      el.querySelector('.d').textContent=pad(d);el.querySelector('.h').textContent=pad(h);el.querySelector('.m').textContent=pad(m);el.querySelector('.s').textContent=pad(x);
+      el.classList.toggle('ended',ms===0)});
+    document.querySelectorAll('[data-cd-text]').forEach(function(el){el.textContent=ms?(d+'d '+pad(h)+'h '+pad(m)+'m '+pad(x)+'s'):'Offer ended'});
+    if(!ms)clearInterval(iv);
+  }
+  var iv=setInterval(tick,1000);tick();
+  var bar=document.getElementById('bfBuy'),hero=document.querySelector('.bf-hero'),pr=document.getElementById('pricing');
+  function bb(){var past=hero.getBoundingClientRect().bottom<0,r=pr.getBoundingClientRect(),inP=r.top<innerHeight&&r.bottom>0;bar.classList.toggle('show',past&&!inP)}
+  addEventListener('scroll',bb,{passive:true});bb();
+  // offer reminders (bottom left)
+  var T=document.getElementById('bfToast'),ti=0,closed=false;
+  function left(){var ms=Math.max(0,END-Date.now()),s=Math.floor(ms/1000);return Math.floor(s/86400)+'d '+Math.floor(s%86400/3600)+'h '+Math.floor(s%3600/60)+'m left'}
+  var MSG=[
+    ['🔥','Lifetime Team is half price',function(){return '£149 for the whole year, was £299.88'}],
+    ['💪','Quarterly is £15 off',function(){return '£49.99 every 3 months, was £64.99'}],
+    ['⏰','Black Friday prices end Cyber Monday',left]
+  ];
+  function show(){
+    if(closed)return; var r=pr.getBoundingClientRect(); if(r.top<innerHeight&&r.bottom>0){setTimeout(show,3000);return}
+    var m=MSG[ti++%MSG.length];T.querySelector('.ic').textContent=m[0];T.querySelector('b').textContent=m[1];T.querySelector('small').textContent=m[2]();
+    T.classList.add('show');setTimeout(function(){T.classList.remove('show');setTimeout(show,3500)},6500);
+  }
+  T.querySelector('button').addEventListener('click',function(){closed=true;T.classList.remove('show')});
+  setTimeout(show,800);
 })();
 </script>
 </body>

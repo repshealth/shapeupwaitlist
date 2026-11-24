@@ -1,4 +1,7 @@
-"""Build black-friday-sale.html: the homepage (index.html) re-skinned as a Black Friday sales page.
+"""Build the Black Friday homepage from the standard homepage (homepage-standard.html).
+
+Writes index.html (the live homepage during the sale) and black-friday-sale.html (same page).
+After the sale, restore the normal homepage with:  cp homepage-standard.html index.html
 
 Run from the repo root:  python3 scripts/build_bf_home.py
 Edit the OFFER / END / CHECKOUT values below, then rebuild.
@@ -9,8 +12,9 @@ END = '2026-12-01T00:00:00Z'          # countdown end: midnight at the end of Cy
 CHECKOUT_ANNUAL = 'https://join.shapeupwithgabby.co.uk/p/shape-up-membership-2/yearly'
 CHECKOUT_QUARTER = 'https://join.shapeupwithgabby.co.uk/p/shape-up-membership-2/3-month'
 
-src = open('index.html').read()
+src = open('homepage-standard.html').read()
 t = src
+t = t.replace('<meta name="robots" content="noindex">\n', '')  # the standard copy is noindex; the live homepage must not be
 
 
 def rep(a, b, n=1):
@@ -38,7 +42,6 @@ TIMER = '''<div class="bf-timer" data-cd role="timer" aria-label="Time left on t
 t = re.sub(r'<title>[^<]*</title>', '<title>Black Friday: Half Price Annual Membership | Shape Up with Gabby</title>', t, count=1)
 t = re.sub(r'<meta name="description" content="[^"]*">',
            '<meta name="description" content="Black Friday at Shape Up with Gabby: the annual Lifetime Team membership is half price at £149 a year, about 41p a day. Quarterly is £49.99. Ends Cyber Monday.">', t, count=1)
-rep('<meta charset="utf-8">', '<meta charset="utf-8">\n<meta name="robots" content="noindex">')
 
 CSS = '''
 /* ===== BLACK FRIDAY LAYER ===== */
@@ -353,4 +356,5 @@ t = t[:i] + BAR + SCRIPT + t[i:]
 
 assert '£24.99 a month.</p>' not in t.split('<section class="su-faq"')[0]
 open('black-friday-sale.html', 'w').write(t)
-print('wrote black-friday-sale.html', len(t))
+open('index.html', 'w').write(t)
+print('wrote index.html and black-friday-sale.html', len(t))

@@ -17,3 +17,5 @@ Pre-registration page for upcoming Shape Up with Gabby programmes.
 - Programme sales pages, one per programme, all built by `scripts/build_sales.py` (edit the PAGES data there, then run `python3 scripts/build_sales.py .`):
   /island-body-v2, /strength-is-power, /hot-girl-summer, /shred-in-28, /sas-strength-and-sustain, /glute-programme, /reset-and-shred.
   The homepage programme cards and the all-programmes page (/one-off-programmes) link to these with full https://shapeupapp.co.uk/ URLs, so the WordPress copy of the homepage links here too.
+
+- Black Friday: `index.html` is currently the Black Friday sales page, built by `python3 scripts/build_bf_home.py` from `homepage-standard.html` (the normal homepage, kept noindex). To switch back after the sale: `cp homepage-standard.html index.html`, then remove the noindex line from index.html.
