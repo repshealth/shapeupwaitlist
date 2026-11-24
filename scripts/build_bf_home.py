@@ -189,7 +189,7 @@ HERO = f'''<!-- ===== HERO (Black Friday) ===== -->
       <h1><span class="l1">Shape Up's biggest ever sale</span><span class="l2">60% off the whole year</span></h1>
       <p class="lead"><strong>£119.99</strong> <s>£299.88</s> for 12 months of Shape Up, and keep the price for life.</p>
       <div class="bf-ctas">
-        <a class="su-btn bf-btn" href="#pricing">Claim 60% off</a>
+        <a class="su-btn bf-btn" href="{CHECKOUT_ANNUAL}">Claim 60% off</a>
         <a class="bf-link" href="#inside">See what's inside</a>
       </div>
     </div>
