@@ -427,7 +427,7 @@ html,body{overflow-x:clip}
 .bf-bar .tag{background:var(--su-yellow);color:var(--bf-ink);border-radius:999px;padding:3px 10px;font-weight:700}
 .bf-bar .cd{font-variant-numeric:tabular-nums;color:var(--su-yellow)}
 .bf-bar a{color:#fff;text-underline-offset:3px}
-.bf-hero{position:relative;overflow:hidden;color:#fff;padding:165px 0 0;
+.bf-hero{position:relative;overflow:hidden;color:#fff;padding:200px 0 0;
   background:radial-gradient(55% 60% at 78% 40%,rgba(98,186,245,.28) 0%,rgba(98,186,245,0) 70%),radial-gradient(40% 50% at 0% 100%,rgba(253,224,141,.14) 0%,rgba(253,224,141,0) 70%),var(--bf-ink)}
 .bf-word{position:absolute;left:50%;top:150px;transform:translateX(-50%);font-family:var(--su-head);font-weight:700;font-size:min(19vw,290px);line-height:.8;letter-spacing:-4px;white-space:nowrap;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.08);pointer-events:none;user-select:none}
 .bf-hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center}
@@ -456,8 +456,8 @@ html,body{overflow-x:clip}
 .bf-btn{background:var(--su-yellow);color:var(--bf-ink);padding:17px 34px;box-shadow:0 12px 30px rgba(253,224,141,.25)}
 .bf-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.6)}
 .bf-note{margin:14px 0 0;font-size:12.5px;color:rgba(255,255,255,.7)}
-.bf-art{position:relative;height:540px}
-.bf-art .gabby{position:absolute;left:50%;bottom:0;height:auto;width:100%;max-width:none;transform:translateX(-50%);filter:drop-shadow(0 24px 40px rgba(0,0,0,.5))}
+.bf-art{position:relative;height:640px}
+.bf-art .gabby{position:absolute;left:50%;bottom:0;height:100%;width:auto;max-width:none;transform:translateX(-50%);filter:drop-shadow(0 24px 40px rgba(0,0,0,.5))}
 .bf-art .gabby{-webkit-mask-image:linear-gradient(180deg,#000 82%,transparent 100%);mask-image:linear-gradient(180deg,#000 82%,transparent 100%)}
 .bf-art .glow{position:absolute;left:50%;top:8%;width:90%;aspect-ratio:1;transform:translateX(-50%);border-radius:50%;background:radial-gradient(closest-side,rgba(253,224,141,.35),rgba(98,186,245,.18) 55%,rgba(98,186,245,0) 100%);filter:blur(10px)}
 .bf-art .phone{position:absolute;right:-4%;bottom:40px;width:150px;border-radius:24px;border:5px solid #fff;overflow:hidden;box-shadow:0 20px 40px rgba(0,0,0,.4);transform:rotate(6deg)}
@@ -472,7 +472,7 @@ html,body{overflow-x:clip}
 .su-ticker.bf-ticker{margin-top:-128px;height:110px;margin-bottom:-24px;z-index:5}
 .bf-ticker .su-ticker-band{background:var(--su-yellow)}
 .bf-ticker .su-ticker-track span,.bf-ticker .su-ticker-track b,.bf-ticker .su-ticker-track .spark{color:var(--bf-ink)}
-.bf-art{margin-bottom:-70px}
+.bf-art{margin-bottom:-60px}
 
 .bf-pricing{background:var(--bf-ink);color:#fff;padding:90px 0 100px;text-align:center}
 .bf-pricing .su-eyebrow{color:var(--su-yellow)}
@@ -523,6 +523,18 @@ html,body{overflow-x:clip}
 .bf-toast small{display:block;color:#666;font-size:11.5px;margin-top:2px;font-variant-numeric:tabular-nums}
 .bf-toast button{position:absolute;top:6px;right:8px;border:0;background:none;font-size:16px;line-height:1;color:#999;cursor:pointer;padding:4px}
 .bf-buybar{display:none}
+@media (min-width:901px){
+  .bf-hero-grid{gap:60px}
+  .bf-hero .bf-tag{margin-bottom:8px}
+  .bf-hero h1{margin:26px 0 26px}
+  .bf-hero .lead{margin-bottom:30px}
+  .bf-hero .bf-timer{margin-bottom:34px}
+  .bf-ctas{gap:16px}
+  .bf-note{margin-top:20px}
+  .bf-sticker.s1{left:-6%;top:30%}
+  .bf-sticker.s2{right:0;top:4%}
+  .bf-art .phone{right:-8%;bottom:90px}
+}
 @media (max-width:900px){
   .bf-hero{padding-top:150px;text-align:center}
   .bf-hero-grid{grid-template-columns:1fr}
@@ -546,7 +558,7 @@ html,body{overflow-x:clip}
   .bf-timer b{font-size:26px}
   .bf-timer i{font-size:20px;padding-top:8px}
   .bf-ctas .su-btn{width:100%}
-  .bf-art{height:380px;margin:-40px auto -50px}
+  .bf-art{height:420px;margin:36px auto -50px}
   .bf-hero .bf-tag{margin-bottom:10px}
   .bf-hero h1{margin:22px 0 20px}
   .bf-hero .lead{margin:0 auto 26px}
@@ -617,7 +629,7 @@ html,body{overflow-x:clip}
     </div>
     <div class="bf-art" aria-hidden="true">
       <div class="glow"></div>
-      <img class="gabby" src="images/gabby-cutout-peach.webp" alt="">
+      <img class="gabby" src="images/gabby-cutout-full.webp" alt="">
       <div class="phone"><img src="images/img-12.webp" alt=""></div>
       <div class="bf-sticker s1"><b>£149</b><s>£299.88</s> a year</div>
       <div class="bf-sticker s2"><b>41p</b>a day</div>
@@ -743,7 +755,7 @@ html,body{overflow-x:clip}
           <li>Meal plans, barcode scanner and calorie tracking</li>
           <li>Cycle and habit tracking, plus the community</li>
         </ul>
-        <a class="su-btn" href="https://join.shapeupwithgabby.co.uk/p/shape-up-membership/yearly">Join the Lifetime Team</a>
+        <a class="su-btn" href="https://join.shapeupwithgabby.co.uk/p/shape-up-membership-2/yearly">Join the Lifetime Team</a>
         <small>Half the price of 12 months at £24.99</small>
       </article>
       <article class="bf-plan">
@@ -756,7 +768,7 @@ html,body{overflow-x:clip}
           <li>Every programme and meal plan</li>
           <li>About 55p a day</li>
         </ul>
-        <a class="su-btn" href="https://join.shapeupwithgabby.co.uk/p/shape-up-membership/3-month">Get quarterly</a>
+        <a class="su-btn" href="https://join.shapeupwithgabby.co.uk/p/shape-up-membership-2/3-month">Get quarterly</a>
         <small>Billed £49.99 every 3 months</small>
       </article>
     </div>
