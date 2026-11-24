@@ -420,6 +420,24 @@ a{color:inherit}
 }
 html,body{overflow-x:clip}
 
+
+/* fixes: footer mark, Meet Gabby photo, reviews */
+.su-bigmark{padding:28px 0 22px}
+.su-bigmark img{width:auto;height:48px;max-width:60%;opacity:1}
+.su-gabby-ph img{object-fit:cover;object-position:50% 14%;background:none}
+.su-reviews{grid-template-columns:repeat(2,1fr)}
+@media (min-width:641px) and (max-width:900px){
+  .su-gabby-grid{grid-template-columns:.85fr 1fr;gap:30px;align-items:center}
+  .su-gabby-ph img{height:440px;box-shadow:0 14px 34px rgba(0,0,0,.08)}
+  .su-foot-grid{grid-template-columns:1fr 1fr;gap:26px 30px}
+}
+@media (max-width:640px){
+  .su-gabby-ph{max-width:360px;margin:0 auto}
+  .su-bigmark img{height:36px}
+  .su-reviews{grid-template-columns:1fr}
+  .su-gabby-ph img{height:400px}
+}
+
 /* ===== BLACK FRIDAY LAYER ===== */
 :root{--bf-ink:#0d0d0d;--bf-ink2:#1a1a1a}
 .bf-bar{display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap;background:var(--su-yellow);color:var(--bf-ink);margin:-12px -24px 12px;padding:11px 16px;font-family:var(--su-head);font-size:16px;font-weight:600;letter-spacing:1px;text-transform:uppercase}
@@ -513,17 +531,26 @@ html,body{overflow-x:clip}
 .bf-toast small{display:block;color:#666;font-size:11.5px;margin-top:2px;font-variant-numeric:tabular-nums}
 .bf-toast button{position:absolute;top:6px;right:8px;border:0;background:none;font-size:16px;line-height:1;color:#999;cursor:pointer;padding:4px}
 .bf-buybar{display:none}
-@media (max-width:900px){
-  .bf-hero{padding-top:150px;text-align:center}
+@media (max-width:1100px){
+  .bf-hero{padding-top:160px;text-align:center}
   .bf-hero-grid{grid-template-columns:1fr;gap:0}
-  .bf-copy{padding-bottom:0}
+  .bf-copy{padding-bottom:0;max-width:680px;margin:0 auto;width:100%}
+  .bf-hero h1 .l1{max-width:none}
+  .bf-hero h1{text-align:center}
   .bf-kicker,.bf-price,.bf-ctas{justify-content:center}
-  .bf-hero .lead{margin:0 auto 26px}
-  .bf-art{height:440px;max-width:420px;width:100%;margin:40px auto -50px}
-  .bf-plans{grid-template-columns:1fr}
+  .bf-hero .lead{margin:0 auto 30px}
+  .bf-art{height:560px;max-width:480px;width:100%;margin:50px auto -50px}
+}
+@media (max-width:900px){
+  .bf-hero{padding-top:150px}
+  .bf-art{height:480px;max-width:420px;margin:40px auto -50px}
+  .bf-plans{grid-template-columns:1fr 1fr;gap:16px}
+  .bf-plan{padding:28px 22px}
+  .bf-plan .price b{font-size:50px}
   .bf-strip .su-wrap{justify-content:center;text-align:center}
 }
 @media (max-width:640px){
+  .bf-plans{grid-template-columns:1fr}
   .bf-hero{padding-top:140px}
   .bf-hero h1 .l1{font-size:clamp(42px,12.5vw,60px);max-width:none}
   .bf-kicker{flex-wrap:wrap;justify-content:center;gap:6px 10px;font-size:11px;letter-spacing:1.6px}
@@ -586,7 +613,7 @@ html,body{overflow-x:clip}
       </div>
     </div>
     <div class="bf-art" aria-hidden="true">
-      <img class="gabby" src="images/gabby-cutout-orange.webp" alt="">
+      <img class="gabby" src="images/gabby-cutout-gym.webp" alt="">
     </div>
   </div>
 </section>

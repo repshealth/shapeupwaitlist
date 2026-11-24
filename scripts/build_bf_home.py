@@ -137,17 +137,26 @@ CSS = '''
 .bf-toast small{display:block;color:#666;font-size:11.5px;margin-top:2px;font-variant-numeric:tabular-nums}
 .bf-toast button{position:absolute;top:6px;right:8px;border:0;background:none;font-size:16px;line-height:1;color:#999;cursor:pointer;padding:4px}
 .bf-buybar{display:none}
-@media (max-width:900px){
-  .bf-hero{padding-top:150px;text-align:center}
+@media (max-width:1100px){
+  .bf-hero{padding-top:160px;text-align:center}
   .bf-hero-grid{grid-template-columns:1fr;gap:0}
-  .bf-copy{padding-bottom:0}
+  .bf-copy{padding-bottom:0;max-width:680px;margin:0 auto;width:100%}
+  .bf-hero h1 .l1{max-width:none}
+  .bf-hero h1{text-align:center}
   .bf-kicker,.bf-price,.bf-ctas{justify-content:center}
-  .bf-hero .lead{margin:0 auto 26px}
-  .bf-art{height:440px;max-width:420px;width:100%;margin:40px auto -50px}
-  .bf-plans{grid-template-columns:1fr}
+  .bf-hero .lead{margin:0 auto 30px}
+  .bf-art{height:560px;max-width:480px;width:100%;margin:50px auto -50px}
+}
+@media (max-width:900px){
+  .bf-hero{padding-top:150px}
+  .bf-art{height:480px;max-width:420px;margin:40px auto -50px}
+  .bf-plans{grid-template-columns:1fr 1fr;gap:16px}
+  .bf-plan{padding:28px 22px}
+  .bf-plan .price b{font-size:50px}
   .bf-strip .su-wrap{justify-content:center;text-align:center}
 }
 @media (max-width:640px){
+  .bf-plans{grid-template-columns:1fr}
   .bf-hero{padding-top:140px}
   .bf-hero h1 .l1{font-size:clamp(42px,12.5vw,60px);max-width:none}
   .bf-kicker{flex-wrap:wrap;justify-content:center;gap:6px 10px;font-size:11px;letter-spacing:1.6px}
@@ -194,7 +203,7 @@ HERO = f'''<!-- ===== HERO (Black Friday) ===== -->
       </div>
     </div>
     <div class="bf-art" aria-hidden="true">
-      <img class="gabby" src="images/gabby-cutout-orange.webp" alt="">
+      <img class="gabby" src="images/gabby-cutout-gym.webp" alt="">
     </div>
   </div>
 </section>
