@@ -77,7 +77,8 @@ CSS = '''
 .bf-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.6)}
 .bf-note{margin:14px 0 0;font-size:12.5px;color:rgba(255,255,255,.7)}
 .bf-art{position:relative;height:540px}
-.bf-art .gabby{position:absolute;left:50%;bottom:0;height:auto;width:118%;max-width:none;transform:translateX(-50%);filter:drop-shadow(0 24px 40px rgba(0,0,0,.5))}
+.bf-art .gabby{position:absolute;left:50%;bottom:0;height:auto;width:100%;max-width:none;transform:translateX(-50%);filter:drop-shadow(0 24px 40px rgba(0,0,0,.5))}
+.bf-art .gabby{-webkit-mask-image:linear-gradient(180deg,#000 82%,transparent 100%);mask-image:linear-gradient(180deg,#000 82%,transparent 100%)}
 .bf-art .glow{position:absolute;left:50%;top:8%;width:90%;aspect-ratio:1;transform:translateX(-50%);border-radius:50%;background:radial-gradient(closest-side,rgba(253,224,141,.35),rgba(98,186,245,.18) 55%,rgba(98,186,245,0) 100%);filter:blur(10px)}
 .bf-art .phone{position:absolute;right:-4%;bottom:40px;width:150px;border-radius:24px;border:5px solid #fff;overflow:hidden;box-shadow:0 20px 40px rgba(0,0,0,.4);transform:rotate(6deg)}
 .bf-art .phone img{display:block;width:100%}
@@ -91,7 +92,7 @@ CSS = '''
 .su-ticker.bf-ticker{margin-top:-128px;height:110px;margin-bottom:-24px;z-index:5}
 .bf-ticker .su-ticker-band{background:var(--su-yellow)}
 .bf-ticker .su-ticker-track span,.bf-ticker .su-ticker-track b,.bf-ticker .su-ticker-track .spark{color:var(--bf-ink)}
-.bf-art{margin-bottom:-140px}
+.bf-art{margin-bottom:-70px}
 
 .bf-pricing{background:var(--bf-ink);color:#fff;padding:90px 0 100px;text-align:center}
 .bf-pricing .su-eyebrow{color:var(--su-yellow)}
@@ -165,7 +166,7 @@ CSS = '''
   .bf-timer b{font-size:26px}
   .bf-timer i{font-size:20px;padding-top:8px}
   .bf-ctas .su-btn{width:100%}
-  .bf-art{height:320px}
+  .bf-art{height:380px;margin-bottom:-50px}
   .bf-art .phone{display:none}
   .bf-sticker{padding:9px 12px;font-size:11px}
   .bf-sticker b{font-size:20px}
