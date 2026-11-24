@@ -173,7 +173,7 @@ t = t[:i] + CSS + t[i:]
 
 # ---------- header: announcement bar + CTA ----------
 rep('<header class="su-header">\n  <nav class="su-nav" aria-label="Main">',
-    '<header class="su-header">\n  <div class="bf-bar"><span class="t">Black Friday · 60% off annual</span><span class="cdw">Ends in <span class="cd" data-cd-text>--</span></span><a href="#pricing">Claim it →</a></div>\n  <nav class="su-nav" aria-label="Main">')
+    '<header class="su-header">\n  <div class="bf-bar"><span class="t">Black Friday · Up to 60% off</span><span class="cdw">Ends in <span class="cd" data-cd-text>--</span></span><a href="#pricing">Claim it →</a></div>\n  <nav class="su-nav" aria-label="Main">')
 rep('<a class="su-btn su-btn--yellow" href="#pricing">Start now</a>\n      <button class="su-burger"',
     '<a class="su-btn su-btn--yellow" href="#pricing">Get 60% off</a>\n      <button class="su-burger"')
 
@@ -183,7 +183,7 @@ HERO = f'''<!-- ===== HERO (Black Friday) ===== -->
   <div class="su-wrap bf-hero-grid">
     <div class="bf-copy">
       <h1><span class="l1">Shape Up's biggest ever sale</span><span class="l2">60% off the whole year</span></h1>
-      <p class="lead">The Lifetime Team, <strong>£119.99</strong> <s>£299.88</s> for 12 months of Shape Up.</p>
+      <p class="lead"><strong>£119.99</strong> <s>£299.88</s> for 12 months of Shape Up.</p>
       <div class="bf-ctas">
         <a class="su-btn bf-btn" href="#pricing">Claim 60% off</a>
         <a class="bf-link" href="#inside">See what's inside</a>
@@ -205,6 +205,8 @@ HERO = f'''<!-- ===== HERO (Black Friday) ===== -->
 '''
 cut('<!-- ===== HERO ===== -->', '<!-- ===== WHAT SHAPE UP IS ===== -->', HERO)
 
+rep('<p class="su-eyebrow">What Shape Up is</p>\n', '')
+
 # ---------- price mentions elsewhere ----------
 rep('<small>From £24.99 a month, cancel anytime</small>', '<small>Black Friday: £119.99 a year, about 33p a day</small>')
 rep('<p>All of these, plus every new programme we add, for <b>£24.99</b> a month.</p>',
@@ -215,7 +217,7 @@ PRICING = f'''<!-- ===== PRICING (Black Friday) ===== -->
 <svg class="su-wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true" style="margin-bottom:-1px"><path d="M0 70 C 400 -10, 1040 -10, 1440 70 Z" fill="#0d0d0d"/></svg>
 <section class="bf-pricing" id="pricing">
   <div class="su-wrap">
-    <p class="su-eyebrow">Black Friday prices</p>
+    <p class="su-eyebrow">Exclusive offer</p>
     <h2 class="su-h2">60% off.<br><strong>Full year.</strong></h2>
     <p class="lede">Same full app on both plans. When the timer hits zero, prices go back to normal.</p>
     {TIMER}
