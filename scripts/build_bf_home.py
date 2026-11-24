@@ -51,9 +51,12 @@ CSS = '''
   background:radial-gradient(55% 60% at 78% 40%,rgba(98,186,245,.28) 0%,rgba(98,186,245,0) 70%),radial-gradient(40% 50% at 0% 100%,rgba(253,224,141,.14) 0%,rgba(253,224,141,0) 70%),var(--bf-ink)}
 .bf-word{position:absolute;left:50%;top:150px;transform:translateX(-50%);font-family:var(--su-head);font-weight:700;font-size:min(19vw,290px);line-height:.8;letter-spacing:-4px;white-space:nowrap;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.08);pointer-events:none;user-select:none}
 .bf-hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center}
-.bf-tag{display:inline-flex;align-items:center;gap:10px;background:var(--su-yellow);color:var(--bf-ink);border-radius:999px;padding:7px 16px 7px 7px;font-size:11.5px;font-weight:700;letter-spacing:1.3px;text-transform:uppercase}
-.bf-tag b{background:var(--bf-ink);color:var(--su-yellow);border-radius:999px;padding:3px 10px}
-.bf-hero .su-rating{margin:0 10px 14px 0;color:var(--su-ink)}
+.bf-tag{display:inline-flex;align-items:stretch;transform:rotate(-2.5deg);font-family:var(--su-head);text-transform:uppercase;line-height:1;box-shadow:6px 6px 0 var(--su-blue)}
+.bf-tag b{background:var(--su-yellow);color:var(--bf-ink);font-size:26px;font-weight:700;padding:8px 12px 6px}
+.bf-tag{font-size:15px;font-weight:500;letter-spacing:1px;color:#fff}
+.bf-tag>span{display:flex;align-items:center;background:#fff;color:var(--bf-ink);padding:0 12px;font-weight:700}
+.bf-hero .su-rating{background:none;box-shadow:none;padding:0;margin:0 0 20px;color:rgba(255,255,255,.85);font-weight:500;font-size:13px}
+.bf-hero .su-rating .su-avatars img{border-color:var(--bf-ink)}
 .bf-hero h1{font-family:var(--su-head);text-transform:uppercase;margin:16px 0 16px;line-height:.86;letter-spacing:-1px}
 .bf-hero h1 .l1{display:block;font-weight:700;font-size:clamp(42px,5vw,72px)}
 .bf-hero h1 .l1 em{font-style:normal;color:transparent;-webkit-text-stroke:2px #fff}
@@ -191,7 +194,7 @@ HERO = f'''<!-- ===== HERO (Black Friday) ===== -->
         <span class="su-stars" aria-hidden="true">★★★★★</span>
         <span>48,000+ Reviews</span>
       </div>
-      <span class="bf-tag"><b>50% off</b>Black Friday sale</span>
+      <div><span class="bf-tag"><b>50% off</b><span>Black Friday sale</span></span></div>
       <h1><span class="l1"><em>Black</em> Friday</span><span class="l2">Half price<svg class="bf-scribble" viewBox="0 0 300 26" preserveAspectRatio="none" aria-hidden="true"><path d="M4 17 C 60 5, 120 25, 180 13 S 270 7, 296 15"/></svg></span></h1>
       <p class="lead">Join the <strong>Lifetime Team</strong> for <strong>£149 for the whole year</strong>. That's about 41p a day for every programme, every meal plan and 12,400 women training alongside you.</p>
       {TIMER}
