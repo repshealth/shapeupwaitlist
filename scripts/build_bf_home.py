@@ -166,11 +166,18 @@ CSS = '''
   .bf-timer b{font-size:26px}
   .bf-timer i{font-size:20px;padding-top:8px}
   .bf-ctas .su-btn{width:100%}
-  .bf-art{height:380px;margin-bottom:-50px}
+  .bf-art{height:380px;margin:-40px auto -50px}
+  .bf-hero .bf-tag{margin-bottom:10px}
+  .bf-hero h1{margin:22px 0 20px}
+  .bf-hero .lead{margin:0 auto 26px}
+  .bf-hero .bf-timer{margin-bottom:28px}
+  .bf-ctas{gap:14px}
+  .bf-note{margin-top:18px}
   .bf-art .phone{display:none}
   .bf-sticker{padding:9px 12px;font-size:11px}
   .bf-sticker b{font-size:20px}
   .bf-sticker.s1{left:0;top:30%}
+  .bf-sticker.s2{top:22%;right:4%}
   .bf-plan{padding:28px 20px}
   .bf-plan .price b{font-size:54px}
   .bf-toast{left:10px;right:10px;max-width:none;bottom:84px}
