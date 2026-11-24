@@ -275,9 +275,6 @@ PRICING = f'''<!-- ===== PRICING (Black Friday) ===== -->
         <small>Billed £49.99 every 3 months</small>
       </article>
     </div>
-    <ul class="su-ticks">
-      <li>iOS &amp; Android</li><li>Gym and home plans</li><li>All abilities</li>
-    </ul>
   </div>
 </section>
 
