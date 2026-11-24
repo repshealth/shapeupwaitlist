@@ -210,6 +210,7 @@ HERO = f'''<!-- ===== HERO (Black Friday) ===== -->
 cut('<!-- ===== HERO ===== -->', '<!-- ===== WHAT SHAPE UP IS ===== -->', HERO)
 
 rep('<p class="su-eyebrow">What Shape Up is</p>\n', '')
+rep('      <div class="note">Level 3 PT &amp; nutrition coach, coaching women for 6 years</div>\n', '')
 # remove the "Your health and fitness best friend" section (review comment)
 _s = t.index('<!-- ===== WHAT SHAPE UP IS ===== -->')
 _e = t.index('<!-- ===== FEATURES ===== -->', _s)
@@ -328,9 +329,9 @@ FINAL = f'''<section class="su-lead bf-final">
   <div class="su-wrap">
     <p class="su-eyebrow">Black Friday ends soon</p>
     <h2 class="su-h2">Don't miss<strong>60% off</strong></h2>
-    <p>The Lifetime Team is £119.99 for the whole year until midnight on Cyber Monday. After that, it's gone.</p>
+    <p>£119.99 for the whole year until midnight on Cyber Monday. After that, it's gone.</p>
     {TIMER}
-    <div><a class="su-btn" href="#pricing">Join the Lifetime Team</a></div>
+    <div><a class="su-btn" href="#pricing">Join now</a></div>
   </div>
 </section>
 
