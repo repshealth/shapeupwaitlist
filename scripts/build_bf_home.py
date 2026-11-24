@@ -206,6 +206,7 @@ HERO = f'''<!-- ===== HERO (Black Friday) ===== -->
 cut('<!-- ===== HERO ===== -->', '<!-- ===== WHAT SHAPE UP IS ===== -->', HERO)
 
 rep('<p class="su-eyebrow">What Shape Up is</p>\n', '')
+rep('      <p class="su-intro">This is the first full programme built inside the new app, and honestly that\'s the bit I\'m most excited about.</p>\n', '')
 
 # ---------- price mentions elsewhere ----------
 rep('<small>From £24.99 a month, cancel anytime</small>', '<small>Black Friday: £119.99 a year, about 33p a day</small>')
