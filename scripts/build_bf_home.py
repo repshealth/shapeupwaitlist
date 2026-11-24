@@ -190,7 +190,7 @@ HERO = f'''<!-- ===== HERO (Black Friday) ===== -->
       </div>
     </div>
     <div class="bf-art" aria-hidden="true">
-      <img class="gabby" src="images/gabby-cutout-full.webp" alt="">
+      <img class="gabby" src="images/gabby-cutout-orange.webp" alt="">
     </div>
   </div>
 </section>
