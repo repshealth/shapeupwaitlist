@@ -250,6 +250,7 @@ PRICING = f'''<!-- ===== PRICING (Black Friday) ===== -->
           <li>Custom workouts from Gabby &amp; the Shape Up team</li>
           <li>Meal plans, barcode scanner and calorie tracking</li>
           <li>Cycle and habit tracking, plus the community</li>
+          <li>Access to all of Gabby's new programmes &amp; challenges</li>
         </ul>
         <a class="su-btn" href="{CHECKOUT_ANNUAL}">Join now</a>
         <small>60% less than 12 months at £24.99</small>
