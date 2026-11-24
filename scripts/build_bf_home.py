@@ -135,6 +135,12 @@ CSS = '''
 .bf-final .bf-timer b{color:#fff}
 .bf-final .su-btn{background:var(--bf-ink);color:#fff}
 
+.bf-toast{position:fixed;left:18px;bottom:18px;z-index:70;display:flex;align-items:center;gap:12px;max-width:340px;background:#fff;color:var(--bf-ink);border-radius:14px;padding:12px 36px 12px 12px;box-shadow:0 14px 40px rgba(0,0,0,.25);border-left:5px solid var(--su-yellow);transform:translateY(160%);opacity:0;transition:transform .45s ease,opacity .45s ease;font-size:13px;line-height:1.35}
+.bf-toast.show{transform:none;opacity:1}
+.bf-toast .ic{flex:none;width:38px;height:38px;border-radius:10px;background:var(--bf-ink);color:var(--su-yellow);display:grid;place-items:center;font-size:18px}
+.bf-toast b{display:block;font-size:13.5px}
+.bf-toast small{display:block;color:#666;font-size:11.5px;margin-top:2px;font-variant-numeric:tabular-nums}
+.bf-toast button{position:absolute;top:6px;right:8px;border:0;background:none;font-size:16px;line-height:1;color:#999;cursor:pointer;padding:4px}
 .bf-buybar{display:none}
 @media (max-width:900px){
   .bf-hero{padding-top:150px;text-align:center}
@@ -166,13 +172,14 @@ CSS = '''
   .bf-sticker.s1{left:0;top:30%}
   .bf-plan{padding:28px 20px}
   .bf-plan .price b{font-size:54px}
+  .bf-toast{left:10px;right:10px;max-width:none;bottom:84px}
   .bf-buybar{display:flex;position:fixed;left:10px;right:10px;bottom:10px;z-index:60;align-items:center;justify-content:space-between;gap:10px;background:var(--bf-ink);color:#fff;border-radius:18px;padding:10px 10px 10px 16px;box-shadow:0 12px 30px rgba(0,0,0,.35);transform:translateY(140%);transition:transform .3s ease}
   .bf-buybar.show{transform:none}
   .bf-buybar b{display:block;font-size:13px}
   .bf-buybar span{font-size:11px;color:var(--su-yellow);font-variant-numeric:tabular-nums}
   .bf-buybar .su-btn{width:auto;display:inline-flex;padding:12px 16px;background:var(--su-yellow);color:var(--bf-ink);font-size:11.5px}
 }
-@media (prefers-reduced-motion:reduce){.bf-sticker{animation:none}.bf-scribble path{animation:none;stroke-dashoffset:0}}
+@media (prefers-reduced-motion:reduce){.bf-toast{transition:none}.bf-sticker{animation:none}.bf-scribble path{animation:none;stroke-dashoffset:0}}
 '''
 i = t.index('</style>')
 t = t[:i] + CSS + t[i:]
@@ -286,6 +293,16 @@ STRIP = f'''<div class="bf-strip">
 '''
 rep('<!-- ===== RESULTS ===== -->', STRIP + '<!-- ===== RESULTS ===== -->')
 
+# ---------- remove one-off programme exits ----------
+t, n = re.subn(r'\n\s*<span class="su-pcard-more">See programme →</span>\n\s*<a class="su-pcard-link"[^>]*></a>', '', t)
+assert n == 7, n
+rep('    <div class="su-oneoff-btn"><a class="su-btn su-btn--outline" href="one-off-programmes.html">Buy a one off programme</a></div>\n', '')
+cs = t.index('<div class="su-compare">')
+a = t.index('<a class="su-btn su-btn--yellow" href="#pricing">Start now</a>', cs)
+t = t[:a] + '<a class="su-btn su-btn--yellow" href="#pricing">Claim half price</a>' + t[a + len('<a class="su-btn su-btn--yellow" href="#pricing">Start now</a>'):]
+t, n = re.subn(r'\n\s*<details><summary><span class="n">\d\d</span>Membership or a one off programme[^\n]*</details>', '', t)
+assert n == 1, n
+
 # ---------- FAQ ----------
 rep('<small>From £24.99 a month, cancel anytime.</small>', '<small>Lifetime Team £149 a year · Quarterly £49.99 · ends Cyber Monday</small>')
 rep('What exactly do I get for £24.99 a month?', 'What exactly do I get with the membership?')
@@ -318,7 +335,8 @@ FINAL = f'''<section class="su-lead bf-final">
 cut('<section class="su-lead">', '<!-- ===== FOOTER ===== -->', FINAL)
 
 # ---------- mobile buy bar + countdown script ----------
-BAR = '''<div class="bf-buybar" id="bfBuy"><div><b>Lifetime Team · £149/yr</b><span>Ends in <span data-cd-text>--</span></span></div><a class="su-btn" href="#pricing">50% off</a></div>
+BAR = '''<div class="bf-toast" id="bfToast" role="status" aria-live="polite"><span class="ic" aria-hidden="true"></span><div><b></b><small></small></div><button type="button" aria-label="Close">×</button></div>
+<div class="bf-buybar" id="bfBuy"><div><b>Lifetime Team · £149/yr</b><span>Ends in <span data-cd-text>--</span></span></div><a class="su-btn" href="#pricing">50% off</a></div>
 '''
 SCRIPT = f'''<script>
 (function(){{
@@ -336,6 +354,23 @@ SCRIPT = f'''<script>
   var bar=document.getElementById('bfBuy'),hero=document.querySelector('.bf-hero'),pr=document.getElementById('pricing');
   function bb(){{var past=hero.getBoundingClientRect().bottom<0,r=pr.getBoundingClientRect(),inP=r.top<innerHeight&&r.bottom>0;bar.classList.toggle('show',past&&!inP)}}
   addEventListener('scroll',bb,{{passive:true}});bb();
+  // offer reminders (bottom left)
+  var T=document.getElementById('bfToast'),ti=0,closed=false;
+  function left(){{var ms=Math.max(0,END-Date.now()),s=Math.floor(ms/1000);return Math.floor(s/86400)+'d '+Math.floor(s%86400/3600)+'h '+Math.floor(s%3600/60)+'m left'}}
+  var MSG=[
+    ['🔥','Lifetime Team is half price',function(){{return '£149 for the year, was £299.88'}}],
+    ['⏰','Black Friday ends Cyber Monday',left],
+    ['💛','About 41p a day',function(){{return 'Every programme, meal plan and the community'}}],
+    ['💪','Quarterly is £15 off too',function(){{return '£49.99 every 3 months, was £64.99'}}],
+    ['✨','Island Body V2 + Strength Is Power',function(){{return 'Both included in the Lifetime Team'}}]
+  ];
+  function show(){{
+    if(closed)return; var r=pr.getBoundingClientRect(); if(r.top<innerHeight&&r.bottom>0){{setTimeout(show,4000);return}}
+    var m=MSG[ti++%MSG.length];T.querySelector('.ic').textContent=m[0];T.querySelector('b').textContent=m[1];T.querySelector('small').textContent=m[2]();
+    T.classList.add('show');setTimeout(function(){{T.classList.remove('show');setTimeout(show,9000)}},6000);
+  }}
+  T.querySelector('button').addEventListener('click',function(){{closed=true;T.classList.remove('show')}});
+  setTimeout(show,5000);
 }})();
 </script>
 '''
