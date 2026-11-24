@@ -39,9 +39,9 @@ TIMER = '''<div class="bf-timer" data-cd role="timer" aria-label="Time left on t
 </div>'''
 
 # ---------- head ----------
-t = re.sub(r'<title>[^<]*</title>', '<title>Black Friday: Half Price Annual Membership | Shape Up with Gabby</title>', t, count=1)
+t = re.sub(r'<title>[^<]*</title>', '<title>Black Friday: 60% Off Annual Membership | Shape Up with Gabby</title>', t, count=1)
 t = re.sub(r'<meta name="description" content="[^"]*">',
-           '<meta name="description" content="Black Friday at Shape Up with Gabby: the annual Lifetime Team membership is half price at £149 a year, about 41p a day. Quarterly is £49.99. Ends Cyber Monday.">', t, count=1)
+           '<meta name="description" content="Black Friday at Shape Up with Gabby: the annual Lifetime Team membership is 60% off at £119.99 a year, about 33p a day. Quarterly is £49.99. Ends Cyber Monday.">', t, count=1)
 
 CSS = '''
 /* ===== BLACK FRIDAY LAYER ===== */
@@ -173,19 +173,19 @@ t = t[:i] + CSS + t[i:]
 
 # ---------- header: announcement bar + CTA ----------
 rep('<header class="su-header">\n  <nav class="su-nav" aria-label="Main">',
-    '<header class="su-header">\n  <div class="bf-bar"><span class="t">Black Friday · Half price annual</span><span class="cdw">Ends in <span class="cd" data-cd-text>--</span></span><a href="#pricing">Claim it →</a></div>\n  <nav class="su-nav" aria-label="Main">')
+    '<header class="su-header">\n  <div class="bf-bar"><span class="t">Black Friday · 60% off annual</span><span class="cdw">Ends in <span class="cd" data-cd-text>--</span></span><a href="#pricing">Claim it →</a></div>\n  <nav class="su-nav" aria-label="Main">')
 rep('<a class="su-btn su-btn--yellow" href="#pricing">Start now</a>\n      <button class="su-burger"',
-    '<a class="su-btn su-btn--yellow" href="#pricing">Get 50% off</a>\n      <button class="su-burger"')
+    '<a class="su-btn su-btn--yellow" href="#pricing">Get 60% off</a>\n      <button class="su-burger"')
 
 # ---------- hero ----------
 HERO = f'''<!-- ===== HERO (Black Friday) ===== -->
 <section class="bf-hero" id="top">
   <div class="su-wrap bf-hero-grid">
     <div class="bf-copy">
-      <h1><span class="l1">Shape Up's biggest ever sale</span><span class="l2">Half price for the whole year</span></h1>
-      <p class="lead">The Lifetime Team, <strong>£149</strong> <s>£299.88</s> for 12 months of Shape Up.</p>
+      <h1><span class="l1">Shape Up's biggest ever sale</span><span class="l2">60% off the whole year</span></h1>
+      <p class="lead">The Lifetime Team, <strong>£119.99</strong> <s>£299.88</s> for 12 months of Shape Up.</p>
       <div class="bf-ctas">
-        <a class="su-btn bf-btn" href="#pricing">Claim half price</a>
+        <a class="su-btn bf-btn" href="#pricing">Claim 60% off</a>
         <a class="bf-link" href="#inside">See what's inside</a>
       </div>
     </div>
@@ -197,7 +197,7 @@ HERO = f'''<!-- ===== HERO (Black Friday) ===== -->
 <div class="su-ticker bf-ticker" aria-hidden="true">
     <div class="su-ticker-band">
       <div class="su-ticker-track">
-        {''.join('<span><b>Black Friday</b></span><span class="spark">✦</span><span><b>50% off</b> annual</span><span class="spark">✦</span><span><b>£149</b> a year</span><span class="spark">✦</span><span><b>41p</b> a day</span><span class="spark">✦</span><span><b>Ends</b> Cyber Monday</span><span class="spark">✦</span>' for _ in range(2))}
+        {''.join('<span><b>Black Friday</b></span><span class="spark">✦</span><span><b>60% off</b> annual</span><span class="spark">✦</span><span><b>£119.99</b> a year</span><span class="spark">✦</span><span><b>33p</b> a day</span><span class="spark">✦</span><span><b>Ends</b> Cyber Monday</span><span class="spark">✦</span>' for _ in range(2))}
       </div>
     </div>
 </div>
@@ -206,9 +206,9 @@ HERO = f'''<!-- ===== HERO (Black Friday) ===== -->
 cut('<!-- ===== HERO ===== -->', '<!-- ===== WHAT SHAPE UP IS ===== -->', HERO)
 
 # ---------- price mentions elsewhere ----------
-rep('<small>From £24.99 a month, cancel anytime</small>', '<small>Black Friday: £149 a year, about 41p a day</small>')
+rep('<small>From £24.99 a month, cancel anytime</small>', '<small>Black Friday: £119.99 a year, about 33p a day</small>')
 rep('<p>All of these, plus every new programme we add, for <b>£24.99</b> a month.</p>',
-    '<p>All of these, plus every new programme we add, for <b>£149</b> a year this Black Friday.</p>')
+    '<p>All of these, plus every new programme we add, for <b>£119.99</b> a year this Black Friday.</p>')
 
 # ---------- pricing ----------
 PRICING = f'''<!-- ===== PRICING (Black Friday) ===== -->
@@ -216,16 +216,16 @@ PRICING = f'''<!-- ===== PRICING (Black Friday) ===== -->
 <section class="bf-pricing" id="pricing">
   <div class="su-wrap">
     <p class="su-eyebrow">Black Friday prices</p>
-    <h2 class="su-h2">Half price.<br><strong>Full year.</strong></h2>
+    <h2 class="su-h2">60% off.<br><strong>Full year.</strong></h2>
     <p class="lede">Same full app on both plans. When the timer hits zero, prices go back to normal.</p>
     {TIMER}
     <div class="bf-plans">
       <article class="bf-plan bf-plan--main">
-        <span class="flag">Main offer · 50% off</span>
+        <span class="flag">Main offer · 60% off</span>
         <span class="term">Annual</span>
         <h3>The Lifetime Team</h3>
-        <div class="price"><s>£299.88</s><b>£149</b><span>a year</span></div>
-        <span class="save">That's about 41p a day</span>
+        <div class="price"><s>£299.88</s><b>£119.99</b><span>a year</span></div>
+        <span class="save">That's about 33p a day</span>
         <ul>
           <li>Every Shape Up programme, including Island Body V2 and Strength Is Power</li>
           <li>New content added every month</li>
@@ -233,7 +233,7 @@ PRICING = f'''<!-- ===== PRICING (Black Friday) ===== -->
           <li>Cycle and habit tracking, plus the community</li>
         </ul>
         <a class="su-btn" href="{CHECKOUT_ANNUAL}">Join the Lifetime Team</a>
-        <small>Half the price of 12 months at £24.99</small>
+        <small>60% less than 12 months at £24.99</small>
       </article>
       <article class="bf-plan">
         <span class="term">Quarterly</span>
@@ -263,9 +263,9 @@ t = t[:s] + PRICING + t[e:]
 # ---------- mid-page strip before results ----------
 STRIP = f'''<div class="bf-strip">
   <div class="su-wrap">
-    <p><b>Black Friday</b> · Lifetime Team £149 a year</p>
+    <p><b>Black Friday</b> · Lifetime Team £119.99 a year</p>
     {TIMER}
-    <a class="su-btn bf-btn" href="#pricing">Claim half price</a>
+    <a class="su-btn bf-btn" href="#pricing">Claim 60% off</a>
   </div>
 </div>
 
@@ -278,18 +278,18 @@ assert n == 7, n
 rep('    <div class="su-oneoff-btn"><a class="su-btn su-btn--outline" href="one-off-programmes.html">Buy a one off programme</a></div>\n', '')
 cs = t.index('<div class="su-compare">')
 a = t.index('<a class="su-btn su-btn--yellow" href="#pricing">Start now</a>', cs)
-t = t[:a] + '<a class="su-btn su-btn--yellow" href="#pricing">Claim half price</a>' + t[a + len('<a class="su-btn su-btn--yellow" href="#pricing">Start now</a>'):]
+t = t[:a] + '<a class="su-btn su-btn--yellow" href="#pricing">Claim 60% off</a>' + t[a + len('<a class="su-btn su-btn--yellow" href="#pricing">Start now</a>'):]
 t, n = re.subn(r'\n\s*<details><summary><span class="n">\d\d</span>Membership or a one off programme[^\n]*</details>', '', t)
 assert n == 1, n
 
 # ---------- FAQ ----------
-rep('<small>From £24.99 a month, cancel anytime.</small>', '<small>Lifetime Team £149 a year · Quarterly £49.99 · ends Cyber Monday</small>')
+rep('<small>From £24.99 a month, cancel anytime.</small>', '<small>Lifetime Team £119.99 a year · Quarterly £49.99 · ends Cyber Monday</small>')
 rep('What exactly do I get for £24.99 a month?', 'What exactly do I get with the membership?')
 faq_side = t.index('<div class="su-faq-side">')
 a = t.index('<a class="su-btn su-btn--yellow" href="#pricing">Start now</a>', faq_side)
 t = t[:a] + '<a class="su-btn su-btn--yellow" href="#pricing">Claim the offer</a>' + t[a + len('<a class="su-btn su-btn--yellow" href="#pricing">Start now</a>'):]
 NEW_FAQ = ('<details open><summary><span class="n">01</span>How long is the Black Friday offer on?<span class="t">+</span></summary><p>Until midnight at the end of Cyber Monday, 30 November. When the timer hits zero, prices go back to normal.</p></details>\n'
-           '      <details><summary><span class="n">02</span>What is the Lifetime Team?<span class="t">+</span></summary><p>It\'s the annual membership: a full year of Shape Up for £149, half the price of paying £24.99 a month for 12 months. That works out at about 41p a day.</p></details>\n      ')
+           '      <details><summary><span class="n">02</span>What is the Lifetime Team?<span class="t">+</span></summary><p>It\'s the annual membership: a full year of Shape Up for £119.99, 60% less than paying £24.99 a month for 12 months. That works out at about 33p a day.</p></details>\n      ')
 first = t.index('<details open><summary><span class="n">01</span>')
 t = t[:first] + NEW_FAQ + t[first:].replace('<details open><summary>', '<details><summary>', 1)
 fs = t.index('<section class="su-faq"'); fe = t.index('</section>', fs)
@@ -303,8 +303,8 @@ t = t[:fs] + seg + t[fe:]
 FINAL = f'''<section class="su-lead bf-final">
   <div class="su-wrap">
     <p class="su-eyebrow">Black Friday ends soon</p>
-    <h2 class="su-h2">Don't miss<strong>half price</strong></h2>
-    <p>The Lifetime Team is £149 for the whole year until midnight on Cyber Monday. After that, it's gone.</p>
+    <h2 class="su-h2">Don't miss<strong>60% off</strong></h2>
+    <p>The Lifetime Team is £119.99 for the whole year until midnight on Cyber Monday. After that, it's gone.</p>
     {TIMER}
     <div><a class="su-btn" href="#pricing">Join the Lifetime Team</a></div>
   </div>
@@ -315,7 +315,7 @@ cut('<section class="su-lead">', '<!-- ===== FOOTER ===== -->', FINAL)
 
 # ---------- mobile buy bar + countdown script ----------
 BAR = '''<div class="bf-toast" id="bfToast" role="status" aria-live="polite"><span class="ic" aria-hidden="true"></span><div><b></b><small></small></div><button type="button" aria-label="Close">×</button></div>
-<div class="bf-buybar" id="bfBuy"><div><b>Lifetime Team · £149/yr</b><span>Ends in <span data-cd-text>--</span></span></div><a class="su-btn" href="#pricing">50% off</a></div>
+<div class="bf-buybar" id="bfBuy"><div><b>Lifetime Team · £119.99/yr</b><span>Ends in <span data-cd-text>--</span></span></div><a class="su-btn" href="#pricing">60% off</a></div>
 '''
 SCRIPT = f'''<script>
 (function(){{
@@ -337,7 +337,7 @@ SCRIPT = f'''<script>
   var T=document.getElementById('bfToast'),ti=0,closed=false;
   function left(){{var ms=Math.max(0,END-Date.now()),s=Math.floor(ms/1000);return Math.floor(s/86400)+'d '+Math.floor(s%86400/3600)+'h '+Math.floor(s%3600/60)+'m left'}}
   var MSG=[
-    ['🔥','Lifetime Team is half price',function(){{return '£149 for the whole year, was £299.88'}}],
+    ['🔥','Lifetime Team is 60% off',function(){{return '£119.99 for the whole year, was £299.88'}}],
     ['💪','Quarterly is £15 off',function(){{return '£49.99 every 3 months, was £64.99'}}],
     ['⏰','Black Friday prices end Cyber Monday',left]
   ];
