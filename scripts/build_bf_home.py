@@ -43,10 +43,9 @@ rep('<meta charset="utf-8">', '<meta charset="utf-8">\n<meta name="robots" conte
 CSS = '''
 /* ===== BLACK FRIDAY LAYER ===== */
 :root{--bf-ink:#0d0d0d;--bf-ink2:#1a1a1a}
-.bf-bar{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;background:var(--bf-ink);color:#fff;margin:-12px -24px 12px;padding:9px 16px;font-size:12px;font-weight:600;letter-spacing:.6px;text-transform:uppercase}
-.bf-bar .tag{background:var(--su-yellow);color:var(--bf-ink);border-radius:999px;padding:3px 10px;font-weight:700}
-.bf-bar .cd{font-variant-numeric:tabular-nums;color:var(--su-yellow)}
-.bf-bar a{color:#fff;text-underline-offset:3px}
+.bf-bar{display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap;background:var(--su-yellow);color:var(--bf-ink);margin:-12px -24px 12px;padding:11px 16px;font-family:var(--su-head);font-size:16px;font-weight:600;letter-spacing:1px;text-transform:uppercase}
+.bf-bar .cd{font-variant-numeric:tabular-nums;font-weight:700}
+.bf-bar a{color:var(--bf-ink);text-decoration:none;font-weight:700}
 .bf-hero{position:relative;overflow:hidden;color:#fff;padding:190px 0 140px;background:radial-gradient(42% 60% at 74% 48%,rgba(253,224,141,.10) 0%,rgba(253,224,141,0) 70%),var(--bf-ink);clip-path:polygon(0 0,100% 0,100% calc(100% - 5.3vw - 40px),0 calc(100% - 40px))}
 .su-ticker.bf-ticker{margin-top:-128px;height:110px;margin-bottom:-24px;z-index:5}
 .bf-ticker .su-ticker-band{background:var(--su-yellow)}
@@ -54,13 +53,16 @@ CSS = '''
 
 /* Hero: clean editorial layout */
 .bf-hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:end}
-.bf-copy{padding-bottom:70px}
+.bf-copy{padding-bottom:120px}
 .bf-kicker{display:flex;align-items:center;gap:10px;margin:0 0 26px;font-size:12px;font-weight:600;letter-spacing:2.2px;text-transform:uppercase;color:rgba(255,255,255,.75)}
-.bf-kicker i{width:8px;height:8px;border-radius:50%;background:var(--su-yellow)}
+.bf-kicker b{color:var(--su-yellow);font-weight:700}
+.bf-kicker span{color:rgba(255,255,255,.3);font-weight:400}
+.bf-hero .lead s{color:rgba(255,255,255,.4);margin-left:4px}
+.bf-hero .lead strong{color:#fff}
 .bf-hero h1{font-family:var(--su-head);text-transform:uppercase;margin:0 0 24px;font-weight:700;line-height:.9;letter-spacing:-.5px}
 .bf-hero h1 .l1{display:block;font-size:clamp(64px,7.4vw,112px);color:var(--su-yellow);white-space:nowrap}
 .bf-hero h1 .l2{display:block;font-size:clamp(30px,3.4vw,50px);font-weight:400;color:#fff;letter-spacing:0;margin-top:6px}
-.bf-hero .lead{font-size:16px;line-height:1.65;color:rgba(255,255,255,.72);max-width:440px;margin:0 0 30px}
+.bf-hero .lead{font-size:17px;line-height:1.6;color:rgba(255,255,255,.72);max-width:460px;margin:0 0 36px}
 .bf-price{display:flex;align-items:flex-end;gap:16px;margin:0 0 30px}
 .bf-price b{font-family:var(--su-head);font-size:64px;line-height:.85;font-weight:700;color:#fff}
 .bf-price div{display:flex;flex-direction:column;gap:4px;font-size:13px;color:rgba(255,255,255,.65)}
@@ -140,7 +142,8 @@ CSS = '''
 }
 @media (max-width:640px){
   .bf-hero{padding-top:140px}
-  .bf-hero h1 .l1{font-size:clamp(56px,17vw,78px)}
+  .bf-hero h1 .l1{font-size:clamp(48px,15vw,72px);white-space:normal}
+  .bf-kicker{flex-wrap:wrap;justify-content:center;gap:6px 10px;font-size:11px;letter-spacing:1.6px}
   .bf-hero h1 .l2{font-size:clamp(24px,7.4vw,34px)}
   .bf-price b{font-size:54px}
   .bf-timer{gap:12px}
@@ -149,7 +152,7 @@ CSS = '''
   .bf-ctas{flex-direction:column;gap:18px}
   .bf-ctas .su-btn{width:100%}
   .bf-art{height:400px}
-  .bf-bar{margin:-10px -12px 10px;font-size:10.5px;gap:8px;padding:8px 10px}
+  .bf-bar{margin:-10px -12px 10px;font-size:13px;gap:4px 12px;padding:8px 10px}
   .bf-bar a{display:none}
   .bf-plan{padding:28px 20px}
   .bf-plan .price b{font-size:54px}
@@ -167,7 +170,7 @@ t = t[:i] + CSS + t[i:]
 
 # ---------- header: announcement bar + CTA ----------
 rep('<header class="su-header">\n  <nav class="su-nav" aria-label="Main">',
-    '<header class="su-header">\n  <div class="bf-bar"><span class="tag">Black Friday</span><span>Annual membership half price · £149</span><span>Ends in <span class="cd" data-cd-text>--</span></span><a href="#pricing">Claim it</a></div>\n  <nav class="su-nav" aria-label="Main">')
+    '<header class="su-header">\n  <div class="bf-bar"><span class="t">Black Friday · Half price annual</span><span class="cdw">Ends in <span class="cd" data-cd-text>--</span></span><a href="#pricing">Claim it →</a></div>\n  <nav class="su-nav" aria-label="Main">')
 rep('<a class="su-btn su-btn--yellow" href="#pricing">Start now</a>\n      <button class="su-burger"',
     '<a class="su-btn su-btn--yellow" href="#pricing">Get 50% off</a>\n      <button class="su-burger"')
 
@@ -176,11 +179,9 @@ HERO = f'''<!-- ===== HERO (Black Friday) ===== -->
 <section class="bf-hero" id="top">
   <div class="su-wrap bf-hero-grid">
     <div class="bf-copy">
-      <p class="bf-kicker"><i aria-hidden="true"></i>Black Friday · Ends Cyber Monday</p>
+      <p class="bf-kicker"><b>Black Friday offer</b><span aria-hidden="true">|</span>Ends Cyber Monday</p>
       <h1><span class="l1">Half price</span><span class="l2">for the whole year</span></h1>
-      <p class="lead">Join the Lifetime Team: every programme, every meal plan and 12,400 women training alongside you.</p>
-      <div class="bf-price"><b>£149</b><div><s>£299.88</s><span>a year · about 41p a day</span></div></div>
-      {TIMER}
+      <p class="lead">The Lifetime Team, <strong>£149</strong> <s>£299.88</s> for 12 months of Shape Up.</p>
       <div class="bf-ctas">
         <a class="su-btn bf-btn" href="#pricing">Claim half price</a>
         <a class="bf-link" href="#inside">See what's inside</a>
