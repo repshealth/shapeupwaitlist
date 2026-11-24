@@ -213,8 +213,16 @@ t, _n = re.subn(r'<span class="su-pill"><i aria-hidden="true">[^<]*</i>Injury Sy
 assert _n >= 1, _n
 rep('      <p class="su-intro">This is the first full programme built inside the new app, and honestly that\'s the bit I\'m most excited about.</p>\n', '')
 
+# remove the "Everything. One price." section (review comment); the app section takes over the #inside anchor
+_s = t.index('<section class="su-fx" id="inside">')
+_e = t.index('<!-- ===== INSIDE THE APP ===== -->', _s)
+t = t[:_s] + t[_e:]
+rep('<!-- ===== INSIDE THE APP ===== -->\n<section class="su-app">', '<!-- ===== INSIDE THE APP ===== -->\n<section class="su-app" id="inside">')
+_s = t.index("  // What's inside: desktop accordion + mobile tabs/swipe share one state")
+_e = t.index("  var tf=document.getElementById('suTfTrack')", _s)
+t = t[:_s] + t[_e:]
+
 # ---------- price mentions elsewhere ----------
-rep('<small>From £24.99 a month, cancel anytime</small>', '<small>Black Friday: £119.99 a year, about 33p a day</small>')
 rep('<p>All of these, plus every new programme we add, for <b>£24.99</b> a month.</p>',
     '<p>All of these, plus every new programme we add, for <b>£119.99</b> a year this Black Friday.</p>')
 

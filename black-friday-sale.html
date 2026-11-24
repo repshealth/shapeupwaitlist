@@ -616,45 +616,8 @@ html,body{overflow-x:clip}
 
 <!-- ===== FEATURES ===== -->
 <svg class="su-wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true" style="margin-bottom:-1px"><path d="M0 70 C 300 0, 700 -10, 1000 30 S 1440 40, 1440 30 L1440 70 Z" fill="#EAF4FE"/></svg>
-<section class="su-fx" id="inside">
-  <div class="su-wrap su-fx-grid">
-    <div>
-      <p class="su-eyebrow">What's inside the membership</p>
-      <h2 class="su-h2">Everything.<strong>One price.</strong></h2>
-      <p class="su-fx-intro">Six things you get from day one. Nothing is locked behind a higher tier, because there isn't one.</p>
-      <!-- Desktop: accordion list -->
-      <ul class="su-fx-list" id="suFxList">
-        <li class="su-fx-item on" data-i="0"><button aria-expanded="true"><span class="ic" aria-hidden="true">💪</span>Training that progresses<span class="pl" aria-hidden="true">+</span></button><p>Structured gym and home plans, 3–5 days a week, with sets, reps and suggested weights based on what you actually lifted last week.</p></li>
-        <li class="su-fx-item" data-i="1"><button aria-expanded="false"><span class="ic" aria-hidden="true">🥗</span>Nutrition without the faff<span class="pl" aria-hidden="true">+</span></button><p>Barcode scanner, full UK food database, calorie and macro targets set for you. Nothing is banned and there is no guilt attached.</p></li>
-        <li class="su-fx-item" data-i="2"><button aria-expanded="false"><span class="ic" aria-hidden="true">👯‍♀️</span>A community that shows up<span class="pl" aria-hidden="true">+</span></button><p>A supportive community of women training the same plans. Ask anything, someone has already been exactly where you are today.</p></li>
-        <li class="su-fx-item" data-i="3"><button aria-expanded="false"><span class="ic" aria-hidden="true">🎥</span>Classes for every kind of week<span class="pl" aria-hidden="true">+</span></button><p>Strength, lower body, HIIT, low impact, pilates and core from 20 minutes up, on demand, with a weekly live from Gabby.</p></li>
-        <li class="su-fx-item" data-i="4"><button aria-expanded="false"><span class="ic" aria-hidden="true">🩷</span>Habit &amp; cycle tracking<span class="pl" aria-hidden="true">+</span></button><p>Train with your cycle, not against it. Water, steps, sleep and protein in one dashboard, with streaks that don't punish a missed day.</p></li>
-        <li class="su-fx-item" data-i="5"><button aria-expanded="false"><span class="ic" aria-hidden="true">✨</span>New content every month<span class="pl" aria-hidden="true">+</span></button><p>Fresh plans, classes and challenges added monthly at no extra cost, so month twelve looks nothing like month one.</p></li>
-      </ul>
-      <!-- Mobile: tabs + compact panel -->
-      <div class="su-fx-tabs" role="tablist" id="suFxTabs"><button class="su-fx-tab on" data-i="0" role="tab" aria-selected="true"><span aria-hidden="true">💪</span> Training</button><button class="su-fx-tab" data-i="1" role="tab" aria-selected="false"><span aria-hidden="true">🥗</span> Nutrition</button><button class="su-fx-tab" data-i="2" role="tab" aria-selected="false"><span aria-hidden="true">👯‍♀️</span> Community</button><button class="su-fx-tab" data-i="3" role="tab" aria-selected="false"><span aria-hidden="true">🎥</span> Classes</button><button class="su-fx-tab" data-i="4" role="tab" aria-selected="false"><span aria-hidden="true">🩷</span> Habits &amp; cycle</button><button class="su-fx-tab" data-i="5" role="tab" aria-selected="false"><span aria-hidden="true">✨</span> New content</button></div>
-      <div class="su-fx-panel" id="suFxPanel">
-        <div class="su-phone"><img id="suFxImgM" src="images/img-15.webp" alt="Shape Up app screen"></div>
-        <div class="txt">
-          <span class="count" id="suFxCount">1 / 6</span>
-          <h3 id="suFxTitle">Training that progresses</h3>
-          <p id="suFxText">Structured gym and home plans, 3–5 days a week, with sets, reps and suggested weights based on what you actually lifted last week.</p>
-          <span class="hint">Swipe for more</span>
-        </div>
-      </div>
-      <div class="su-fx-cta"><a class="su-btn su-btn--blue" href="#pricing">Start now</a><small>Black Friday: £119.99 a year, about 33p a day</small></div>
-    </div>
-    <div class="su-fx-stage">
-      <div class="su-fx-chip c1"><span aria-hidden="true">⭐</span>48,000+ reviews</div>
-      <div class="su-phone"><img id="suFxImg" src="images/img-15.webp" alt="Shape Up app screen"></div>
-      <div class="su-fx-chip c2"><span aria-hidden="true">👯‍♀️</span>12,400 women training</div>
-    </div>
-  </div>
-</section>
-<script>window.SU_FX_IMGS=['images/img-15.webp','images/img-16.webp','images/img-14.webp','images/img-12.webp','images/img-13.webp','images/img-17.webp'];</script>
-
 <!-- ===== INSIDE THE APP ===== -->
-<section class="su-app">
+<section class="su-app" id="inside">
   <div class="su-wrap">
     <div class="su-head-row">
       <div>
@@ -974,26 +937,6 @@ html,body{overflow-x:clip}
   function upd(){arr[0].disabled=tr.scrollLeft<5;arr[1].disabled=tr.scrollLeft+tr.clientWidth>=tr.scrollWidth-5}
   arr.forEach(function(a){a.addEventListener('click',function(){var c=tr.querySelector('.su-pcard');tr.scrollBy({left:(c.offsetWidth+20)*a.dataset.dir})})});
   tr.addEventListener('scroll',upd);window.addEventListener('resize',upd);upd();
-  // What's inside: desktop accordion + mobile tabs/swipe share one state
-  var fxItems=document.querySelectorAll('#suFxList .su-fx-item'),fxTabs=document.querySelectorAll('#suFxTabs .su-fx-tab'),
-      fxImg=document.getElementById('suFxImg'),fxImgM=document.getElementById('suFxImgM'),
-      fxT=document.getElementById('suFxTitle'),fxP=document.getElementById('suFxText'),fxC=document.getElementById('suFxCount'),cur=0;
-  function fxSet(i){
-    cur=(i+6)%6;
-    fxItems.forEach(function(li,k){li.classList.toggle('on',k===cur);li.querySelector('button').setAttribute('aria-expanded',k===cur)});
-    fxTabs.forEach(function(b,k){b.classList.toggle('on',k===cur);b.setAttribute('aria-selected',k===cur)});
-    fxTabs[cur].scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'});
-    var li=fxItems[cur];
-    fxT.innerHTML=li.querySelector('button').childNodes[1].textContent;
-    fxP.textContent=li.querySelector('p').textContent;
-    fxC.textContent=(cur+1)+' / 6';
-    [fxImg,fxImgM].forEach(function(im){im.style.opacity=0;setTimeout(function(){im.src=window.SU_FX_IMGS[cur];im.style.opacity=1},160)});
-  }
-  fxItems.forEach(function(li,k){li.querySelector('button').addEventListener('click',function(){fxSet(k)})});
-  fxTabs.forEach(function(b,k){b.addEventListener('click',function(){fxSet(k)})});
-  var panel=document.getElementById('suFxPanel'),sx=null;
-  panel.addEventListener('touchstart',function(e){sx=e.touches[0].clientX},{passive:true});
-  panel.addEventListener('touchend',function(e){if(sx===null)return;var dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40)fxSet(cur+(dx<0?1:-1));sx=null});
   var tf=document.getElementById('suTfTrack'),ta=document.querySelectorAll('.su-tf-arrow');
   function tfu(){ta[0].disabled=tf.scrollLeft<5;ta[1].disabled=tf.scrollLeft+tf.clientWidth>=tf.scrollWidth-5}
   ta.forEach(function(a){a.addEventListener('click',function(){tf.scrollBy({left:(tf.querySelector('.su-tf').offsetWidth+14)*a.dataset.dir})})});
