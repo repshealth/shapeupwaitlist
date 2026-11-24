@@ -431,7 +431,7 @@ html,body{overflow-x:clip}
   background:radial-gradient(55% 60% at 78% 40%,rgba(98,186,245,.28) 0%,rgba(98,186,245,0) 70%),radial-gradient(40% 50% at 0% 100%,rgba(253,224,141,.14) 0%,rgba(253,224,141,0) 70%),var(--bf-ink)}
 .bf-word{position:absolute;left:50%;top:150px;transform:translateX(-50%);font-family:var(--su-head);font-weight:700;font-size:min(19vw,290px);line-height:.8;letter-spacing:-4px;white-space:nowrap;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.08);pointer-events:none;user-select:none}
 .bf-hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center}
-.bf-tag{display:inline-flex;align-items:stretch;transform:rotate(-2.5deg);font-family:var(--su-head);text-transform:uppercase;line-height:1;box-shadow:6px 6px 0 var(--su-blue)}
+.bf-tag{display:inline-flex;align-items:stretch;transform:rotate(-2.5deg);margin-bottom:4px;font-family:var(--su-head);text-transform:uppercase;line-height:1;box-shadow:6px 6px 0 var(--su-blue)}
 .bf-tag b{background:var(--su-yellow);color:var(--bf-ink);font-size:26px;font-weight:700;padding:8px 12px 6px}
 .bf-tag{font-size:15px;font-weight:500;letter-spacing:1px;color:#fff}
 .bf-tag>span{display:flex;align-items:center;background:#fff;color:var(--bf-ink);padding:0 12px;font-weight:700}
@@ -468,10 +468,11 @@ html,body{overflow-x:clip}
 .bf-sticker.s1{left:-2%;top:22%;background:#fff;color:var(--bf-ink);transform:rotate(-5deg)}
 .bf-sticker.s2{right:2%;top:6%;background:var(--su-yellow);color:var(--bf-ink);animation-delay:-3s}
 @keyframes bfbob{50%{translate:0 -10px}}
-.bf-hero .su-ticker{margin-top:-40px}
-.bf-hero .su-ticker-band{background:var(--su-yellow)}
-.bf-hero .su-ticker-track span,.bf-hero .su-ticker-track b{color:var(--bf-ink)}
-.bf-hero .su-ticker-track .spark{color:var(--bf-ink)}
+.bf-hero{padding-bottom:140px;clip-path:polygon(0 0,100% 0,100% calc(100% - 5.3vw - 40px),0 calc(100% - 40px))}
+.su-ticker.bf-ticker{margin-top:-128px;height:110px;margin-bottom:-24px;z-index:5}
+.bf-ticker .su-ticker-band{background:var(--su-yellow)}
+.bf-ticker .su-ticker-track span,.bf-ticker .su-ticker-track b,.bf-ticker .su-ticker-track .spark{color:var(--bf-ink)}
+.bf-art{margin-bottom:-140px}
 
 .bf-pricing{background:var(--bf-ink);color:#fff;padding:90px 0 100px;text-align:center}
 .bf-pricing .su-eyebrow{color:var(--su-yellow)}
@@ -585,13 +586,8 @@ html,body{overflow-x:clip}
   <div class="bf-word" aria-hidden="true">BLACK FRIDAY</div>
   <div class="su-wrap bf-hero-grid">
     <div class="bf-copy">
-      <div class="su-rating">
-        <span class="su-avatars"><img src="images/img-02.webp" alt=""><img src="images/img-03.webp" alt=""><img src="images/img-04.webp" alt=""><img src="images/img-05.webp" alt=""></span>
-        <span class="su-stars" aria-hidden="true">★★★★★</span>
-        <span>48,000+ Reviews</span>
-      </div>
       <div><span class="bf-tag"><b>50% off</b><span>Black Friday sale</span></span></div>
-      <h1><span class="l1"><em>Black</em> Friday</span><span class="l2">Half price<svg class="bf-scribble" viewBox="0 0 300 26" preserveAspectRatio="none" aria-hidden="true"><path d="M4 17 C 60 5, 120 25, 180 13 S 270 7, 296 15"/></svg></span></h1>
+      <h1><span class="l1"><em>Black</em> Friday</span><span class="l2">Half price</span></h1>
       <p class="lead">Join the <strong>Lifetime Team</strong> for <strong>£149 for the whole year</strong>. That's about 41p a day for every programme, every meal plan and 12,400 women training alongside you.</p>
       <div class="bf-timer" data-cd role="timer" aria-label="Time left on the Black Friday offer">
   <div><b class="d">00</b><span>Days</span></div><i>:</i>
@@ -614,14 +610,14 @@ html,body{overflow-x:clip}
       <div class="bf-sticker s2"><b>41p</b>a day</div>
     </div>
   </div>
-  <div class="su-ticker" aria-hidden="true">
+</section>
+<div class="su-ticker bf-ticker" aria-hidden="true">
     <div class="su-ticker-band">
       <div class="su-ticker-track">
         <span><b>Black Friday</b></span><span class="spark">✦</span><span><b>50% off</b> annual</span><span class="spark">✦</span><span><b>£149</b> a year</span><span class="spark">✦</span><span><b>41p</b> a day</span><span class="spark">✦</span><span><b>Ends</b> Cyber Monday</span><span class="spark">✦</span><span><b>Black Friday</b></span><span class="spark">✦</span><span><b>50% off</b> annual</span><span class="spark">✦</span><span><b>£149</b> a year</span><span class="spark">✦</span><span><b>41p</b> a day</span><span class="spark">✦</span><span><b>Ends</b> Cyber Monday</span><span class="spark">✦</span>
       </div>
     </div>
-  </div>
-</section>
+</div>
 
 <!-- ===== WHAT SHAPE UP IS ===== -->
 <section class="su-about">
