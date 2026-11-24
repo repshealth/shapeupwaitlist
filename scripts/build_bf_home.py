@@ -210,6 +210,7 @@ HERO = f'''<!-- ===== HERO (Black Friday) ===== -->
 cut('<!-- ===== HERO ===== -->', '<!-- ===== WHAT SHAPE UP IS ===== -->', HERO)
 
 rep('<p class="su-eyebrow">What Shape Up is</p>\n', '')
+rep('<h2 class="su-h2">Everything you need,<strong>right there in your pocket.</strong></h2>', '<h2 class="su-h2">Everything you need<strong>to transform your body.</strong></h2>')
 rep('      <div class="note">Level 3 PT &amp; nutrition coach, coaching women for 6 years</div>\n', '')
 # remove the "Your health and fitness best friend" section (review comment)
 _s = t.index('<!-- ===== WHAT SHAPE UP IS ===== -->')
