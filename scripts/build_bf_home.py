@@ -179,7 +179,6 @@ HERO = f'''<!-- ===== HERO (Black Friday) ===== -->
 <section class="bf-hero" id="top">
   <div class="su-wrap bf-hero-grid">
     <div class="bf-copy">
-      <p class="bf-kicker"><b>Black Friday offer</b><span aria-hidden="true">|</span>Ends Cyber Monday</p>
       <h1><span class="l1">Half price</span><span class="l2">for the whole year</span></h1>
       <p class="lead">The Lifetime Team, <strong>£149</strong> <s>£299.88</s> for 12 months of Shape Up.</p>
       <div class="bf-ctas">
