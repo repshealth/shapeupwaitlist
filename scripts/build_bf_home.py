@@ -210,6 +210,10 @@ HERO = f'''<!-- ===== HERO (Black Friday) ===== -->
 cut('<!-- ===== HERO ===== -->', '<!-- ===== WHAT SHAPE UP IS ===== -->', HERO)
 
 rep('<p class="su-eyebrow">What Shape Up is</p>\n', '')
+# remove the "Your health and fitness best friend" section (review comment)
+_s = t.index('<!-- ===== WHAT SHAPE UP IS ===== -->')
+_e = t.index('<!-- ===== FEATURES ===== -->', _s)
+t = t[:_s] + t[_e:]
 # app feature pills (review comments)
 t = t.replace('<i aria-hidden="true">🥗</i>Meal Plan System</span>', '<i aria-hidden="true">🥗</i>Custom Meal Plans &amp; Recipes</span>')
 t = t.replace('<i aria-hidden="true">📋</i>Check-In System</span>', '<i aria-hidden="true">📋</i>Progress Reviews</span>')
@@ -218,7 +222,7 @@ assert _n >= 1, _n
 rep('      <p class="su-intro">This is the first full programme built inside the new app, and honestly that\'s the bit I\'m most excited about.</p>\n', '')
 
 # remove the "Everything. One price." section (review comment); the app section takes over the #inside anchor
-_s = t.index('<section class="su-fx" id="inside">')
+_s = t.index('<!-- ===== FEATURES ===== -->')  # includes the wave above the section
 _e = t.index('<!-- ===== INSIDE THE APP ===== -->', _s)
 t = t[:_s] + t[_e:]
 rep('<!-- ===== INSIDE THE APP ===== -->\n<section class="su-app">', '<!-- ===== INSIDE THE APP ===== -->\n<section class="su-app" id="inside">')
