@@ -222,8 +222,8 @@ PRICING = f'''<!-- ===== PRICING (Black Friday) ===== -->
     <div class="bf-plans">
       <article class="bf-plan bf-plan--main">
         <span class="flag">Main offer · 60% off</span>
-        <span class="term">Annual</span>
-        <h3>The Lifetime Team</h3>
+        <span class="term">Black Friday</span>
+        <h3>Annual Membership</h3>
         <div class="price"><s>£299.88</s><b>£119.99</b><span>a year</span></div>
         <span class="save">That's about 33p a day</span>
         <ul>
@@ -232,7 +232,7 @@ PRICING = f'''<!-- ===== PRICING (Black Friday) ===== -->
           <li>Meal plans, barcode scanner and calorie tracking</li>
           <li>Cycle and habit tracking, plus the community</li>
         </ul>
-        <a class="su-btn" href="{CHECKOUT_ANNUAL}">Join the Lifetime Team</a>
+        <a class="su-btn" href="{CHECKOUT_ANNUAL}">Join now</a>
         <small>60% less than 12 months at £24.99</small>
       </article>
       <article class="bf-plan">
