@@ -358,19 +358,17 @@ SCRIPT = f'''<script>
   var T=document.getElementById('bfToast'),ti=0,closed=false;
   function left(){{var ms=Math.max(0,END-Date.now()),s=Math.floor(ms/1000);return Math.floor(s/86400)+'d '+Math.floor(s%86400/3600)+'h '+Math.floor(s%3600/60)+'m left'}}
   var MSG=[
-    ['🔥','Lifetime Team is half price',function(){{return '£149 for the year, was £299.88'}}],
-    ['⏰','Black Friday ends Cyber Monday',left],
-    ['💛','About 41p a day',function(){{return 'Every programme, meal plan and the community'}}],
-    ['💪','Quarterly is £15 off too',function(){{return '£49.99 every 3 months, was £64.99'}}],
-    ['✨','Island Body V2 + Strength Is Power',function(){{return 'Both included in the Lifetime Team'}}]
+    ['🔥','Lifetime Team is half price',function(){{return '£149 for the whole year, was £299.88'}}],
+    ['💪','Quarterly is £15 off',function(){{return '£49.99 every 3 months, was £64.99'}}],
+    ['⏰','Black Friday prices end Cyber Monday',left]
   ];
   function show(){{
-    if(closed)return; var r=pr.getBoundingClientRect(); if(r.top<innerHeight&&r.bottom>0){{setTimeout(show,4000);return}}
+    if(closed)return; var r=pr.getBoundingClientRect(); if(r.top<innerHeight&&r.bottom>0){{setTimeout(show,3000);return}}
     var m=MSG[ti++%MSG.length];T.querySelector('.ic').textContent=m[0];T.querySelector('b').textContent=m[1];T.querySelector('small').textContent=m[2]();
-    T.classList.add('show');setTimeout(function(){{T.classList.remove('show');setTimeout(show,9000)}},6000);
+    T.classList.add('show');setTimeout(function(){{T.classList.remove('show');setTimeout(show,3500)}},6500);
   }}
   T.querySelector('button').addEventListener('click',function(){{closed=true;T.classList.remove('show')}});
-  setTimeout(show,5000);
+  setTimeout(show,800);
 }})();
 </script>
 '''
