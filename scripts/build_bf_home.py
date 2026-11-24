@@ -263,7 +263,7 @@ t = t[:s] + PRICING + t[e:]
 # ---------- mid-page strip before results ----------
 STRIP = f'''<div class="bf-strip">
   <div class="su-wrap">
-    <p><b>Black Friday</b> · Lifetime Team £119.99 a year</p>
+    <p><b>Black Friday</b> · 60% off</p>
     {TIMER}
     <a class="su-btn bf-btn" href="#pricing">Claim 60% off</a>
   </div>
