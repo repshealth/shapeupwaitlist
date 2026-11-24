@@ -92,6 +92,10 @@ CSS = '''
 .bf-pricing{background:var(--bf-ink);color:#fff;padding:90px 0 100px;text-align:center}
 .bf-pricing .su-eyebrow{color:var(--su-yellow)}
 .bf-pricing .su-h2 strong{color:var(--su-yellow)}
+.bf-excl{display:inline-block;margin:0 0 18px;background:var(--su-yellow);color:var(--bf-ink);font-family:var(--su-head);font-size:20px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:8px 18px;border-radius:6px}
+.bf-big{font-family:var(--su-head);text-transform:uppercase;font-weight:700;line-height:.88;letter-spacing:-1px;margin:0 0 22px;font-size:clamp(64px,9vw,140px);color:#fff}
+.bf-big strong{color:var(--su-yellow);font-weight:700}
+@media (max-width:640px){.bf-excl{font-size:16px}.bf-big{font-size:clamp(52px,16vw,76px)}}
 .bf-pricing .lede{max-width:560px;margin:0 auto 22px;color:rgba(255,255,255,.8)}
 .bf-plans{display:grid;grid-template-columns:1.25fr 1fr;gap:20px;max-width:920px;margin:30px auto 0;text-align:left;align-items:stretch}
 .bf-plan{position:relative;background:var(--bf-ink2);border:1px solid rgba(255,255,255,.14);border-radius:24px;padding:30px 28px;display:flex;flex-direction:column}
@@ -231,9 +235,9 @@ PRICING = f'''<!-- ===== PRICING (Black Friday) ===== -->
 <svg class="su-wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true" style="margin-bottom:-1px"><path d="M0 70 C 400 -10, 1040 -10, 1440 70 Z" fill="#0d0d0d"/></svg>
 <section class="bf-pricing" id="pricing">
   <div class="su-wrap">
-    <p class="su-eyebrow">Exclusive offer</p>
-    <h2 class="su-h2">60% off.<br><strong>Full year.</strong></h2>
-    <p class="lede">Same full app on both plans. When the timer hits zero, prices go back to normal.</p>
+    <p class="bf-excl">Exclusive offer</p>
+    <h2 class="bf-big">60% off.<br><strong>Full year.</strong></h2>
+    <p class="lede">When the timer hits zero, prices go back to normal.</p>
     {TIMER}
     <div class="bf-plans">
       <article class="bf-plan bf-plan--main">
