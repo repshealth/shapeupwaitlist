@@ -206,6 +206,11 @@ HERO = f'''<!-- ===== HERO (Black Friday) ===== -->
 cut('<!-- ===== HERO ===== -->', '<!-- ===== WHAT SHAPE UP IS ===== -->', HERO)
 
 rep('<p class="su-eyebrow">What Shape Up is</p>\n', '')
+# app feature pills (review comments)
+t = t.replace('<i aria-hidden="true">🥗</i>Meal Plan System</span>', '<i aria-hidden="true">🥗</i>Custom Meal Plans &amp; Recipes</span>')
+t = t.replace('<i aria-hidden="true">📋</i>Check-In System</span>', '<i aria-hidden="true">📋</i>Progress Reviews</span>')
+t, _n = re.subn(r'<span class="su-pill"><i aria-hidden="true">[^<]*</i>Injury System</span>', '', t)
+assert _n >= 1, _n
 rep('      <p class="su-intro">This is the first full programme built inside the new app, and honestly that\'s the bit I\'m most excited about.</p>\n', '')
 
 # ---------- price mentions elsewhere ----------
