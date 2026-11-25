@@ -691,8 +691,8 @@ def page(slug, p):
     return f'''<!DOCTYPE html>
 <html lang="en-GB">
 <head>
-{GA}<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta charset="utf-8">
+{GA}<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="{html.escape(p['desc'])}">
 <meta name="rating" content="general">
 <title>{e(p['title'])}</title>
