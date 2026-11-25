@@ -553,10 +553,11 @@ PHOTO_CSS = """
 @media (min-width:1101px) and (max-width:1440px){.bf-photo-bg{right:0;aspect-ratio:auto}}
 @media (min-width:1441px){.bf-photo-bg::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(270deg,#fff 0%,rgba(255,255,255,0) 14%)}}
 @media (max-width:1100px){
-  .bf-photo{padding-top:calc(min(120vw,600px) - 40px)}
-  .bf-photo-bg{left:0;right:0;bottom:auto;height:min(120vw,600px);aspect-ratio:auto}
+  .bf-photo{padding-top:calc(min(120vw,600px) + 70px)}
+  .bf-photo-bg{left:0;right:0;top:110px;bottom:auto;height:min(120vw,600px);aspect-ratio:auto}
   .bf-photo-bg::before{display:none}
-  .bf-photo-bg img{object-position:44% 40%}
+  .bf-photo-bg img{object-position:44% 30%}
+  .bf-photo-bg::before{display:none}
   .bf-photo-bg::after{background:linear-gradient(180deg,rgba(255,255,255,0) 0%,rgba(255,255,255,0) 62%,#fff 100%)}
   .bf-photo .su-hero-art{height:340px;max-width:420px;margin:24px auto 0}
   .bf-photo .su-hero-phone1{right:auto;left:calc(50% + 0px);top:30px;width:150px}
