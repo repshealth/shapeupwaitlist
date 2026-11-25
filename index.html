@@ -582,6 +582,77 @@ html,body{overflow-x:clip}
   .bf-buybar .su-btn{width:auto;display:inline-flex;padding:12px 16px;background:var(--su-yellow);color:var(--bf-ink);font-size:11.5px}
 }
 @media (prefers-reduced-motion:reduce){.bf-toast{transition:none}}
+
+/* ===== BRAND (light) THEME: overrides the dark Black Friday styles ===== */
+@keyframes bfPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
+@keyframes bfDot{0%{box-shadow:0 0 0 0 rgba(98,186,245,.7)}70%{box-shadow:0 0 0 10px rgba(98,186,245,0)}100%{box-shadow:0 0 0 0 rgba(98,186,245,0)}}
+@keyframes bfShine{0%{transform:translateX(-120%) skewX(-20deg)}60%,100%{transform:translateX(320%) skewX(-20deg)}}
+@keyframes bfSpinBorder{to{--bf-a:360deg}}
+@keyframes bfWiggle{0%,92%,100%{transform:rotate(-8deg) scale(1)}95%{transform:rotate(4deg) scale(1.08)}}
+@keyframes bfFloat{0%,100%{translate:0 0}50%{translate:0 -8px}}
+@property --bf-a{syntax:'<angle>';inherits:false;initial-value:0deg}
+
+.bf-pill{display:inline-flex;align-items:center;gap:10px;background:var(--su-ink);color:#fff;border-radius:999px;padding:9px 18px 9px 14px;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;text-decoration:none;margin-top:8px}
+.bf-pill b{color:var(--su-yellow);font-weight:700}
+.bf-pill .dot{width:9px;height:9px;border-radius:50%;background:var(--su-blue);animation:bfDot 1.8s infinite}
+.bf-lhero h1 .bf-hl{position:relative;display:inline-block;z-index:0}
+.bf-lhero h1 .bf-hl::after{content:"";position:absolute;left:-4px;right:-4px;bottom:4px;height:38%;background:var(--su-yellow);z-index:-1;border-radius:4px}
+.bf-shine{position:relative;overflow:hidden}
+.bf-shine::after{content:"";position:absolute;top:0;bottom:0;left:0;width:40%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);animation:bfShine 3.2s ease-in-out infinite}
+.bf-burst{position:absolute;z-index:4;right:4%;bottom:90px;width:118px;height:118px;border-radius:50%;background:var(--su-ink);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:var(--su-head);text-transform:uppercase;font-size:14px;line-height:1;letter-spacing:1px;box-shadow:0 0 0 6px var(--su-yellow),0 18px 40px rgba(0,0,0,.2);animation:bfWiggle 4s ease-in-out infinite}
+.bf-burst b{font-size:40px;color:var(--su-yellow);font-weight:700}
+
+
+.bf-pricing{background:linear-gradient(180deg,#fff 0%,var(--su-cream) 18%,var(--su-cream) 82%,#fff 100%);color:var(--su-ink);padding:90px 0 100px}
+.bf-excl{background:var(--su-ink);color:var(--su-yellow);animation:bfPulse 2.4s ease-in-out infinite}
+.bf-big{color:var(--su-ink)}
+.bf-big strong{color:var(--su-blue)}
+.bf-pricing .lede{color:var(--su-body)}
+.bf-pricing .bf-timer b{color:var(--su-ink)}
+.bf-pricing .bf-timer span{color:var(--su-muted)}
+.bf-pricing .bf-timer i{color:rgba(0,0,0,.2)}
+.bf-pricing .bf-timer>div{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:14px;padding:10px 12px 8px;min-width:64px;box-shadow:0 6px 16px rgba(0,0,0,.05)}
+
+.bf-plans{align-items:center}
+.bf-plan{background:#fff;color:var(--su-ink);border:1px solid rgba(0,0,0,.1);box-shadow:0 10px 30px rgba(0,0,0,.06)}
+.bf-plan:not(.bf-plan--main) .save{background:var(--su-blue-soft);color:var(--su-ink)}
+.bf-plan:not(.bf-plan--main) li::before{background-color:var(--su-blue)}
+.bf-plan:not(.bf-plan--main) .su-btn{background:var(--su-ink);color:#fff}
+.bf-plan small{color:var(--su-muted);opacity:1}
+
+/* the hero card: animated border, ribbon, gentle lift */
+.bf-plan--main{border:4px solid transparent;padding:38px 30px 30px;transform:scale(1.03);
+  background:linear-gradient(var(--su-yellow),var(--su-yellow)) padding-box,conic-gradient(from var(--bf-a),var(--su-blue),var(--su-ink),var(--su-yellow),var(--su-blue),var(--su-ink),var(--su-blue)) border-box;
+  animation:bfSpinBorder 4s linear infinite,bfFloat 5s ease-in-out infinite;
+  box-shadow:0 30px 60px rgba(98,186,245,.28),0 10px 24px rgba(0,0,0,.08)}
+.bf-plan--main .flag{background:var(--su-blue);color:#fff;border-color:#fff}
+.bf-plan--main .price b{animation:bfPulse 2.4s ease-in-out infinite;display:inline-block;transform-origin:left bottom}
+.bf-plan--main .save{background:var(--su-ink);color:var(--su-yellow)}
+.bf-ribbon{position:absolute;top:20px;right:-38px;transform:rotate(38deg);background:var(--su-ink);color:var(--su-yellow);font-family:var(--su-head);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;padding:5px 40px;overflow:hidden}
+.bf-plan--main{overflow:visible}
+.bf-plan--main .bf-ribbon-wrap{position:absolute;inset:0;overflow:hidden;border-radius:24px;pointer-events:none}
+
+.bf-strip{background:var(--su-blue);color:#fff}
+.bf-strip p b{color:var(--su-ink)}
+.bf-strip .bf-timer b{color:#fff}
+.bf-strip .bf-timer span{color:rgba(255,255,255,.8)}
+.bf-strip .bf-timer i{color:rgba(255,255,255,.5)}
+.bf-strip .bf-btn{background:var(--su-yellow);color:var(--su-ink)}
+.bf-final .su-btn{background:var(--su-ink);color:#fff}
+.bf-buybar{background:var(--su-ink)}
+
+@media (max-width:900px){
+  .bf-plan--main{transform:none}
+  .bf-burst{width:92px;height:92px;bottom:60px;right:0}
+  .bf-burst b{font-size:30px}
+}
+@media (max-width:640px){
+  .bf-burst{width:80px;height:80px;font-size:11px;bottom:40px}
+  .bf-burst b{font-size:26px}
+  .bf-pill{font-size:10.5px;padding:8px 14px 8px 12px}
+  .bf-pricing .bf-timer>div{min-width:54px;padding:8px 6px}
+}
+@media (prefers-reduced-motion:reduce){.bf-plan--main,.bf-plan--main .price b,.bf-excl,.bf-burst,.bf-shine::after,.bf-pill .dot{animation:none}}
 </style>
 </head>
 <body>
@@ -609,28 +680,34 @@ html,body{overflow-x:clip}
   </div>
 </header>
 
-<!-- ===== HERO (Black Friday) ===== -->
-<section class="bf-hero" id="top">
-  <div class="su-wrap bf-hero-grid">
-    <div class="bf-copy">
-      <h1><span class="l1">Shape Up's biggest ever sale</span><span class="l2">Up to 60% off memberships</span></h1>
-      <div class="bf-ctas">
-        <a class="su-btn bf-btn" href="https://join.shapeupwithgabby.co.uk/p/shape-up-membership-2/yearly">Claim 60% off</a>
-        <a class="bf-link" href="#inside">See what's inside</a>
+<!-- ===== HERO (Black Friday, brand colours) ===== -->
+<section class="su-hero bf-lhero" id="top">
+  <div class="su-wrap su-hero-grid">
+    <div>
+      <a class="bf-pill" href="#pricing"><span class="dot" aria-hidden="true"></span><b>Black Friday</b> Up to 60% off</a>
+      <h1>Shape Up's biggest<br><span class="bf-hl">ever sale.</span></h1>
+      <p class="lead">Up to 60% off memberships. Training, nutrition and 12,400 women training alongside you, in one app.</p>
+      <div class="su-hero-ctas">
+        <a class="su-btn su-btn--blue bf-shine" href="https://join.shapeupwithgabby.co.uk/p/shape-up-membership-2/yearly">Claim 60% off</a>
+        <a class="su-btn su-btn--outline" href="#inside">See what's inside <span aria-hidden="true">↓</span></a>
       </div>
+      <div class="su-hero-note">Black Friday prices end Cyber Monday</div>
     </div>
-    <div class="bf-art" aria-hidden="true">
-      <img class="gabby" src="images/gabby-cutout-gym.webp" alt="">
+    <div class="su-hero-art">
+      <img class="su-hero-gabby" src="images/img-10.webp" alt="Gabby, founder of Shape Up">
+      <div class="su-phone su-hero-phone2"><img src="images/img-11.webp" alt="Shape Up meal plan screen"></div>
+      <div class="su-phone su-hero-phone1"><img src="images/img-12.webp" alt="Shape Up workout tracker screen"></div>
+      <div class="bf-burst" aria-hidden="true"><b>60%</b>off</div>
+    </div>
+  </div>
+  <div class="su-ticker" aria-hidden="true">
+    <div class="su-ticker-band">
+      <div class="su-ticker-track">
+        <span><b>Black Friday</b></span><span class="spark">✦</span><span><b>Up to 60%</b> off</span><span class="spark">✦</span><span><b>£119.99</b> a year</span><span class="spark">✦</span><span><b>33p</b> a day</span><span class="spark">✦</span><span><b>Ends</b> Cyber Monday</span><span class="spark">✦</span><span><b>Black Friday</b></span><span class="spark">✦</span><span><b>Up to 60%</b> off</span><span class="spark">✦</span><span><b>£119.99</b> a year</span><span class="spark">✦</span><span><b>33p</b> a day</span><span class="spark">✦</span><span><b>Ends</b> Cyber Monday</span><span class="spark">✦</span>
+      </div>
     </div>
   </div>
 </section>
-<div class="su-ticker bf-ticker" aria-hidden="true">
-    <div class="su-ticker-band">
-      <div class="su-ticker-track">
-        <span><b>Black Friday</b></span><span class="spark">✦</span><span><b>60% off</b> annual</span><span class="spark">✦</span><span><b>£119.99</b> a year</span><span class="spark">✦</span><span><b>33p</b> a day</span><span class="spark">✦</span><span><b>Ends</b> Cyber Monday</span><span class="spark">✦</span><span><b>Black Friday</b></span><span class="spark">✦</span><span><b>60% off</b> annual</span><span class="spark">✦</span><span><b>£119.99</b> a year</span><span class="spark">✦</span><span><b>33p</b> a day</span><span class="spark">✦</span><span><b>Ends</b> Cyber Monday</span><span class="spark">✦</span>
-      </div>
-    </div>
-</div>
 
 <!-- ===== INSIDE THE APP ===== -->
 <section class="su-app" id="inside">
@@ -657,7 +734,6 @@ html,body{overflow-x:clip}
 </section>
 
 <!-- ===== PRICING (Black Friday) ===== -->
-<svg class="su-wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true" style="margin-bottom:-1px"><path d="M0 70 C 400 -10, 1040 -10, 1440 70 Z" fill="#0d0d0d"/></svg>
 <section class="bf-pricing" id="pricing">
   <div class="su-wrap">
     <p class="bf-excl">Exclusive offer</p>
@@ -671,10 +747,11 @@ html,body{overflow-x:clip}
 </div>
     <div class="bf-plans">
       <article class="bf-plan bf-plan--main">
+        <span class="bf-ribbon-wrap" aria-hidden="true"><span class="bf-ribbon">Black Friday</span></span>
         <span class="flag">Best value</span>
         <h3>Annual Membership</h3>
         <div class="price"><s>£299.88</s><b>£119.99</b><span>a year</span></div>
-        <span class="save">That's about 33p a day</span>
+        <span class="save">60% off · about 33p a day</span>
         <ul>
           <li>Every Shape Up programme, including Island Body V2 and Strength Is Power</li>
           <li>Custom workouts from Gabby &amp; the Shape Up team</li>
@@ -682,7 +759,7 @@ html,body{overflow-x:clip}
           <li>Cycle and habit tracking, plus the community</li>
           <li>Access to all of Gabby's new programmes &amp; challenges</li>
         </ul>
-        <a class="su-btn" href="https://join.shapeupwithgabby.co.uk/p/shape-up-membership-2/yearly">Get 60% off</a>
+        <a class="su-btn bf-shine" href="https://join.shapeupwithgabby.co.uk/p/shape-up-membership-2/yearly">Get 60% off</a>
         <small>60% less than 12 months at £24.99</small>
       </article>
       <article class="bf-plan">
@@ -977,7 +1054,7 @@ html,body{overflow-x:clip}
     if(!ms)clearInterval(iv);
   }
   var iv=setInterval(tick,1000);tick();
-  var bar=document.getElementById('bfBuy'),hero=document.querySelector('.bf-hero'),pr=document.getElementById('pricing');
+  var bar=document.getElementById('bfBuy'),hero=document.getElementById('top'),pr=document.getElementById('pricing');
   function bb(){var past=hero.getBoundingClientRect().bottom<0,r=pr.getBoundingClientRect(),inP=r.top<innerHeight&&r.bottom>0;bar.classList.toggle('show',past&&!inP)}
   addEventListener('scroll',bb,{passive:true});bb();
   // offer reminders (bottom left)
