@@ -530,6 +530,42 @@ i = t.rindex('</body>')
 t = t[:i] + BAR + SCRIPT + t[i:]
 
 assert '£24.99 a month.</p>' not in t.split('<section class="su-faq"')[0]
-open('black-friday-sale.html', 'w').write(t)
 open('index.html', 'w').write(t)
+
+# ---------- TEST VARIANT (black-friday-sale.html only): full photo of Gabby behind the hero, phones on top ----------
+t2 = t
+t2 = t2.replace('<section class="su-hero bf-lhero" id="top">',
+  '<section class="su-hero bf-lhero bf-photo" id="top">\n  <div class="bf-photo-bg"><img src="images/bf-hero-gym.webp" srcset="images/bf-hero-gym-1200.webp 1200w, images/bf-hero-gym.webp 2048w" sizes="(max-width:1100px) 100vw, 1100px" alt="Gabby in the gym" fetchpriority="high"></div>', 1)
+t2 = t2.replace('      <img class="su-hero-gabby" src="images/img-10.webp" alt="Gabby, founder of Shape Up">\n', '', 1)
+PHOTO_CSS = """
+/* test: full photo hero */
+.bf-photo{background:#fff!important}
+.bf-photo .su-wrap{position:relative;z-index:2}
+.bf-photo .su-ticker{position:relative;z-index:3}
+.bf-photo-bg{position:absolute;top:0;left:calc(50% - 347px);bottom:60px;aspect-ratio:2048/1536;z-index:0;overflow:hidden}
+.bf-photo-bg img{display:block;width:100%;height:100%;object-fit:cover;object-position:44% 50%}
+.bf-photo-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#fff 0%,rgba(255,255,255,.88) 13%,rgba(255,255,255,0) 30%),linear-gradient(180deg,rgba(255,255,255,0) 70%,rgba(234,244,254,.9) 100%)}
+.bf-photo .su-hero-art{height:600px}
+.bf-photo .su-hero-phone1{left:auto;right:40px;top:120px;width:210px;transform:rotate(5deg)}
+.bf-photo .su-hero-phone2{left:auto;right:200px;top:190px;width:180px;transform:rotate(-6deg)}
+.bf-photo .su-phone{box-shadow:0 24px 50px rgba(20,60,100,.35)}
+.bf-photo .bf-burst{right:auto;left:62%;bottom:auto;top:60px}
+@media (min-width:1101px) and (max-width:1440px){.bf-photo-bg{right:0;aspect-ratio:auto}}
+@media (min-width:1441px){.bf-photo-bg::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(270deg,#fff 0%,rgba(255,255,255,0) 14%)}}
+@media (max-width:1100px){
+  .bf-photo{padding-top:calc(min(120vw,600px) - 40px)}
+  .bf-photo-bg{left:0;right:0;bottom:auto;height:min(120vw,600px);aspect-ratio:auto}
+  .bf-photo-bg::before{display:none}
+  .bf-photo-bg img{object-position:44% 40%}
+  .bf-photo-bg::after{background:linear-gradient(180deg,rgba(255,255,255,0) 0%,rgba(255,255,255,0) 62%,#fff 100%)}
+  .bf-photo .su-hero-art{height:340px;max-width:420px;margin:24px auto 0}
+  .bf-photo .su-hero-phone1{right:auto;left:calc(50% + 0px);top:30px;width:150px}
+  .bf-photo .su-hero-phone2{right:auto;left:calc(50% - 150px);top:60px;width:140px}
+  .bf-photo .bf-burst{left:auto;right:-6px;top:-10px;bottom:auto}
+}
+"""
+i2 = t2.index('</style>')
+t2 = t2[:i2] + PHOTO_CSS + t2[i2:]
+assert 'bf-photo-bg' in t2 and 'su-hero-gabby" src' not in t2.split('</style>')[-1].split('su-ticker')[0]
+open('black-friday-sale.html', 'w').write(t2)
 print('wrote index.html and black-friday-sale.html', len(t))
