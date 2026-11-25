@@ -318,6 +318,16 @@ _s = t.index("  // What's inside: desktop accordion + mobile tabs/swipe share on
 _e = t.index("  var tf=document.getElementById('suTfTrack')", _s)
 t = t[:_s] + t[_e:]
 
+# remove the "Inside the app" section (review); links that pointed at it now go to the programmes
+_s = t.index('<!-- ===== INSIDE THE APP ===== -->')
+_e = t.index('<!-- ===== PRICING', _s)
+t = t[:_s] + t[_e:]
+t = t.replace('<li><a href="#inside">What\'s Inside</a></li>', '<li><a href="#programmes">What\'s Inside</a></li>')
+t = t.replace('<a href="#inside">What\'s Inside</a>', '<a href="#programmes">What\'s Inside</a>')
+t = t.replace('href="#inside">See what\'s inside', 'href="#programmes">See what\'s inside')
+t = t.replace('<li><a href="#inside">What\'s inside</a></li><li><a href="#inside">Inside the app</a></li>', '<li><a href="#programmes">What\'s inside</a></li>')
+assert 'href="#inside"' not in t, re.findall(r'.{60}href="#inside".{40}', t)
+
 # ---------- price mentions elsewhere ----------
 rep('<p>All of these, plus every new programme we add, for <b>£24.99</b> a month.</p>',
     '<p>All of these, plus every new programme we add, for <b>£119.99</b> a year this Black Friday.</p>')
