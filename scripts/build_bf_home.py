@@ -41,7 +41,7 @@ TIMER = '''<div class="bf-timer" data-cd role="timer" aria-label="Time left on t
 # ---------- head ----------
 t = re.sub(r'<title>[^<]*</title>', '<title>Black Friday: 60% Off Annual Membership | Shape Up with Gabby</title>', t, count=1)
 t = re.sub(r'<meta name="description" content="[^"]*">',
-           '<meta name="description" content="Black Friday at Shape Up with Gabby: the annual Lifetime Team membership is 60% off at £119.99 a year, about 33p a day. Quarterly is £49.99. Ends Cyber Monday.">', t, count=1)
+           '<meta name="description" content="Black Friday at Shape Up with Gabby: the annual membership is 60% off at £119.99 a year, about 33p a day. Quarterly is £49.99. Ends Cyber Monday.">', t, count=1)
 
 CSS = '''
 /* ===== BLACK FRIDAY LAYER ===== */
@@ -251,6 +251,57 @@ CSS = '''
   .bf-pricing .bf-timer>div{min-width:54px;padding:8px 6px}
 }
 @media (prefers-reduced-motion:reduce){.bf-plan--main,.bf-plan--main .price b,.bf-excl,.bf-burst,.bf-shine::after,.bf-pill .dot{animation:none}}
+
+/* ===== theme: blue & white (yellow only as an accent on a couple of buttons) ===== */
+:root{--su-blue-deep:#2E8FD6;--su-sky:#EAF4FE;--su-sky2:#D6ECFD}
+.su-btn--yellow{background:var(--su-blue);color:#fff}
+.su-btn--outline{border-color:var(--su-blue);color:var(--su-blue-deep)}
+.su-burger{background:var(--su-blue)}
+.su-burger span{background:#fff;box-shadow:0 5px 0 #fff,0 -5px 0 #fff}
+.bf-bar{background:var(--su-blue);color:#fff}
+.bf-bar a{color:#fff}
+.su-hero,.bf-lhero{background:linear-gradient(180deg,#fff 0%,var(--su-sky) 100%)!important}
+.bf-pill{background:var(--su-blue);color:#fff}
+.bf-pill b{color:#fff}
+.bf-pill .dot{background:#fff}
+.bf-lhero h1 .bf-hl::after{background:var(--su-sky2)}
+.bf-burst{background:var(--su-blue);box-shadow:0 0 0 6px #fff,0 18px 40px rgba(46,143,214,.35)}
+.bf-burst b{color:#fff}
+.su-ticker::before{background:var(--su-sky2)}
+.bf-ticker .su-ticker-band{background:var(--su-blue)}
+.bf-ticker .su-ticker-track span,.bf-ticker .su-ticker-track b,.bf-ticker .su-ticker-track .spark{color:#fff}
+.bf-pricing{background:linear-gradient(180deg,#fff 0%,var(--su-sky) 18%,var(--su-sky) 82%,#fff 100%)}
+.bf-excl{background:var(--su-blue);color:#fff}
+.bf-plan--main{background:linear-gradient(#fff,#fff) padding-box,conic-gradient(from var(--bf-a),var(--su-blue),var(--su-sky2),var(--su-blue-deep),var(--su-blue),var(--su-sky2),var(--su-blue)) border-box;color:var(--su-ink)}
+.bf-plan--main .save{background:var(--su-blue);color:#fff}
+.bf-ribbon{background:var(--su-blue);color:#fff}
+.bf-plan li::before{background-color:var(--su-blue)!important;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' fill='none' stroke='%23fff' stroke-width='3'/%3E%3C/svg%3E")!important}
+.bf-plan--main .su-btn{background:var(--su-blue);color:#fff}
+.bf-plan:not(.bf-plan--main) .su-btn{background:#fff;color:var(--su-blue-deep);border:2px solid var(--su-blue)}
+.su-ticks li::before{background:var(--su-blue)}
+.su-tag{background:var(--su-blue);color:#fff}
+.su-arrow{border-color:var(--su-blue);color:var(--su-blue-deep)}
+.su-arrow:hover{background:var(--su-blue);color:#fff}
+.su-pcard-more{border-bottom-color:var(--su-blue)}
+.su-oneoff-btn .su-btn:hover{background:var(--su-blue);border-color:var(--su-blue);color:#fff}
+.su-story{background:var(--su-sky)}
+.lbl.b{background:#fff;color:var(--su-ink)}
+.su-gabby{background:linear-gradient(180deg,#fff 0%,var(--su-sky) 12%,var(--su-sky) 88%,#fff 100%)}
+.su-gabby-ph .note{background:var(--su-blue);color:#fff}
+.su-faq-side a{border-bottom-color:var(--su-blue)}
+.su-footer{background:var(--su-sky)}
+.bf-strip p b{color:#fff}
+.bf-final .su-btn{background:#fff;color:var(--su-blue-deep)}
+.bf-toast{border-left-color:var(--su-blue)}
+.bf-toast .ic{background:var(--su-sky);color:var(--su-blue)}
+.bf-buybar{background:var(--su-blue)}
+.bf-buybar span{color:#fff}
+.bf-buybar .su-btn{background:#fff;color:var(--su-blue-deep)}
+.su-ticker-track .spark{color:#fff}
+.su-story .stars,.su-review .stars,.su-stars{color:var(--su-blue)}
+.su-wave path[fill="#FDE08D"]{fill:var(--su-sky)}
+/* the yellow accents: only on blue backgrounds */
+.bf-strip .bf-btn,.su-compare .su-btn--yellow{background:var(--su-yellow);color:var(--su-ink)}
 '''
 i = t.index('</style>')
 t = t[:i] + CSS + t[i:]
@@ -402,13 +453,13 @@ t, n = re.subn(r'\n\s*<details><summary><span class="n">\d\d</span>Membership or
 assert n == 1, n
 
 # ---------- FAQ ----------
-rep('<small>From £24.99 a month, cancel anytime.</small>', '<small>Lifetime Team £119.99 a year · Quarterly £49.99 · ends Cyber Monday</small>')
+rep('<small>From £24.99 a month, cancel anytime.</small>', '<small>Annual £119.99 a year · Quarterly £49.99 · ends Cyber Monday</small>')
 rep('What exactly do I get for £24.99 a month?', 'What exactly do I get with the membership?')
 faq_side = t.index('<div class="su-faq-side">')
 a = t.index('<a class="su-btn su-btn--yellow" href="#pricing">Start now</a>', faq_side)
 t = t[:a] + '<a class="su-btn su-btn--yellow" href="#pricing">Claim the offer</a>' + t[a + len('<a class="su-btn su-btn--yellow" href="#pricing">Start now</a>'):]
 NEW_FAQ = ('<details open><summary><span class="n">01</span>How long is the Black Friday offer on?<span class="t">+</span></summary><p>Until midnight at the end of Cyber Monday, 30 November. When the timer hits zero, prices go back to normal.</p></details>\n'
-           '      <details><summary><span class="n">02</span>What is the Lifetime Team?<span class="t">+</span></summary><p>It\'s the annual membership: a full year of Shape Up for £119.99, 60% less than paying £24.99 a month for 12 months. That works out at about 33p a day.</p></details>\n      ')
+           '      <details><summary><span class="n">02</span>How does the annual offer work?<span class="t">+</span></summary><p>It\'s the annual membership: a full year of Shape Up for £119.99, 60% less than paying £24.99 a month for 12 months. That works out at about 33p a day.</p></details>\n      ')
 first = t.index('<details open><summary><span class="n">01</span>')
 t = t[:first] + NEW_FAQ + t[first:].replace('<details open><summary>', '<details><summary>', 1)
 fs = t.index('<section class="su-faq"'); fe = t.index('</section>', fs)
@@ -434,7 +485,7 @@ cut('<section class="su-lead">', '<!-- ===== FOOTER ===== -->', FINAL)
 
 # ---------- mobile buy bar + countdown script ----------
 BAR = '''<div class="bf-toast" id="bfToast" role="status" aria-live="polite"><span class="ic" aria-hidden="true"></span><div><b></b><small></small></div><button type="button" aria-label="Close">×</button></div>
-<div class="bf-buybar" id="bfBuy"><div><b>Lifetime Team · £119.99/yr</b><span>Ends in <span data-cd-text>--</span></span></div><a class="su-btn" href="#pricing">60% off</a></div>
+<div class="bf-buybar" id="bfBuy"><div><b>Annual · £119.99/yr</b><span>Ends in <span data-cd-text>--</span></span></div><a class="su-btn" href="#pricing">60% off</a></div>
 '''
 SCRIPT = f'''<script>
 (function(){{

@@ -37,7 +37,7 @@ src="https://www.facebook.com/tr?id=1394121145302064&ev=PageView&noscript=1"
     })(window, document, "clarity", "script", "zj3hmybd5e");
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Black Friday at Shape Up with Gabby: the annual Lifetime Team membership is 60% off at £119.99 a year, about 33p a day. Quarterly is £49.99. Ends Cyber Monday.">
+<meta name="description" content="Black Friday at Shape Up with Gabby: the annual membership is 60% off at £119.99 a year, about 33p a day. Quarterly is £49.99. Ends Cyber Monday.">
 <meta name="rating" content="general">
 <title>Black Friday: 60% Off Annual Membership | Shape Up with Gabby</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -659,6 +659,57 @@ html,body{overflow-x:clip}
   .bf-pricing .bf-timer>div{min-width:54px;padding:8px 6px}
 }
 @media (prefers-reduced-motion:reduce){.bf-plan--main,.bf-plan--main .price b,.bf-excl,.bf-burst,.bf-shine::after,.bf-pill .dot{animation:none}}
+
+/* ===== theme: blue & white (yellow only as an accent on a couple of buttons) ===== */
+:root{--su-blue-deep:#2E8FD6;--su-sky:#EAF4FE;--su-sky2:#D6ECFD}
+.su-btn--yellow{background:var(--su-blue);color:#fff}
+.su-btn--outline{border-color:var(--su-blue);color:var(--su-blue-deep)}
+.su-burger{background:var(--su-blue)}
+.su-burger span{background:#fff;box-shadow:0 5px 0 #fff,0 -5px 0 #fff}
+.bf-bar{background:var(--su-blue);color:#fff}
+.bf-bar a{color:#fff}
+.su-hero,.bf-lhero{background:linear-gradient(180deg,#fff 0%,var(--su-sky) 100%)!important}
+.bf-pill{background:var(--su-blue);color:#fff}
+.bf-pill b{color:#fff}
+.bf-pill .dot{background:#fff}
+.bf-lhero h1 .bf-hl::after{background:var(--su-sky2)}
+.bf-burst{background:var(--su-blue);box-shadow:0 0 0 6px #fff,0 18px 40px rgba(46,143,214,.35)}
+.bf-burst b{color:#fff}
+.su-ticker::before{background:var(--su-sky2)}
+.bf-ticker .su-ticker-band{background:var(--su-blue)}
+.bf-ticker .su-ticker-track span,.bf-ticker .su-ticker-track b,.bf-ticker .su-ticker-track .spark{color:#fff}
+.bf-pricing{background:linear-gradient(180deg,#fff 0%,var(--su-sky) 18%,var(--su-sky) 82%,#fff 100%)}
+.bf-excl{background:var(--su-blue);color:#fff}
+.bf-plan--main{background:linear-gradient(#fff,#fff) padding-box,conic-gradient(from var(--bf-a),var(--su-blue),var(--su-sky2),var(--su-blue-deep),var(--su-blue),var(--su-sky2),var(--su-blue)) border-box;color:var(--su-ink)}
+.bf-plan--main .save{background:var(--su-blue);color:#fff}
+.bf-ribbon{background:var(--su-blue);color:#fff}
+.bf-plan li::before{background-color:var(--su-blue)!important;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' fill='none' stroke='%23fff' stroke-width='3'/%3E%3C/svg%3E")!important}
+.bf-plan--main .su-btn{background:var(--su-blue);color:#fff}
+.bf-plan:not(.bf-plan--main) .su-btn{background:#fff;color:var(--su-blue-deep);border:2px solid var(--su-blue)}
+.su-ticks li::before{background:var(--su-blue)}
+.su-tag{background:var(--su-blue);color:#fff}
+.su-arrow{border-color:var(--su-blue);color:var(--su-blue-deep)}
+.su-arrow:hover{background:var(--su-blue);color:#fff}
+.su-pcard-more{border-bottom-color:var(--su-blue)}
+.su-oneoff-btn .su-btn:hover{background:var(--su-blue);border-color:var(--su-blue);color:#fff}
+.su-story{background:var(--su-sky)}
+.lbl.b{background:#fff;color:var(--su-ink)}
+.su-gabby{background:linear-gradient(180deg,#fff 0%,var(--su-sky) 12%,var(--su-sky) 88%,#fff 100%)}
+.su-gabby-ph .note{background:var(--su-blue);color:#fff}
+.su-faq-side a{border-bottom-color:var(--su-blue)}
+.su-footer{background:var(--su-sky)}
+.bf-strip p b{color:#fff}
+.bf-final .su-btn{background:#fff;color:var(--su-blue-deep)}
+.bf-toast{border-left-color:var(--su-blue)}
+.bf-toast .ic{background:var(--su-sky);color:var(--su-blue)}
+.bf-buybar{background:var(--su-blue)}
+.bf-buybar span{color:#fff}
+.bf-buybar .su-btn{background:#fff;color:var(--su-blue-deep)}
+.su-ticker-track .spark{color:#fff}
+.su-story .stars,.su-review .stars,.su-stars{color:var(--su-blue)}
+.su-wave path[fill="#FDE08D"]{fill:var(--su-sky)}
+/* the yellow accents: only on blue backgrounds */
+.bf-strip .bf-btn,.su-compare .su-btn--yellow{background:var(--su-yellow);color:var(--su-ink)}
 </style>
 </head>
 <body>
@@ -943,11 +994,11 @@ html,body{overflow-x:clip}
       <h2 class="su-h2">Everything<strong>you'd ask</strong></h2>
       <p>Still unsure? Email <a href="mailto:support@shapeupwithgabby.co.uk">support@shapeupwithgabby.co.uk</a> and you'll hear back within a day.</p>
       <a class="su-btn su-btn--yellow" href="#pricing">Claim the offer</a>
-      <small>Lifetime Team £119.99 a year · Quarterly £49.99 · ends Cyber Monday</small>
+      <small>Annual £119.99 a year · Quarterly £49.99 · ends Cyber Monday</small>
     </div>
     <div>
       <details open><summary><span class="n">01</span>How long is the Black Friday offer on?<span class="t">+</span></summary><p>Until midnight at the end of Cyber Monday, 30 November. When the timer hits zero, prices go back to normal.</p></details>
-      <details><summary><span class="n">02</span>What is the Lifetime Team?<span class="t">+</span></summary><p>It's the annual membership: a full year of Shape Up for £119.99, 60% less than paying £24.99 a month for 12 months. That works out at about 33p a day.</p></details>
+      <details><summary><span class="n">02</span>How does the annual offer work?<span class="t">+</span></summary><p>It's the annual membership: a full year of Shape Up for £119.99, 60% less than paying £24.99 a month for 12 months. That works out at about 33p a day.</p></details>
       <details><summary><span class="n">03</span>What exactly do I get with the membership?<span class="t">+</span></summary><p>Everything: all gym and home training plans, every class, nutrition guidance and meal ideas, the barcode scanner, calorie and macro tracking, habit and cycle trackers, the member community and the weekly live with Gabby. New content is added every month at no extra cost, and there is no higher tier to upgrade to.</p></details>
       <details><summary><span class="n">04</span>Can I cancel whenever I want?<span class="t">+</span></summary><p>Yes. You can cancel in two taps inside the app, with no email or phone call needed.</p></details>
       <details><summary><span class="n">05</span>I'm a complete beginner. Is this for me?<span class="t">+</span></summary><p>Yes. Every exercise has a demo video, sessions start from 20 minutes, and your suggested weights are based on what you actually lifted last week.</p></details>
@@ -1022,7 +1073,7 @@ html,body{overflow-x:clip}
 })();
 </script>
 <div class="bf-toast" id="bfToast" role="status" aria-live="polite"><span class="ic" aria-hidden="true"></span><div><b></b><small></small></div><button type="button" aria-label="Close">×</button></div>
-<div class="bf-buybar" id="bfBuy"><div><b>Lifetime Team · £119.99/yr</b><span>Ends in <span data-cd-text>--</span></span></div><a class="su-btn" href="#pricing">60% off</a></div>
+<div class="bf-buybar" id="bfBuy"><div><b>Annual · £119.99/yr</b><span>Ends in <span data-cd-text>--</span></span></div><a class="su-btn" href="#pricing">60% off</a></div>
 <script>
 (function(){
   var END=new Date('2026-12-01T00:00:00Z').getTime();
