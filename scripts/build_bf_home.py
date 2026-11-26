@@ -530,9 +530,8 @@ i = t.rindex('</body>')
 t = t[:i] + BAR + SCRIPT + t[i:]
 
 assert '£24.99 a month.</p>' not in t.split('<section class="su-faq"')[0]
-open('index.html', 'w').write(t)
 
-# ---------- TEST VARIANT (black-friday-sale.html only): full photo of Gabby behind the hero, phones on top ----------
+# ---------- PHOTO HERO (homepage and black-friday-sale.html): full photo of Gabby behind the hero, phones on top ----------
 t2 = t
 t2 = t2.replace('<section class="su-hero bf-lhero" id="top">',
   '<section class="su-hero bf-lhero bf-photo" id="top">\n  <div class="bf-photo-bg"><picture><source media="(max-width:640px)" srcset="images/bf-hero-studio-tall.webp"><img src="images/bf-hero-studio-wide.webp" alt="Gabby sitting on a box in a blue Shape Up set" fetchpriority="high"></picture></div>', 1)
@@ -573,4 +572,5 @@ i2 = t2.index('</style>')
 t2 = t2[:i2] + PHOTO_CSS + t2[i2:]
 assert 'bf-photo-bg' in t2 and 'su-hero-gabby" src' not in t2.split('</style>')[-1].split('su-ticker')[0]
 open('black-friday-sale.html', 'w').write(t2)
+open('index.html', 'w').write(t2)  # homepage now uses the photo hero too
 print('wrote index.html and black-friday-sale.html', len(t))
