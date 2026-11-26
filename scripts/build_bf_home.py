@@ -9,7 +9,7 @@ Edit the OFFER / END / CHECKOUT values below, then rebuild.
 import re
 
 END = '2026-12-01T00:00:00Z'          # countdown end: midnight at the end of Cyber Monday (30 Nov, UK time)
-CHECKOUT_ANNUAL = 'https://shape-up-with-gabby-reps.web.app/p/shape-up-membership-2/yearly'
+CHECKOUT_ANNUAL = 'https://join.shapeupapp.co.uk/p/shape-up-membership-2/yearly'
 CHECKOUT_QUARTER = 'https://shape-up-with-gabby-reps.web.app/p/shape-up-membership-2/3-month'
 
 src = open('homepage-standard.html').read()
