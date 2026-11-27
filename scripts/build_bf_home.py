@@ -597,6 +597,8 @@ body.bf-trial-open .bf-toast,body.bf-trial-open .bf-buybar{opacity:0!important;p
   .bf-trial-badge{width:68px;height:68px}.bf-trial-badge b{font-size:28px}.bf-trial-badge span{font-size:9px}
   .bf-trial-copy{flex:1 1 60%}
   .bf-trial p.sub{font-size:13px}
+  .bf-trial h3{font-size:23px}
+  .bf-trial h3 .nw{display:block}
   .bf-trial .su-btn{flex:1 1 100%;text-align:center;justify-content:center}
 }
 @media (prefers-reduced-motion:reduce){.bf-trial{transition:none}.bf-trial-badge{animation:none}}
@@ -607,7 +609,7 @@ TRIAL_HTML = f"""
     <div class="bf-trial-badge" aria-hidden="true"><b>7</b><span>days free</span></div>
     <div class="bf-trial-copy">
       <p class="bf-trial-eyebrow">Black Friday</p>
-      <h3 id="bfTrialTitle">Not sure? Try it free for 7 days</h3>
+      <h3 id="bfTrialTitle">Not sure? <span class="nw">Try it free for 7&nbsp;days</span></h3>
       <p class="sub">Every programme, challenge and meal plan, free for your first week.</p>
     </div>
     <a class="su-btn bf-shine" href="{TRIAL_URL}">Start my free trial</a>
