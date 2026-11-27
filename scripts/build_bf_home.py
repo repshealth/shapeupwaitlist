@@ -581,7 +581,7 @@ TRIAL_CSS = """
 .bf-trial-in{position:relative;width:100%;max-width:1180px;margin:0 auto;padding:26px 64px 26px 24px;display:flex;align-items:center;gap:28px}
 .bf-trial-badge{flex:0 0 auto;width:96px;height:96px;border-radius:50%;background:#fff;color:var(--su-blue-deep,#2E8FD6);display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:Oswald,sans-serif;line-height:1;box-shadow:0 10px 26px rgba(0,0,0,.15);animation:bfTrialPop 2.4s ease-in-out infinite}
 .bf-trial-badge b{font-size:40px;font-weight:700}
-.bf-trial-badge span{font-family:Poppins,sans-serif;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-top:3px}
+.bf-trial-badge span{font-family:Poppins,sans-serif;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-top:2px;text-align:center;line-height:1.1}
 .bf-trial-copy{flex:1 1 auto;min-width:0}
 .bf-trial-eyebrow{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;opacity:.9;margin:0 0 6px}
 .bf-trial h3{font-family:Oswald,sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(26px,3.2vw,40px);line-height:1.02;margin:0 0 8px;color:#fff}
@@ -594,7 +594,7 @@ body.bf-trial-open .bf-toast,body.bf-trial-open .bf-buybar{opacity:0!important;p
 @media (max-width:760px){
   .bf-trial{border-radius:22px 22px 0 0}
   .bf-trial-in{flex-wrap:wrap;gap:12px 16px;padding:20px 56px 20px 18px}
-  .bf-trial-badge{width:68px;height:68px}.bf-trial-badge b{font-size:28px}.bf-trial-badge span{font-size:9px}
+  .bf-trial-badge{width:72px;height:72px}.bf-trial-badge b{font-size:28px}.bf-trial-badge span{font-size:8.5px}
   .bf-trial-copy{flex:1 1 60%}
   .bf-trial p.sub{font-size:13px}
   .bf-trial h3{font-size:23px}
@@ -606,7 +606,7 @@ body.bf-trial-open .bf-toast,body.bf-trial-open .bf-buybar{opacity:0!important;p
 TRIAL_HTML = f"""
 <div class="bf-trial" id="bfTrial" role="dialog" aria-labelledby="bfTrialTitle" aria-hidden="true">
   <div class="bf-trial-in">
-    <div class="bf-trial-badge" aria-hidden="true"><b>7</b><span>days free</span></div>
+    <div class="bf-trial-badge" aria-hidden="true"><b>7</b><span>days<br>free</span></div>
     <div class="bf-trial-copy">
       <p class="bf-trial-eyebrow">Black Friday</p>
       <h3 id="bfTrialTitle">Not sure? <span class="nw">Try it free for 7&nbsp;days</span></h3>
