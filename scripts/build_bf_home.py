@@ -607,7 +607,7 @@ TRIAL_HTML = f"""
     <div class="bf-trial-badge" aria-hidden="true"><b>7</b><span>days free</span></div>
     <div class="bf-trial-copy">
       <p class="bf-trial-eyebrow">Black Friday</p>
-      <h3 id="bfTrialTitle">Try Shape Up free for 7 days</h3>
+      <h3 id="bfTrialTitle">Not sure? Try it free for 7 days</h3>
       <p class="sub">Every programme, challenge and meal plan, free for your first week.</p>
     </div>
     <a class="su-btn bf-shine" href="{TRIAL_URL}">Start my free trial</a>
