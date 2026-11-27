@@ -571,6 +571,64 @@ PHOTO_CSS = """
 i2 = t2.index('</style>')
 t2 = t2[:i2] + PHOTO_CSS + t2[i2:]
 assert 'bf-photo-bg' in t2 and 'su-hero-gabby" src' not in t2.split('</style>')[-1].split('su-ticker')[0]
+# ---------- 7-day free trial pop-up (bottom sheet, after 20s) ----------
+TRIAL_URL = 'https://join.shapeupapp.co.uk/p/black-friday-shape-up-membership-7-day-free-tria/yearly'
+TRIAL_CSS = """
+/* 7-day free trial pop-up */
+.bf-trial{position:fixed;left:0;right:0;bottom:0;z-index:90;min-height:20vh;display:flex;align-items:center;background:var(--su-blue);color:#fff;box-shadow:0 -18px 50px rgba(20,60,100,.28);border-radius:28px 28px 0 0;transform:translateY(110%);transition:transform .55s cubic-bezier(.2,.9,.25,1.1);overflow:hidden}
+.bf-trial.is-in{transform:translateY(0)}
+.bf-trial::before{content:"";position:absolute;right:-80px;top:-120px;width:340px;height:340px;border-radius:50%;background:rgba(255,255,255,.12)}
+.bf-trial-in{position:relative;width:100%;max-width:1180px;margin:0 auto;padding:26px 64px 26px 24px;display:flex;align-items:center;gap:28px}
+.bf-trial-badge{flex:0 0 auto;width:96px;height:96px;border-radius:50%;background:#fff;color:var(--su-blue-deep,#2E8FD6);display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:Oswald,sans-serif;line-height:1;box-shadow:0 10px 26px rgba(0,0,0,.15);animation:bfTrialPop 2.4s ease-in-out infinite}
+.bf-trial-badge b{font-size:40px;font-weight:700}
+.bf-trial-badge span{font-family:Poppins,sans-serif;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-top:3px}
+.bf-trial-copy{flex:1 1 auto;min-width:0}
+.bf-trial-eyebrow{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;opacity:.9;margin:0 0 6px}
+.bf-trial h3{font-family:Oswald,sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(26px,3.2vw,40px);line-height:1.02;margin:0 0 8px;color:#fff}
+.bf-trial p.sub{margin:0;font-size:15px;line-height:1.5;opacity:.95}
+.bf-trial .su-btn{flex:0 0 auto;background:var(--su-yellow);color:var(--su-ink);white-space:nowrap}
+.bf-trial-x{position:absolute;top:14px;right:16px;width:38px;height:38px;border-radius:50%;border:0;background:rgba(255,255,255,.2);color:#fff;font-size:22px;line-height:38px;cursor:pointer}
+.bf-trial-x:hover{background:rgba(255,255,255,.35)}
+body.bf-trial-open .bf-toast,body.bf-trial-open .bf-buybar{opacity:0!important;pointer-events:none}
+@keyframes bfTrialPop{0%,100%{transform:scale(1) rotate(-4deg)}50%{transform:scale(1.07) rotate(3deg)}}
+@media (max-width:760px){
+  .bf-trial{border-radius:22px 22px 0 0}
+  .bf-trial-in{flex-wrap:wrap;gap:12px 16px;padding:20px 56px 20px 18px}
+  .bf-trial-badge{width:68px;height:68px}.bf-trial-badge b{font-size:28px}.bf-trial-badge span{font-size:9px}
+  .bf-trial-copy{flex:1 1 60%}
+  .bf-trial p.sub{font-size:13px}
+  .bf-trial .su-btn{flex:1 1 100%;text-align:center;justify-content:center}
+}
+@media (prefers-reduced-motion:reduce){.bf-trial{transition:none}.bf-trial-badge{animation:none}}
+"""
+TRIAL_HTML = f"""
+<div class="bf-trial" id="bfTrial" role="dialog" aria-labelledby="bfTrialTitle" aria-hidden="true">
+  <div class="bf-trial-in">
+    <div class="bf-trial-badge" aria-hidden="true"><b>7</b><span>days free</span></div>
+    <div class="bf-trial-copy">
+      <p class="bf-trial-eyebrow">Black Friday</p>
+      <h3 id="bfTrialTitle">Try Shape Up free for 7 days</h3>
+      <p class="sub">Every programme, challenge and meal plan, free for your first week.</p>
+    </div>
+    <a class="su-btn bf-shine" href="{TRIAL_URL}">Start my free trial</a>
+  </div>
+  <button class="bf-trial-x" type="button" aria-label="Close">&times;</button>
+</div>
+<script>
+(function(){{
+  var el=document.getElementById('bfTrial'); if(!el) return;
+  var KEY='su_trial_closed';
+  try{{ if(sessionStorage.getItem(KEY)) return; }}catch(e){{}}
+  function close(){{ el.classList.remove('is-in'); el.setAttribute('aria-hidden','true'); document.body.classList.remove('bf-trial-open'); try{{sessionStorage.setItem(KEY,'1');}}catch(e){{}} }}
+  el.querySelector('.bf-trial-x').addEventListener('click',close);
+  document.addEventListener('keydown',function(e){{ if(e.key==='Escape' && el.classList.contains('is-in')) close(); }});
+  setTimeout(function(){{ el.classList.add('is-in'); el.setAttribute('aria-hidden','false'); document.body.classList.add('bf-trial-open'); }},20000);
+}})();
+</script>
+"""
+t2 = t2.replace('</style>', TRIAL_CSS + '</style>', 1) if False else t2
+_i = t2.rindex('</style>'); t2 = t2[:_i] + TRIAL_CSS + t2[_i:]
+_j = t2.rindex('</body>'); t2 = t2[:_j] + TRIAL_HTML + t2[_j:]
 open('black-friday-sale.html', 'w').write(t2)
 open('index.html', 'w').write(t2)  # homepage now uses the photo hero too
 print('wrote index.html and black-friday-sale.html', len(t))
